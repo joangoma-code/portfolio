@@ -12,7 +12,9 @@ export default function MainLayout({
     <>
       <Navbar />
 
-      <main>{children}</main>
+      <main>
+        {children}
+      </main>
 
       <Footer />
     </>
