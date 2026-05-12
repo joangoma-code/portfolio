@@ -1,7 +1,6 @@
-// sections/ExperienceSection.tsx
-
 import Container from "../ui/Container";
 import ExperienceCard from "../ui/ExperienceCard";
+
 
 const experiences = [
   {
@@ -60,14 +59,16 @@ export default function ExperienceSection() {
           </div>
 
           <div className="relative">
-            {/* Línea central */}
+            {/* Línea timeline */}
             <div className="absolute left-4 top-0 h-full w-px bg-white/10 md:left-1/2 md:-translate-x-1/2" />
 
-            <div className="space-y-12">
+            <div className="flex flex-col">
               {experiences.map((experience, index) => (
                 <div
                   key={experience.title}
-                  className="relative flex w-full"
+                  className={`relative flex w-full items-start ${
+                    index !== 0 ? "mt-12 md:-mt-8" : ""
+                  }`}
                 >
                   {/* Punto timeline */}
                   <div className="absolute left-4 top-8 z-10 h-3 w-3 -translate-x-1/2 rounded-full bg-white md:left-1/2" />

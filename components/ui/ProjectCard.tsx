@@ -1,5 +1,7 @@
 "use client";
 
+//import Image from "next/image";
+
 type ProjectCardProps = {
   title: string;
   description: string;

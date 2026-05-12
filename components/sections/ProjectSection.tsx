@@ -5,6 +5,7 @@ import Container from "../ui/Container";
 import ProjectCard from "../ui/ProjectCard";
 import ProjectModal from "../ui/ProjectModal";
 
+
 const projects = [
   {
     title: "Aplicación web interactiva",
@@ -93,7 +94,6 @@ export default function ProjectsSection() {
                 />
               ))}
             </div>
-            
           </div>
         </Container>
       </section>
