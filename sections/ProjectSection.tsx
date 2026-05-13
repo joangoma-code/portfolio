@@ -41,7 +41,7 @@ export default function ProjectsSection() {
                 onClick={() => setShowAll(!showAll)}
                 className="flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white/5 text-3xl transition-all duration-300 hover:bg-white/10"
               >
-                {showAll ? "−" : "+"}
+                {showAll ? "-" : "+"}
               </button>
             </div>
 
@@ -49,9 +49,7 @@ export default function ProjectsSection() {
               {visibleProjects.map((project) => (
                 <ProjectCard
                   key={project.title}
-                  title={project.title}
-                  description={project.description}
-                  image={project.image}
+                  project={project}
                   onClick={() => setSelectedProject(project)}
                 />
               ))}

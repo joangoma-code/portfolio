@@ -39,10 +39,7 @@ export default function ExperienceSection() {
                   <div className="absolute left-4 top-8 z-10 h-3 w-3 -translate-x-1/2 rounded-full bg-white md:left-1/2" />
 
                   <ExperienceCard
-                    title={experience.title}
-                    subtitle={experience.subtitle}
-                    date={experience.date}
-                    description={experience.description}
+                    experience={experience}
                     side={index % 2 === 0 ? "left" : "right"}
                   />
                 </div>

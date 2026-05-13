@@ -1,16 +1,12 @@
+import type { Experience } from "@/types/Experience";
+
 type ExperienceCardProps = {
-  title: string;
-  subtitle?: string;
-  date: string;
-  description: string;
+  experience: Experience
   side?: "left" | "right";
 };
 
 export default function ExperienceCard({
-  title,
-  subtitle,
-  date,
-  description,
+  experience,
   side = "left",
 }: ExperienceCardProps) {
   return (
@@ -22,20 +18,20 @@ export default function ExperienceCard({
       }`}
     >
       <div className="w-full max-w-md rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-        <span className="text-sm text-zinc-500">{date}</span>
+        <span className="text-sm text-zinc-500">{experience.date}</span>
 
         <h3 className="mt-2 text-2xl font-semibold">
-          {title}
+          {experience.title}
         </h3>
 
-        {subtitle && (
+        {experience.subtitle && (
           <p className="mt-1 text-sm text-zinc-400">
-            {subtitle}
+            {experience.subtitle}
           </p>
         )}
 
         <p className="mt-4 leading-relaxed text-zinc-300">
-          {description}
+          {experience.description}
         </p>
       </div>
     </div>

@@ -1,15 +1,12 @@
 "use client";
 
+import Image from "next/image";
 //import { X } from "lucide-react";
 
+import type { Project } from "@/types/Project";
+
 type ProjectModalProps = {
-  project: {
-    title: string;
-    description: string;
-    details: string;
-    image: string;
-    technologies?: string[];
-  } | null;
+  project: Project | null;
   onClose: () => void;
 };
 
@@ -42,7 +39,7 @@ export default function ProjectModal({
         </button>
 
         <div className="aspect-video overflow-hidden rounded-t-3xl">
-          <img
+          <Image
             src={project.image}
             alt={project.title}
             className="h-full w-full object-cover"

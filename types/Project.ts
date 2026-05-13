@@ -3,5 +3,5 @@ export type Project = {
   description: string;
   details: string;
   image: string;
-  technologies: string[];
+  technologies?: string[];
 };
