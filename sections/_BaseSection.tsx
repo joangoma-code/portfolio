@@ -1,5 +1,5 @@
-import Button from "../ui/Button";
-import Container from "../ui/Container";
+import Button from "../components/ui/Button";
+import Container from "../components/ui/Container";
 
 export default function NameSection() {
   return (
