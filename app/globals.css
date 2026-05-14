@@ -18,7 +18,7 @@
  html.light
  html.dark
 */
-.light {
+html.light {
 
   color-scheme: light;
   
@@ -41,7 +41,7 @@
 
 /* DARK */
 
-.dark {
+html.dark {
   color-scheme: dark;
 
   --color-background: #070C18;
@@ -75,7 +75,7 @@ html {
 }
 
 body {
-  background: var(--color-background);
+  /* background: var(--color-background); */
 
   color: var(--color-foreground);
 
