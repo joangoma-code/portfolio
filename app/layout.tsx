@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Providers } from "./providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,19 +20,17 @@ export const metadata: Metadata = {
   description: "Portfolio desarrollado con Next.js, Typescript y Tailwind",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+export default function RootLayout({ children }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" suppressHydrationWarning>
       {/*h-full antialiased*/}
-
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {/* className="min-h-full flex flex-col*/}
-        
-        {children}
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );

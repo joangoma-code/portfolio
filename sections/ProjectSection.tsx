@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Container from "../components/ui/Container";
-import ProjectCard from "../components/ProjectCard";
-import ProjectModal from "../components/ProjectModal";
+import Container from "@/components/ui/Container";
+import ProjectCard from "@/components/ProjectCard";
+import ProjectModal from "@/components/ProjectModal";
 
 import { projects } from "@/data/projects";
 

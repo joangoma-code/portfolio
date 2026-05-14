@@ -16,10 +16,10 @@ export default function Button({
 
   const variants = {
     primary:
-      "bg-red-900 text-white hover:opacity-80 ",
+      "bg-(--color-primary) text-white hover:bg-(--color-secondary) ",
 
     secondary:
-      "border border-black text-red hover:border-amber-900",
+      "border border-black text-red hover:border-(--color-secondary)",
   };
 
   return (

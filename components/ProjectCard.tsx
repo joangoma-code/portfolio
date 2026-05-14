@@ -15,7 +15,7 @@ export default function ProjectCard({
   return (
     <button
       onClick={onClick}
-      className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 text-left transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/10"
+      className="group overflow-hidden rounded-2xl border border-(--color-border) bg-(--color-card) text-left transition-all duration-300 hover:-translate-y-1 hover:bg-(--color-primary"
     >
       <div className="relative aspect-video overflow-hidden">
         <Image

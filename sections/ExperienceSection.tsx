@@ -1,5 +1,5 @@
-import Container from "../components/ui/Container";
-import ExperienceCard from "../components/ExperienceCard";
+import Container from "@/components/ui/Container";
+import ExperienceCard from "@/components/ExperienceCard";
 
 import { experiences } from "@/data/experiences";
 

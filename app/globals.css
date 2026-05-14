@@ -1,41 +1,85 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-/**/
-
 @theme {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
 
-  --color-primary: #ffffff;
-  --color-muted: #a1a1aa;
-  --color-border: rgba(255, 255, 255, 0.1);
-
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --radius: 1rem;
 }
 
+/* LIGHT */
+/* 
+!! Hauria de funcionar amb HTML, no amb .light
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-/*
-html {
-  scroll-behavior: smooth;
-}
+-Si tienes esto en componentes:
+ className="bg-white text-black"
+ estás IGNORANDO completamente :root
+-Deja de usar :root como fuente principal y haz esto:
+ html
+ html.light
+ html.dark
 */
+.light {
+
+  color-scheme: light;
+  
+  --color-background: #F5F7FA;
+  --color-background2: #E2E8F0;
+  --color-background3: #CBD5E1;
+  
+  --color-foreground: #0F172A;
+  --color-foreground2: #334155;
+  
+  --color-card: #FDFDFD;
+  --color-border: #99BFFF;
+  
+  --color-primary: #2F6FE4;
+  --color-secondary: #1E5ED8;
+  
+  --color-muted: #a1a1aa;
+  
+}
+
+/* DARK */
+
+.dark {
+  color-scheme: dark;
+
+  --color-background: #070C18;
+  --color-background2: #1E293B;
+  --color-background3: #334155;
+
+  --color-foreground: #F1F5F9;
+  --color-foreground2: #CBD5E1;
+  
+  --color-card: #18181b;
+  --color-border: #93C5FD;
+
+  --color-primary: #4C8DFF;
+  --color-secondary: #6EA8FE;
+
+  --color-muted: #a1a1aa;
+
+}
+
+/* :root < html*/
+html {
+    scroll-behavior: smooth;
+
+
+}
+* {
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
 
-  min-height: 100vh;
+  color: var(--color-foreground);
+
+  font-family: var(--font-sans);
 }
+
+/*  */

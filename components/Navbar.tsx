@@ -1,4 +1,5 @@
 import Container from "./ui/Container";
+import ThemeToogle from "@/components/ThemeToogle";
 
 const links = [
   {
@@ -46,6 +47,9 @@ export default function Navbar() {
                 </a>
               </li>
             ))}
+            <li>
+              <ThemeToogle />
+            </li>
           </ul>
         </nav>
       </Container>
