@@ -36,13 +36,6 @@ export default function ProjectsSection() {
                   desarrollo frontend, videojuegos y experiencia de usuario.
                 </p>
               </div>
-
-              <button
-                onClick={() => setShowAll(!showAll)}
-                className="flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white/5 text-3xl transition-all duration-300 hover:bg-white/10"
-              >
-                {showAll ? "-" : "+"}
-              </button>
             </div>
 
             <div className="grid gap-8 md:grid-cols-2">
@@ -54,6 +47,16 @@ export default function ProjectsSection() {
                 />
               ))}
             </div>
+
+            <div className="flex justify-center">
+              <button
+                onClick={() => setShowAll(!showAll)}
+                className="flex h-14 w-14 items-center justify-center rounded-full border border-(--color-border) text-3xl transition-all duration-300 hover:bg-(--color-card)"
+              >
+                {showAll ? "-" : "+"}
+              </button>
+            </div>
+
           </div>
         </Container>
       </section>

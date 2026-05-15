@@ -19,7 +19,7 @@ export default function Button({
       "bg-(--color-primary) text-white hover:bg-(--color-secondary) ",
 
     secondary:
-      "border border-black text-red hover:border-(--color-secondary)",
+      "border border-(--color-foreground2) text-red hover:border-(--color-secondary)",
   };
 
   return (

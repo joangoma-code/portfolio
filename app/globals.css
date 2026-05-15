@@ -18,6 +18,14 @@
  html.light
  html.dark
 */
+
+
+/* :root < html*/
+html {
+    scroll-behavior: smooth;
+
+}
+
 html.light {
 
   color-scheme: light;
@@ -61,12 +69,6 @@ html.dark {
 
 }
 
-/* :root < html*/
-html {
-    scroll-behavior: smooth;
-
-
-}
 * {
   transition:
     background-color 0.3s ease,

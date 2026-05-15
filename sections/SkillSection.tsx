@@ -55,7 +55,7 @@ export default function SkillSection() {
                   {category.items.map((item) => (
                     <li
                       key={item}
-                      className="text-lg text-neutral-300 rounded-full border px-4 py-2"
+                      className="text-lg text-(--color-foreground) rounded-full border border-(--color-foreground2) px-4 py-2 hover:border-(--color-border)"
                     >
                       {item}
                     </li>
