@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
+
 import Container from "@/components/ui/Container";
 import ProjectCard from "@/components/ProjectCard";
 import ProjectModal from "@/components/ProjectModal";
-
 import { projects } from "@/data/projects";
 
 export default function ProjectsSection() {
@@ -51,7 +51,7 @@ export default function ProjectsSection() {
             <div className="flex justify-center">
               <button
                 onClick={() => setShowAll(!showAll)}
-                className="flex h-14 w-14 items-center justify-center rounded-full border border-(--color-border) text-3xl transition-all duration-300 hover:bg-(--color-card)"
+                className="flex h-14 w-14 items-center justify-center rounded-full border border-(--color-border) bg-(--color-card) text-3xl transition-all duration-300 hover:bg-(--color-background2)"
               >
                 {showAll ? "-" : "+"}
               </button>

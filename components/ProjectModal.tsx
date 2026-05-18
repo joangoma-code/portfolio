@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-//import { X } from "lucide-react";
+import { X } from "lucide-react";
 
 import type { Project } from "@/types/Project";
 
@@ -27,21 +27,21 @@ export default function ProjectModal({
   return (
     <div
       onClick={handleBackdropClick}
-      className="fixed inset-0 z-100 flex items-center justify-center bg-black/80 p-4 backdrop-blur-md"
+      className="fixed inset-0 z-100 flex items-center justify-center p-4 backdrop-blur-md"
     >
-      <div className="relative max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-3xl border border-white/10 bg-zinc-950">
+      <div className="relative max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-3xl border border-(--color-border) bg-(--color-card)">
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 z-10 rounded-full border border-white/10 bg-black/40 p-2 transition-colors hover:bg-white/10"
+          className="absolute right-4 top-4 z-10 rounded-full border border-(--color-border) bg-(--color-background) p-2 transition-colors hover:bg-(--color-background2)"
         >
-          {/* <X size={18} /> */}
-          <span>X</span>
+          <X size={18} />
         </button>
 
         <div className="aspect-video overflow-hidden rounded-t-3xl">
           <Image
             src={project.image}
             alt={project.title}
+            fill
             className="h-full w-full object-cover"
           />
         </div>
