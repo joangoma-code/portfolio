@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useLayoutEffect } from "react";
 
 import Container from "@/components/ui/Container";
 import ProjectCard from "@/components/ProjectCard";
@@ -9,13 +9,34 @@ import { projects } from "@/data/projects";
 
 export default function ProjectsSection() {
   const [showAll, setShowAll] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const [selectedProject, setSelectedProject] = useState<
     (typeof projects)[0] | null
   >(null);
 
+  useLayoutEffect(() => {
+    if (isClosing) {
+      document.getElementById("proyectos")?.scrollIntoView({
+        behavior: "instant",
+        block: "end",
+      });
+
+      setIsClosing(false);
+    }
+  }, [isClosing]);
+
   const visibleProjects = showAll
     ? projects
     : projects.slice(0, 2);
+
+  const handleToggle = () => {
+  if (showAll) {
+    setIsClosing(true);
+    setShowAll(false);
+  } else {
+    setShowAll(true);
+  }
+};
 
   return (
     <>
@@ -50,7 +71,7 @@ export default function ProjectsSection() {
 
             <div className="flex justify-center">
               <button
-                onClick={() => setShowAll(!showAll)}
+                onClick={handleToggle}
                 className="flex h-14 w-14 items-center justify-center rounded-full border border-(--color-border) bg-(--color-card) text-3xl transition-all duration-300 hover:bg-(--color-background2)"
               >
                 {showAll ? "-" : "+"}
