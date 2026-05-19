@@ -31,7 +31,7 @@ export default function ProjectsSection() {
                   Proyectos
                 </h2>
 
-                <p className="text-lg leading-relaxed text-zinc-300 md:text-xl">
+                <p className="text-lg leading-relaxed opacity-70 md:text-xl">
                   Una selección de proyectos enfocados en diseño digital,
                   desarrollo frontend, videojuegos y experiencia de usuario.
                 </p>

@@ -31,7 +31,7 @@ export default function ProjectCard({
           {project.title}
         </h3>
 
-        <p className="text-sm leading-relaxed text-zinc-400">
+        <p className="text-sm leading-relaxed opacity-70">
           {project.description}
         </p>
       </div>

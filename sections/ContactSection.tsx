@@ -28,7 +28,7 @@ export default function ContactSection() {
               Contact me
             </h2>
 
-            <p className="max-w-2xl text-lg leading-relaxed text-neutral-300 md:text-xl">
+            <p className="max-w-2xl text-lg leading-relaxed opacity-80 md:text-xl">
               Busco incorporarme como Diseñador UI/UX junior o Desarrollador
               Frontend junior en un equipo donde pueda crecer profesionalmente,
               aprender de perfiles senior y aportar una base sólida en diseño,

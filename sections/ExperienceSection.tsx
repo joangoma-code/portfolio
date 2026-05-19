@@ -16,7 +16,7 @@ export default function ExperienceSection() {
               Experiencia
             </h2>
 
-            <p className="text-lg leading-relaxed text-zinc-300 md:text-xl">
+            <p className="text-lg leading-relaxed opacity-70 md:text-xl">
               Aunque mi experiencia en el sector digital es junior, he trabajado
               en entornos profesionales donde he desarrollado habilidades
               transferibles clave.

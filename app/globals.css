@@ -6,34 +6,24 @@
   --radius: 1rem;
 }
 
-/* LIGHT */
-/* 
-!! Hauria de funcionar amb HTML, no amb .light
 
--Si tienes esto en componentes:
- className="bg-white text-black"
- estás IGNORANDO completamente :root
--Deja de usar :root como fuente principal y haz esto:
- html
- html.light
- html.dark
-*/
-
-
-/* :root < html*/
+/* :root < html
 html {
     scroll-behavior: smooth;
 
 }
+*/
 
-html.light {
+/* LIGHT */
+
+html {
 
   color-scheme: light;
   
   --color-background: #F5F7FA;
   --color-background2: #E2E8F0;
   --color-background3: #CBD5E1;
-    --color-background4: #6EA8FE;
+  --color-background4: #6EA8FE;
   --color-background5: #C7E0FF;
   
   --color-foreground: #0F172A;
@@ -73,17 +63,7 @@ html.dark {
 
 }
 
-/*
-usar en componentes solo donde haga falta?
-className="
-  transition-colors
-  duration-300
-"
-className="
-  transition-all
-  duration-300
-"
-*/
+
 * {
   transition:
     background-color 0.3s ease,
@@ -98,5 +78,3 @@ body {
 
   font-family: var(--font-sans);
 }
-
-/*  */

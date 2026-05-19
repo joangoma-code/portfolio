@@ -9,7 +9,7 @@ export default function HeroSection() {
     >
       <Container>
         <div className="max-w-3xl">
-          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-zinc-500">
+          <p className="mb-4 text-sm uppercase tracking-[0.3em] opacity-70">
             Frontend Developer
           </p>
 
@@ -17,7 +17,7 @@ export default function HeroSection() {
             Construyo experiencias web modernas
           </h1>
 
-          <p className="mt-6 text-lg leading-relaxed text-zinc-400">
+          <p className="mt-6 text-lg leading-relaxed opacity-80">
             Portfolio desarrollado con Next.js,
             TypeScript y Tailwind CSS v4.
           </p>

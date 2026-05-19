@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
-
 import { Geist, Geist_Mono } from "next/font/google";
+
 import "./globals.css";
 import { Providers } from "./providers";
 
@@ -24,8 +24,8 @@ export default function RootLayout({ children }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      {/*h-full antialiased*/}
+    <html lang="en" suppressHydrationWarning scroll-smooth>
+      {/*h-full antialiased md:scroll-auto*/}
       <body className={`${geistSans.variable} ${geistMono.variable}` }>
         {/* className="min-h-full flex flex-col*/}
         <Providers>
