@@ -1,4 +1,5 @@
 import type { Experience } from "@/types/Experience";
+import { Diamond } from "lucide-react";
 
 type ExperienceCardProps = {
   experience: Experience
@@ -17,8 +18,10 @@ export default function ExperienceCard({
           : "md:ml-auto md:justify-start md:pl-12"
       }`}
     >
-      <div className="w-full max-w-md rounded-2xl border border-(--color-border) bg-(--color-card) p-6 backdrop-blur-sm">
-        <span className="text-sm opacity-70">{experience.date}</span>
+      <div className="w-full max-w-md rounded-2xl border border-(--color-border) bg-(--color-card) px-6 pt-2 pb-6">
+        <span className="text-sm opacity-70">
+          {experience.date}
+        </span>
 
         <h3 className="mt-2 text-2xl font-semibold">
           {experience.title}
@@ -30,9 +33,14 @@ export default function ExperienceCard({
           </p>
         )}
 
-        <p className="mt-4 leading-relaxed opacity-80">
-          {experience.description}
-        </p>
+        <ul className="mt-5 leading-relaxed opacity-80">
+          {experience.description.map( (item) => (
+            <li key={item} className="flex items-start gap-3">
+              <Diamond className="size-3 text-(--color-border) shrink-0 mt-2" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

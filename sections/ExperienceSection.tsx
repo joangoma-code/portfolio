@@ -7,7 +7,7 @@ export default function ExperienceSection() {
   return (
     <section
       id="experiencia"
-      className="flex min-h-screen items-center justify-center py-24"
+      className="flex min-h-screen items-center justify-center py-4"
     >
       <Container>
         <div className="space-y-20">
@@ -24,7 +24,7 @@ export default function ExperienceSection() {
           </div>
 
           <div className="relative">
-            {/* Línea timeline */}
+            {/* Linea timeline */}
             <div className="absolute left-4 top-0 h-full w-px bg-(--color-foreground2) md:left-1/2 md:-translate-x-1/2" />
 
             <div className="flex flex-col">

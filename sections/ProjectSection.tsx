@@ -42,7 +42,7 @@ export default function ProjectsSection() {
     <>
       <section
         id="proyectos"
-        className="flex min-h-screen items-center justify-center py-24"
+        className="flex min-h-screen items-center justify-center py-4"
       >
         <Container>
           <div className="space-y-16">

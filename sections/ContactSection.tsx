@@ -19,7 +19,7 @@ export default function ContactSection() {
   return (
     <section
       id="contacto"
-      className="flex min-h-screen items-center justify-center py-20"
+      className="flex min-h-screen items-center justify-center py-4"
     >
       <Container>
         <div className="max-w-4xl space-y-12">
