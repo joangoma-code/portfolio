@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
 import "./globals.css";
-import { Providers } from "./providers";
+import { ColorSchemeProvider } from "../components/providers/ColorSchemeProvider";
+import { ActiveSectionProvider } from "@/components/providers/ActiveSectionProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,9 +29,11 @@ export default function RootLayout({ children }: Readonly<{
       {/*h-full antialiased md:scroll-auto*/}
       <body className={`${geistSans.variable} ${geistMono.variable}` }>
         {/* className="min-h-full flex flex-col*/}
-        <Providers>
-          {children}
-        </Providers>
+        <ColorSchemeProvider>
+          <ActiveSectionProvider>
+            {children}
+          </ActiveSectionProvider>
+        </ColorSchemeProvider>
       </body>
     </html>
   );

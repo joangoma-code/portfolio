@@ -7,7 +7,7 @@ interface ProvidersProps {
   children: ReactNode
 }
 
-export function Providers({ children }: ProvidersProps) {
+export function ColorSchemeProvider({ children }: ProvidersProps) {
   return (
     <ThemeProvider
       attribute="class"

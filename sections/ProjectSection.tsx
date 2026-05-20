@@ -6,6 +6,7 @@ import Container from "@/components/ui/Container";
 import ProjectCard from "@/components/ProjectCard";
 import ProjectModal from "@/components/ProjectModal";
 import { projects } from "@/data/projects";
+import { DiamondPlus, DiamondMinus, } from "lucide-react";
 
 export default function ProjectsSection() {
   const [showAll, setShowAll] = useState(false);
@@ -69,12 +70,16 @@ export default function ProjectsSection() {
               ))}
             </div>
 
-            <div className="flex justify-center">
+            <div className="flex justify-center gap-8">
               <button
                 onClick={handleToggle}
-                className="flex h-14 w-14 items-center justify-center rounded-full border border-(--color-border) bg-(--color-card) text-3xl transition-all duration-300 hover:bg-(--color-background2)"
+                className="flex items-center text-(--color-foreground) hover:text-(--color-border)"  
               >
-                {showAll ? "-" : "+"}
+                {showAll ? 
+                <DiamondMinus className="size-10 stroke-1"/> 
+                : 
+                <DiamondPlus className="size-10 stroke-1"/>
+                }
               </button>
             </div>
 
