@@ -14,6 +14,7 @@ type ContextType = {
   passedHero: boolean;
 };
 
+
 const ActiveSectionContext =
   createContext<ContextType | null>(null);
 

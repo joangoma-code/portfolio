@@ -8,7 +8,6 @@ import { Gem, Hexagon } from "lucide-react";
 import { useActiveSection } from "../providers/ActiveSectionProvider";
 
 
-
 export default function SideNav() {
   const { activeSection, passedHero } = useActiveSection();
 

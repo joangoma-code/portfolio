@@ -24,13 +24,13 @@ export default function Navbar() {
           <ul className="flex items-center gap-6">
             {links.map((link) => (
               <li key={link.id}>
-                <a
+                <Link
                   href={`#${link.id}`}
                   className=
                   "text-sm text-(--color-foreground) transition-colors duration-300 hover:text-(--color-foreground2)"
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
             <li>
