@@ -10,16 +10,12 @@ import {
 type ContextType = {
   activeSection: string;
   setActiveSection: (value: string) => void;
-
   passedHero: boolean;
 };
-
 
 const ActiveSectionContext =
   createContext<ContextType | null>(null);
 
-
-  
 export function ActiveSectionProvider({
   children,
 }: {
@@ -31,20 +27,57 @@ export function ActiveSectionProvider({
   const [passedHero, setPassedHero] =
     useState(false);
 
+  /*
+    Scrollspy avanzado:
+    detecta qué sección está más visible
+    en vez de solo saber si está en pantalla
+  */
   useEffect(() => {
     const sections =
       document.querySelectorAll("section");
 
+    /*
+      Observer más preciso:
+      - no usa solo "entra o no entra"
+      - calcula cuánto se ve cada sección
+    */
     const observer = new IntersectionObserver(
       (entries) => {
+        let currentSection = "";
+        let maxRatio = 0;
+
+        /*
+          Nos quedamos con la sección
+          que tenga más visibilidad
+        */
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
+          if (
+            entry.isIntersecting &&
+            entry.intersectionRatio > maxRatio
+          ) {
+            maxRatio = entry.intersectionRatio;
+            currentSection = entry.target.id;
           }
         });
+
+        /*
+          Solo actualizamos si hay una sección clara
+        */
+        if (currentSection) {
+          setActiveSection(currentSection);
+        }
       },
       {
-        threshold: 0.5,
+        /*
+          Varias thresholds = transiciones más suaves
+        */
+        threshold: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6],
+
+        /*
+          Ajusta el “punto visual” de cambio
+          (más centrado en pantalla)
+        */
+        rootMargin: "-35% 0px -35% 0px",
       }
     );
 
@@ -55,21 +88,22 @@ export function ActiveSectionProvider({
     return () => observer.disconnect();
   }, []);
 
+  /*
+    Detecta cuando ya pasaste el hero
+    usando altura de pantalla (responsive)
+  */
   useEffect(() => {
     const handleScroll = () => {
-      setPassedHero(window.scrollY > 300);
+      const heroThreshold =
+        window.innerHeight * 0.7;
+
+      setPassedHero(window.scrollY > heroThreshold);
     };
 
-    window.addEventListener(
-      "scroll",
-      handleScroll
-    );
+    window.addEventListener("scroll", handleScroll);
 
     return () =>
-      window.removeEventListener(
-        "scroll",
-        handleScroll
-      );
+      window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -86,9 +120,7 @@ export function ActiveSectionProvider({
 }
 
 export function useActiveSection() {
-  const context = useContext(
-    ActiveSectionContext
-  );
+  const context = useContext(ActiveSectionContext);
 
   if (!context) {
     throw new Error(

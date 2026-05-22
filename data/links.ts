@@ -4,6 +4,10 @@ export const links = [
     label: "Inicio",
   },
   {
+    id: "about",
+    label: "About",
+  },
+  {
     id: "skills",
     label: "Skills",
   },
@@ -14,7 +18,7 @@ export const links = [
   },
   {
     id: "experiencia",
-    label: "Experiencias",
+    label: "Experiencia",
 
   },
   {

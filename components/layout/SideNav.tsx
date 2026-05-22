@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { links } from "@/data/links";
 
-import { Gem, Hexagon } from "lucide-react";
+import { Diamond, Hexagon } from "lucide-react";
 
 import { useActiveSection } from "../providers/ActiveSectionProvider";
 
@@ -25,8 +25,8 @@ export default function SideNav() {
     >
       <nav>
         <ul className="space-y-6">
-          {links.slice(1).map((link) => {
-            const isActive = activeSection === link.id;
+          {links.map((link) => {
+            const isActive = activeSection === link.id && activeSection !== "inicio";
 
             return (
               <li key={link.id}>
@@ -43,16 +43,17 @@ export default function SideNav() {
                     `}
                   >
                     {isActive ? (
-                      <Gem className="size-5" />
-                    ) : (
                       <Hexagon className="size-5" />
+                    ) : (
+                      <Diamond className="size-5" />
                     )}
                   </span>
 
+                    {/* Erase ? */}
                   <span
                     className={`
                       text-sm transition-all
-                      ${isActive ? "text-(--color-foreground2) opacity-60" : "opacity-0"}
+                      ${isActive ? "text-(--color-foreground2) opacity-30" : "opacity-0"}
                     `}
                   >
                     {link.label}
