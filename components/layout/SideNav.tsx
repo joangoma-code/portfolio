@@ -14,7 +14,7 @@ export default function SideNav() {
   return (
     <aside
       className={`
-        fixed left-8 top-1/2 z-50 hidden
+        fixed left-6 top-1/2 z-50 hidden
         -translate-y-1/2
         lg:flex
         transition-all duration-500
@@ -24,7 +24,7 @@ export default function SideNav() {
       `}
     >
       <nav>
-        <ul className="space-y-6">
+        <ul className="space-y-4">
           {links.map((link) => {
             const isActive = activeSection === link.id && activeSection !== "inicio";
 
@@ -43,9 +43,9 @@ export default function SideNav() {
                     `}
                   >
                     {isActive ? (
-                      <Hexagon className="size-5" />
+                      <Hexagon className="size-5 absoluteStrokeWidth={true} stroke-2" />
                     ) : (
-                      <Diamond className="size-5" />
+                      <Diamond className="size-5 absoluteStrokeWidth={true} stroke-1" />
                     )}
                   </span>
 
@@ -53,7 +53,7 @@ export default function SideNav() {
                   <span
                     className={`
                       text-sm transition-all
-                      ${isActive ? "text-(--color-foreground2) opacity-30" : "opacity-0"}
+                      ${isActive ? "text-(--color-foreground2) opacity-0" : "opacity-0"}
                     `}
                   >
                     {link.label}
