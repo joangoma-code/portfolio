@@ -1,11 +1,11 @@
 import MainLayout from "@/components/layout/MainLayout";
 
-import HeroSection from "@/sections/HeroSection";
-import AboutSection from "@/sections/AboutSection";
-import ProjectSection from "@/sections/ProjectSection";
-import SkillSection from "@/sections/SkillSection";
-import ExperienceSection from "@/sections/ExperienceSection";
-import ContactSection from "@/sections/ContactSection";
+import HeroSection from "@/components/sections/HeroSection";
+import AboutSection from "@/components/sections/AboutMe";
+import ProjectSection from "@/components/sections/projects";
+import SkillSection from "@/components/sections/SkillSection";
+import ExperienceSection from "@/components/sections/experiences";
+import ContactSection from "@/components/sections/ContactSection";
 
 
 export default function HomePage() {

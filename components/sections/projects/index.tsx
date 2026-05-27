@@ -1,12 +1,12 @@
 "use client";
 
 import { useState, useLayoutEffect } from "react";
-
-import Container from "@/components/ui/Container";
-import ProjectCard from "@/components/ProjectCard";
-import ProjectModal from "@/components/ProjectModal";
-import { projects } from "@/data/projects";
 import { DiamondPlus, DiamondMinus, } from "lucide-react";
+
+import { projects } from "@/data/projects";
+import Container from "@/components/ui/Container";
+import ProjectCard from "./ProjectCard";
+import ProjectModal from "./ProjectModal";
 
 export default function ProjectsSection() {
   const [showAll, setShowAll] = useState(false);

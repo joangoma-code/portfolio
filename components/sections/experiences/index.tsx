@@ -1,7 +1,8 @@
-import Container from "@/components/ui/Container";
-import ExperienceCard from "@/components/ExperienceCard";
-
 import { experiences } from "@/data/experiences";
+
+import Container from "@/components/ui/Container";
+import ExperienceCard from "./ExperienceCard";
+
 
 export default function ExperienceSection() {
   return (

@@ -11,11 +11,11 @@ import {
 
 import Container from "../ui/Container";
 
-import ThemeToogle from "@/components/ThemeToogle";
+import ThemeToogle from "@/components/ui/ThemeToogle";
 
 import { links } from "@/data/links";
 
-import { useActiveSection } from "../providers/ActiveSectionProvider";
+import { useActiveSection } from "../../providers/ActiveSectionProvider";
 
 export default function Navbar() {
   const { activeSection } =

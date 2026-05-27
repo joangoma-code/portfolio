@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+
 import type { Project } from "@/types/Project";
 
 type ProjectCardProps = {

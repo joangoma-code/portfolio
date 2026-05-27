@@ -5,7 +5,7 @@ import { links } from "@/data/links";
 
 import { Diamond, Hexagon } from "lucide-react";
 
-import { useActiveSection } from "../providers/ActiveSectionProvider";
+import { useActiveSection } from "../../providers/ActiveSectionProvider";
 
 
 export default function SideNav() {
