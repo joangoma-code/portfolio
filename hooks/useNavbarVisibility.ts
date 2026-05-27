@@ -28,21 +28,21 @@ export function useNavbarVisibility() {
     const onScroll = () => {
       const y = window.scrollY;
 
-      // 🚨 si estamos navegando por click, ignorar scroll
+      // si estamos navegando por click, ignorar scroll
       if (isNavigating) return;
 
       // evitar micro cambios
       if (Math.abs(y - lastScrollY.current) < 10)
         return;
 
-      // arriba del todo → siempre visible
+      // arriba del todo siempre visible
       if (y < 120) {
         setIsVisible(true);
         lastScrollY.current = y;
         return;
       }
 
-      // scroll down → esconder
+      // scroll down esconder
       if (y > lastScrollY.current) {
         setIsVisible(false);
       } else {

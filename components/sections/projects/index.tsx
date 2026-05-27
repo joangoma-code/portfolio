@@ -8,6 +8,7 @@ import Container from "@/components/ui/Container";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
 
+
 export default function ProjectsSection() {
   const [showAll, setShowAll] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
