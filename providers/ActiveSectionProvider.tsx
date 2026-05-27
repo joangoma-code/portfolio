@@ -4,129 +4,213 @@ import {
   createContext,
   useContext,
   useEffect,
+  useMemo,
   useState,
 } from "react";
 
-type ContextType = {
+import { links } from "@/data/links";
+
+/*
+  CONTEXTO GLOBAL DE SCROLL
+
+  Aquí centralizamos todo el estado relacionado con el scroll:
+  - sección activa
+  - visibilidad de cada sección
+  - posición real del scroll
+  - estado de navegación (click en links)
+*/
+type ActiveSectionContextType = {
   activeSection: string;
-  setActiveSection: (value: string) => void;
-  passedHero: boolean;
+  visibleSections: Record<string, number>;  // Objeto dinámico:{ sectionId: visibilityRatio }
+  scrollY: number;
+  isNavigating: boolean;
+  setIsNavigating: (v: boolean) => void;
 };
 
+/*
+  Creamos el contexto con valores por defecto
+  (se usan solo si el Provider no está disponible)
+*/
 const ActiveSectionContext =
-  createContext<ContextType | null>(null);
+  createContext<ActiveSectionContextType>({
+    activeSection: "",
+    visibleSections: {},
+    scrollY: 0,
+    isNavigating: false,
+    setIsNavigating: () => {},
+  });
 
 export function ActiveSectionProvider({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [activeSection, setActiveSection] =
-    useState("inicio");
 
-  const [passedHero, setPassedHero] =
+  // Sección actualmente más visible en pantalla
+  const [activeSection, setActiveSection] =
+    useState("");
+
+  
+  //  Guarda el nivel de visibilidad de cada sección (0 a 1)
+  const [visibleSections, setVisibleSections] =
+    useState<Record<string, number>>({});
+
+  
+  //  Posición real del scroll vertical
+  const [scrollY, setScrollY] =
+    useState(0);
+
+  
+  //  Indica si el usuario está navegando por click (no scroll manual)
+  const [isNavigating, setIsNavigating] =
     useState(false);
 
   /*
-    Scrollspy avanzado:
-    detecta qué sección está más visible
-    en vez de solo saber si está en pantalla
+    OBSERVER PRINCIPAL
+    Detecta qué sección está visible en pantalla
   */
   useEffect(() => {
-    const sections =
-      document.querySelectorAll("section");
+    const sections = links
+      .map((link) =>
+        document.getElementById(link.id)
+      )
+      //  Elimina null/undefined si alguna sección no existe
+      .filter(Boolean) as HTMLElement[]; // TypeScript: "confía, ahora son HTMLElements"
+
+    // si aún no existen las secciones, no hacemos nada
+    if (!sections.length) return;
 
     /*
-      Observer más preciso:
-      - no usa solo "entra o no entra"
-      - calcula cuánto se ve cada sección
+      IntersectionObserver:
+      se ejecuta cuando las secciones entran/salen del viewport
     */
-    const observer = new IntersectionObserver(
-      (entries) => {
-        let currentSection = "";
-        let maxRatio = 0;
+    const observer =
+      new IntersectionObserver(
+        (entries) => {
+          setVisibleSections((prev) => {
+            const updated = { ...prev };
 
-        /*
-          Nos quedamos con la sección
-          que tenga más visibilidad
-        */
-        entries.forEach((entry) => {
-          if (
-            entry.isIntersecting &&
-            entry.intersectionRatio > maxRatio
-          ) {
-            maxRatio = entry.intersectionRatio;
-            currentSection = entry.target.id;
-          }
-        });
+            // Actualiza cuánto se ve cada sección
+            entries.forEach((entry) => {
+              updated[entry.target.id] =
+                entry.intersectionRatio;
+            });
 
-        /*
-          Solo actualizamos si hay una sección clara
-        */
-        if (currentSection) {
-          setActiveSection(currentSection);
+            
+            // Busca la sección mas visible en pantalla  
+            const mostVisible =
+              Object.entries(updated).sort(
+                (a, b) => b[1] - a[1]
+              )[0];
+
+            // Si la sección tiene suficiente visibilidad, la marcamos como activa
+            if (
+              mostVisible &&
+              mostVisible[1] > 0.2
+            ) {
+              setActiveSection(
+                mostVisible[0]
+              );
+            }
+
+            return updated;
+          });
+        },
+        {
+          root: null,
+
+          /*
+            Ajusta cuándo empieza a considerar una sección “activa”
+            (antes de llegar al centro de pantalla)
+          */
+          rootMargin:
+            "-20% 0px -35% 0px",
+
+          //Puntos de activación del observer
+          threshold: [
+            0,
+            0.1,
+            0.25,
+            0.5,
+            0.75,
+            1,
+          ],
         }
-      },
-      {
-        /*
-          Varias thresholds = transiciones más suaves
-        */
-        threshold: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6],
+      );
 
-        /*
-          Ajusta el “punto visual” de cambio
-          (más centrado en pantalla)
-        */
-        rootMargin: "-35% 0px -35% 0px",
-      }
+    // empezar a observar todas las secciones
+    sections.forEach((s) =>
+      observer.observe(s)
     );
 
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
-
+    // limpiar observer al desmontar el componente
     return () => observer.disconnect();
   }, []);
 
   /*
-    Detecta cuando ya pasaste el hero
-    usando altura de pantalla (responsive)
+    TRACKING DE SCROLL REAL
+
+    Esto NO depende del observer.
+    Sirve para:
+    - navbar hide/show
+    - side navigation
+    - efectos basados en scroll real
   */
   useEffect(() => {
-    const handleScroll = () => {
-      const heroThreshold =
-        window.innerHeight * 0.7;
-
-      setPassedHero(window.scrollY > heroThreshold);
+    const onScroll = () => {
+      setScrollY(window.scrollY);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", onScroll, {
+      // Mejora el rendimiento del scroll indicando que no bloquearemos el evento
+      passive: true,
+    });
 
     return () =>
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener(
+        "scroll",
+        onScroll
+      );
   }, []);
 
+  /*
+    Memoriza el objeto para evitar re-renders innecesarios
+    en los componentes que consumen este contexto
+  */
+  const value = useMemo(
+    () => ({
+      activeSection,
+      visibleSections,
+      scrollY,
+      isNavigating,
+      setIsNavigating,
+    }),
+    [
+      activeSection,
+      visibleSections,
+      scrollY,
+      isNavigating,
+    ]
+  );
+
+  /*
+    Proveedor global:
+    permite que toda la app acceda al estado del scroll
+  */
   return (
     <ActiveSectionContext.Provider
-      value={{
-        activeSection,
-        setActiveSection,
-        passedHero,
-      }}
+      value={value}
     >
       {children}
     </ActiveSectionContext.Provider>
   );
 }
 
+/*
+  Hook para consumir el contexto de forma simple
+*/
 export function useActiveSection() {
-  const context = useContext(ActiveSectionContext);
-
-  if (!context) {
-    throw new Error(
-      "useActiveSection must be used inside provider"
-    );
-  }
-
-  return context;
+  return useContext(
+    ActiveSectionContext
+  );
 }

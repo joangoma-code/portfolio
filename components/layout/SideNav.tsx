@@ -1,63 +1,76 @@
 "use client";
 
 import Link from "next/link";
-import { links } from "@/data/links";
-
 import { Diamond, Hexagon } from "lucide-react";
 
-import { useActiveSection } from "../../providers/ActiveSectionProvider";
+import { links } from "@/data/links";
+import { useActiveSection } from "@/providers/ActiveSectionProvider";
 
 
 export default function SideNav() {
-  const { activeSection, passedHero } = useActiveSection();
+  const {
+    activeSection,
+    scrollY,
+  } = useActiveSection();
+
+  const passedHero = scrollY > 400;
 
   return (
     <aside
       className={`
         fixed left-6 top-1/2 z-50 hidden
-        -translate-y-1/2
-        lg:flex
-        transition-all duration-500
+        -translate-y-1/2 lg:flex
+        transition-all duration-700
         ${
-          passedHero ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"
+          passedHero
+            ? "translate-x-0 opacity-100"
+            : "-translate-x-10 opacity-0"
         }
       `}
     >
       <nav>
-        <ul className="space-y-4">
+        <ul className="space-y-5">
           {links.map((link) => {
-            const isActive = activeSection === link.id && activeSection !== "inicio";
+            const isActive =
+              activeSection === link.id && activeSection !== "inicio" ;
 
             return (
               <li key={link.id}>
                 <Link
                   href={`#${link.id}`}
-                  className="
-                    group flex items-center gap-3
-                  "
+                  className="flex items-center gap-3"
                 >
                   <span
                     className={`
-                      transition-all duration-500
-                      ${isActive ? "text-(--color-border)" : "text-(--color-foreground2) opacity-80"}
+                      transition-all
+                      ${
+                        isActive
+                          ? "text-(--color-primary)"
+                          : "text-(--color-foreground2)"
+                      }
                     `}
                   >
                     {isActive ? (
-                      <Hexagon className="size-5 absoluteStrokeWidth={true} stroke-2" />
+                      <Hexagon className="size-5 stroke-2" />
                     ) : (
-                      <Diamond className="size-5 absoluteStrokeWidth={true} stroke-1" />
+                      <Diamond className="size-5 stroke-1" />
                     )}
                   </span>
-
-                    {/* Erase ? */}
+                  {/* 
                   <span
                     className={`
                       text-sm transition-all
-                      ${isActive ? "text-(--color-foreground2) opacity-0" : "opacity-0"}
+
+                      ${
+                        isActive
+                          ? "opacity-100"
+                          : "opacity-0 -translate-x-2"
+                      }
                     `}
                   >
                     {link.label}
                   </span>
+                  */}
                 </Link>
               </li>
             );
