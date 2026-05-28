@@ -48,9 +48,9 @@ export default function Navbar() {
           >
             Joan Goma
           </Link>
-          
+ 
           <nav className="hidden md:block">
-            <ul className="flex gap-6">
+            <ul className="flex items-center gap-6">
               {links.map((link) => {
                 const isActive =
                   activeSection ===

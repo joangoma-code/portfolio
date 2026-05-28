@@ -18,7 +18,7 @@ export default function SideNav() {
   return (
     <aside
       className={`
-        fixed left-6 top-1/2 z-50 hidden
+        fixed right-6 top-1/2 z-50 hidden
         -translate-y-1/2 lg:flex
         transition-all duration-700
         ${

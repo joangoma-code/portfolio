@@ -1,7 +1,7 @@
 import MainLayout from "@/components/layout/MainLayout";
 
 import HeroSection from "@/components/sections/HeroSection";
-import AboutSection from "@/components/sections/AboutMe";
+import AboutSection from "@/components/sections/AboutSection";
 import ProjectSection from "@/components/sections/projects";
 import SkillSection from "@/components/sections/SkillSection";
 import ExperienceSection from "@/components/sections/experiences";

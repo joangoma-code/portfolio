@@ -62,6 +62,6 @@ export function useNavbarVisibility() {
         onScroll
       );
   }, [isNavigating]);
-
+  
   return isVisible;
 }

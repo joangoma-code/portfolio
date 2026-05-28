@@ -24,7 +24,7 @@ type ActiveSectionContextType = {
   visibleSections: Record<string, number>;  // Objeto dinámico:{ sectionId: visibilityRatio }
   scrollY: number;
   isNavigating: boolean;
-  setIsNavigating: (v: boolean) => void;
+  setIsNavigating: (value: boolean) => void;
 };
 
 /*
@@ -73,9 +73,9 @@ export function ActiveSectionProvider({
     const sections = links
       .map((link) =>
         document.getElementById(link.id)
-      )
+      ).filter((section) => section)
       //  Elimina null/undefined si alguna sección no existe
-      .filter(Boolean) as HTMLElement[]; // TypeScript: "confía, ahora son HTMLElements"
+      
 
     // si aún no existen las secciones, no hacemos nada
     if (!sections.length) return;
@@ -96,36 +96,27 @@ export function ActiveSectionProvider({
                 entry.intersectionRatio;
             });
 
-            
             // Busca la sección mas visible en pantalla  
-            const mostVisible =
-              Object.entries(updated).sort(
-                (a, b) => b[1] - a[1]
-              )[0];
-
-            // Si la sección tiene suficiente visibilidad, la marcamos como activa
-            if (
-              mostVisible &&
-              mostVisible[1] > 0.2
-            ) {
-              setActiveSection(
-                mostVisible[0]
-              );
+            let currentSection = "";
+            let maxVisibility = 0;
+            // Si la seccion tiene suficiente visibilidad, la marcamos como activa
+            for ( const id in updated) {
+              if (updated[id] > maxVisibility) {
+                maxVisibility = updated[id];
+                currentSection = id;
+              }
             }
-
+            if (maxVisibility > 0.2) setActiveSection(currentSection)
             return updated;
           });
         },
         {
-          root: null,
-
           /*
-            Ajusta cuándo empieza a considerar una sección “activa”
+            Ajusta cuando empieza a considerar una sección “activa”
             (antes de llegar al centro de pantalla)
           */
           rootMargin:
             "-20% 0px -35% 0px",
-
           //Puntos de activación del observer
           threshold: [
             0,
@@ -139,8 +130,8 @@ export function ActiveSectionProvider({
       );
 
     // empezar a observar todas las secciones
-    sections.forEach((s) =>
-      observer.observe(s)
+    sections.forEach((section) =>
+      observer.observe(section!)
     );
 
     // limpiar observer al desmontar el componente
