@@ -2,11 +2,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import SideNav from "./SideNav";
 
-type MainLayoutProps = {
-  children: React.ReactNode;
-};
-
-export default function MainLayout({ children }: MainLayoutProps) {
+export default function MainLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Navbar />

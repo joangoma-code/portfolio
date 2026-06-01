@@ -31,11 +31,7 @@ const ActiveSectionContext =
     setIsNavigating: () => {},
   });
 
-export function ActiveSectionProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function ActiveSectionProvider({ children }: { children: React.ReactNode }) {
 
   // Sección actualmente más visible en pantalla
   const [activeSection, setActiveSection] =
