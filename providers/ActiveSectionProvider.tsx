@@ -12,12 +12,6 @@ import { links } from "@/data/links";
 
 /*
   CONTEXTO GLOBAL DE SCROLL
-
-  Aquí centralizamos todo el estado relacionado con el scroll:
-  - sección activa
-  - visibilidad de cada sección
-  - posición real del scroll
-  - estado de navegación (click en links)
 */
 type ActiveSectionContextType = {
   activeSection: string;
@@ -27,10 +21,7 @@ type ActiveSectionContextType = {
   setIsNavigating: (value: boolean) => void;
 };
 
-/*
-  Creamos el contexto con valores por defecto
-  (se usan solo si el Provider no está disponible)
-*/
+// valores por defecto (se usan solo si el Provider no está disponible)
 const ActiveSectionContext =
   createContext<ActiveSectionContextType>({
     activeSection: "",
@@ -74,16 +65,13 @@ export function ActiveSectionProvider({
       .map((link) =>
         document.getElementById(link.id)
       ).filter((section) => section)
-      //  Elimina null/undefined si alguna sección no existe
+        //  Elimina null/undefined si alguna sección no existe
       
-
     // si aún no existen las secciones, no hacemos nada
     if (!sections.length) return;
 
-    /*
-      IntersectionObserver:
-      se ejecuta cuando las secciones entran/salen del viewport
-    */
+    
+    // IntersectionObserver: se ejecuta cuando las secciones entran/salen del viewport
     const observer =
       new IntersectionObserver(
         (entries) => {
@@ -111,10 +99,7 @@ export function ActiveSectionProvider({
           });
         },
         {
-          /*
-            Ajusta cuando empieza a considerar una sección “activa”
-            (antes de llegar al centro de pantalla)
-          */
+          //  Ajusta cuando empieza a considerar una sección “activa”
           rootMargin:
             "-20% 0px -35% 0px",
           //Puntos de activación del observer
@@ -140,12 +125,7 @@ export function ActiveSectionProvider({
 
   /*
     TRACKING DE SCROLL REAL
-
     Esto NO depende del observer.
-    Sirve para:
-    - navbar hide/show
-    - side navigation
-    - efectos basados en scroll real
   */
   useEffect(() => {
     const onScroll = () => {
@@ -164,10 +144,8 @@ export function ActiveSectionProvider({
       );
   }, []);
 
-  /*
-    Memoriza el objeto para evitar re-renders innecesarios
-    en los componentes que consumen este contexto
-  */
+
+  // Memoriza el objeto para evitar re-renders innecesarios en los componentes que consumen este contexto
   const value = useMemo(
     () => ({
       activeSection,
@@ -184,10 +162,7 @@ export function ActiveSectionProvider({
     ]
   );
 
-  /*
-    Proveedor global:
-    permite que toda la app acceda al estado del scroll
-  */
+  // Proveedor global: permite que toda la app acceda al estado del scroll
   return (
     <ActiveSectionContext.Provider
       value={value}
@@ -197,9 +172,8 @@ export function ActiveSectionProvider({
   );
 }
 
-/*
-  Hook para consumir el contexto de forma simple
-*/
+
+// Hook para consumir el contexto de forma simple
 export function useActiveSection() {
   return useContext(
     ActiveSectionContext

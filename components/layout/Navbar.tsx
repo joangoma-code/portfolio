@@ -74,7 +74,7 @@ export default function Navbar() {
                         ${
                           isActive
                             ? "text-(--color-foreground)"
-                            : "text-(--color-foreground2)"
+                            : "text-(--color-foreground2) opacity-80"
                         }
                         hover:opacity-60
                       `}

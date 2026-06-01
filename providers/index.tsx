@@ -1,13 +1,13 @@
 'use client'
 
 import { ThemeProvider } from 'next-themes'
-import type { ReactNode } from 'react'
+import { ActiveSectionProvider } from './ActiveSectionProvider'
 
 interface ProvidersProps {
-  children: ReactNode
+  children: React.ReactNode
 }
 
-export function ColorSchemeProvider({ children }: ProvidersProps) {
+export function Providers({ children }: ProvidersProps) {
   return (
     <ThemeProvider
       attribute="class"
@@ -15,7 +15,9 @@ export function ColorSchemeProvider({ children }: ProvidersProps) {
       enableSystem
       disableTransitionOnChange
     >
-      {children}
+      <ActiveSectionProvider>
+        {children}
+      </ActiveSectionProvider>
     </ThemeProvider>
   )
 }
