@@ -18,7 +18,7 @@ const contacts = [
 export default function ContactSection() {
   return (
     <section
-      id="contacto"
+      id="contact"
       className="flex min-h-screen items-center justify-center py-4"
     >
       <Container>
@@ -35,6 +35,7 @@ export default function ContactSection() {
               desarrollo y experiencia de usuario.
             </p>
           </div>
+          {/*Open to Frontend Developer opportunities. */}
 
           <div className="flex flex-col gap-6 md:flex-row md:gap-12">
             {contacts.map((contact) => (

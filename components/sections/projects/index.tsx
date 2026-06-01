@@ -43,7 +43,7 @@ export default function ProjectsSection() {
   return (
     <>
       <section
-        id="proyectos"
+        id="projects"
         className="flex min-h-screen items-center justify-center py-4"
       >
         <Container>
@@ -77,9 +77,9 @@ export default function ProjectsSection() {
                 className="flex items-center text-(--color-foreground) hover:text-(--color-border)"  
               >
                 {showAll ? 
-                <DiamondMinus className="size-10 stroke-1"/> 
+                <DiamondMinus strokeWidth={1} className="size-10"/> 
                 : 
-                <DiamondPlus className="size-10 stroke-1"/>
+                <DiamondPlus strokeWidth={1} className="size-10"/>
                 }
               </button>
             </div>

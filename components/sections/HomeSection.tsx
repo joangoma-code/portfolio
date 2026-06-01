@@ -1,10 +1,10 @@
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 
-export default function HeroSection() {
+export default function HomeSection() {
   return (
     <section
-      id="inicio"
+      id="home"
       className="flex min-h-screen items-center justify-center"
     >
       <Container>
@@ -14,21 +14,20 @@ export default function HeroSection() {
           </p>
 
           <h1 className="text-5xl font-bold leading-tight md:text-7xl">
-            Construyo experiencias web modernas
+            Joan Goma
           </h1>
 
           <p className="mt-6 text-lg leading-relaxed opacity-80">
-            Portfolio desarrollado con Next.js,
-            TypeScript y Tailwind CSS v4.
+            Construyo experiencias web modernas
           </p>
 
           <div className="mt-10 flex gap-4 ">
-            <Button href="#proyectos">
+            <Button href="#projects">
               Ver proyectos
             </Button>
 
             <Button
-              href="#contacto"
+              href="#contact"
               variant="secondary"
             >
               Contacto

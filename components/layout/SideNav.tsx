@@ -30,9 +30,9 @@ export default function SideNav() {
     >
       <nav>
         <ul className="space-y-5">
-          {links.map((link) => {
+          {links.map((link, index) => {
             const isActive =
-              activeSection === link.id && activeSection !== "inicio" ;
+              activeSection === link.id && index !== 0 ;
 
             return (
               <li key={link.id}>
@@ -51,26 +51,11 @@ export default function SideNav() {
                     `}
                   >
                     {isActive ? (
-                      <Hexagon className="size-5 stroke-2" />
+                      <Hexagon strokeWidth={2} className="size-5"  />
                     ) : (
-                      <Diamond className="size-5 stroke-1" />
+                      <Diamond strokeWidth={1} className="size-5" />
                     )}
                   </span>
-                  {/* 
-                  <span
-                    className={`
-                      text-sm transition-all
-
-                      ${
-                        isActive
-                          ? "opacity-100"
-                          : "opacity-0 -translate-x-2"
-                      }
-                    `}
-                  >
-                    {link.label}
-                  </span>
-                  */}
                 </Link>
               </li>
             );

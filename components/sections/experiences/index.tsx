@@ -7,7 +7,7 @@ import ExperienceCard from "./ExperienceCard";
 export default function ExperienceSection() {
   return (
     <section
-      id="experiencia"
+      id="experiences"
       className="flex min-h-screen items-center justify-center py-4"
     >
       <Container>
@@ -16,12 +16,6 @@ export default function ExperienceSection() {
             <h2 className="text-5xl font-bold leading-tight md:text-7xl">
               Experiencia
             </h2>
-
-            <p className="text-lg leading-relaxed opacity-70 md:text-xl">
-              Aunque mi experiencia en el sector digital es junior, he trabajado
-              en entornos profesionales donde he desarrollado habilidades
-              transferibles clave.
-            </p>
           </div>
 
           <div className="relative">

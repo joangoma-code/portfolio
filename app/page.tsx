@@ -1,6 +1,6 @@
 import MainLayout from "@/components/layout/MainLayout";
 
-import HeroSection from "@/components/sections/HeroSection";
+import HomeSection from "@/components/sections/HomeSection";
 import AboutSection from "@/components/sections/AboutSection";
 import ProjectSection from "@/components/sections/projects";
 import SkillSection from "@/components/sections/SkillSection";
@@ -11,7 +11,7 @@ import ContactSection from "@/components/sections/ContactSection";
 export default function HomePage() {
   return (
     <MainLayout>
-      <HeroSection />
+      <HomeSection />
       <AboutSection />
       <SkillSection />
       <ProjectSection />

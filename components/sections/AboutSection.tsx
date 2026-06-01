@@ -26,6 +26,14 @@ export default function AboutSection() {
                 Disfruto explorando nuevas herramientas, 
                 optimizando experiencias y transformando ideas en interfaces intuitivas y escalables.
             </p>
+            {/*
+              Frontend Developer con base en UX/UI y experiencia en entornos digitales y creativos. 
+              Enfocado en construir interfaces claras, funcionales y centradas en el usuario.
+
+              Actualmente desarrollo proyectos con React y TypeScript, aplicando buenas prácticas de componentes, diseño responsive y consumo de APIs.
+
+              Busco mi primera oportunidad como desarrollador frontend en un entorno de producto digital.
+             */}
           </div>
         </div>
       </Container>
