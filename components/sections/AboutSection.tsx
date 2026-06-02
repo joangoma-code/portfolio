@@ -15,25 +15,17 @@ export default function AboutSection() {
             </h2>
 
             <p className="max-w-2xl text-lg leading-relaxed opacity-80 md:text-xl">
-                Soy desarrollador frontend enfocado en crear interfaces modernas, 
-                rápidas y con una experiencia de usuario cuidada al detalle. 
-                Trabajo principalmente con tecnologías como Next.js, React y Tailwind CSS, 
-                combinando diseño minimalista con animaciones e interacciones fluidas.
+              Frontend Developer with a background in UX/UI and digital design,
+              focused on building modern, responsive, and accessible web applications.
+              I work primarily with React, Next.js, TypeScript, and Tailwind CSS,
+              creating clean and intuitive user experiences with a strong attention to detail.
             </p>
             <p className="max-w-2xl text-lg leading-relaxed opacity-80 md:text-xl">
-                Me interesa construir productos digitales que no solo funcionen bien, 
-                sino que también transmitan identidad y claridad visual. 
-                Disfruto explorando nuevas herramientas, 
-                optimizando experiencias y transformando ideas en interfaces intuitivas y escalables.
+                I enjoy turning ideas into scalable interfaces, integrating APIs,
+                optimizing performance, and developing reusable component-based architectures.
+                Currently seeking a Frontend Developer opportunity where I can contribute to real-world 
+                products while continuing to grow within a collaborative development team.
             </p>
-            {/*
-              Frontend Developer con base en UX/UI y experiencia en entornos digitales y creativos. 
-              Enfocado en construir interfaces claras, funcionales y centradas en el usuario.
-
-              Actualmente desarrollo proyectos con React y TypeScript, aplicando buenas prácticas de componentes, diseño responsive y consumo de APIs.
-
-              Busco mi primera oportunidad como desarrollador frontend en un entorno de producto digital.
-             */}
           </div>
         </div>
       </Container>

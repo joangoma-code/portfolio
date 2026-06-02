@@ -12,10 +12,10 @@ export default function HomePage() {
   return (
     <MainLayout>
       <HomeSection />
-      <AboutSection />
-      <SkillSection />
       <ProjectSection />
+      <SkillSection />
       <ExperienceSection />
+      <AboutSection />
       <ContactSection />
     </MainLayout>
   );

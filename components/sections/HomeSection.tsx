@@ -10,7 +10,7 @@ export default function HomeSection() {
       <Container>
         <div className="max-w-3xl">
           <p className="mb-4 text-sm uppercase tracking-[0.3em] opacity-70">
-            Frontend Developer
+            Frontend Developer · React · Next.js · TypeScript
           </p>
 
           <h1 className="text-5xl font-bold leading-tight md:text-7xl">
@@ -18,19 +18,24 @@ export default function HomeSection() {
           </h1>
 
           <p className="mt-6 text-lg leading-relaxed opacity-80">
-            Construyo experiencias web modernas
+            Frontend Developer focused on building fast, accessible,
+            and user-centered web applications. I work mainly with React, Next.js,
+            and TypeScript to create clean interfaces and scalable frontend architectures.
+          </p>
+          <p className="mt-4 text-sm opacity-60">
+            Open to Frontend Developer opportunities
           </p>
 
           <div className="mt-10 flex gap-4 ">
             <Button href="#projects">
-              Ver proyectos
+              View Projects
             </Button>
 
             <Button
               href="#contact"
               variant="secondary"
             >
-              Contacto
+              Get in touch
             </Button>
           </div>
         </div>

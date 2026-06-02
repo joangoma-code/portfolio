@@ -9,7 +9,7 @@ import {
 import { useActiveSection } from "@/providers/ActiveSectionProvider";
 
 /*
-  🧠 ESTE HOOK SOLO CONTROLA:
+  ESTE HOOK SOLO CONTROLA:
   - mostrar / ocultar navbar
   - ignorar scroll cuando hay navegación por click
 */

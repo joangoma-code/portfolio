@@ -14,7 +14,7 @@ export default function ExperienceSection() {
         <div className="space-y-20">
           <div className="max-w-3xl space-y-6">
             <h2 className="text-5xl font-bold leading-tight md:text-7xl">
-              Experiencia
+              Experiencies
             </h2>
           </div>
 

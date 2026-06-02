@@ -2,32 +2,32 @@ import Container from "@/components/ui/Container";
 
 const skills = [
   {
-    title: "Diseño UX/UI",
+    title: "UI/UX Design",
     items: [
-      "Diseño de interficies",
-      "Wireframing y prototipado",
-      "Diseño centrado en el usuario",
-      "Componentes reutilizables",
-      "Accesibilidad básica (WCAG)",
-    ],
-  },
-    {
-    title: "Desarrollo Frontend",
-    items: [
-      "HTML, CSS",
-      "JavaScript, TypeScript",
-      "React, Next.js",
-      "Node.js",
+      "Interface design",
+      "Wireframing and prototyping",
+      "User-centered design",
+      "Reusable component design",
+      "Basic accessibility (WCAG)",
     ],
   },
   {
-    title: "Herramientas",
+    title: "Frontend Development",
+    items: [
+      "HTML, CSS, responsive layouts",
+      "JavaScript, TypeScript",
+      "React, Next.js",
+      "REST APIs integration",
+      "Node.js basics",
+    ],
+  },
+  {
+    title: "Tools & Workflow",
     items: [
       "Figma",
-      "Adobe Creative Suite",
       "Git / GitHub",
-      "Unity",
-      "Autodesk Maya",
+      "VS Code",
+      "Adobe Creative Suite",
     ],
   },
 ];

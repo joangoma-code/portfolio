@@ -13,6 +13,10 @@ const contacts = [
     label: "GitHub",
     href: "https://github.com/joangoma-code",
   },
+  {
+    label: "Behance",
+    href: "https://www.behance.net/joangoma",
+  },
 ];
 
 export default function ContactSection() {
@@ -25,14 +29,14 @@ export default function ContactSection() {
         <div className="max-w-4xl space-y-12">
           <div className="space-y-6">
             <h2 className="text-5xl font-bold leading-tight md:text-7xl">
-              Contact me
+              Contact
             </h2>
 
             <p className="max-w-2xl text-lg leading-relaxed opacity-80 md:text-xl">
-              Busco incorporarme como Diseñador UI/UX junior o Desarrollador
-              Frontend junior en un equipo donde pueda crecer profesionalmente,
-              aprender de perfiles senior y aportar una base sólida en diseño,
-              desarrollo y experiencia de usuario.
+              I'm currently open to Frontend Developer opportunities where I can
+              contribute to a product-focused team, collaborate with experienced
+              developers, and continue growing my skills in modern web
+              development, UX/UI, and frontend architecture.
             </p>
           </div>
           {/*Open to Frontend Developer opportunities. */}

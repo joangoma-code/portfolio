@@ -2,64 +2,59 @@ import type { Experience } from "@/types/Experience";
 
 export const experiences: Experience[] = [
   {
-    title: "Experiencia en atención al cliente y gestión",
+    title: "Customer Service & Team Collaboration",
     subtitle: "Mercadona, Makro...",
-    date: "2015 - Actualidad",
-    description:
-      [
-      "Atención al cliente en entornos de alta demanda.",
-      "Resolución de incidencias y soporte al usuario.",
-      "Trabajo en equipo y coordinación de tareas operativas.",
-      "Adaptación rápida a procesos y herramientas internas.",
-      ]
+    date: "2015 - Present",
+    description: [
+      "Provided customer support in fast-paced environments.",
+      "Resolved issues efficiently while maintaining high service standards.",
+      "Collaborated with cross-functional teams to achieve operational goals.",
+      "Quickly adapted to new processes, tools, and workflows.",
+    ],
   },
   {
-    title: "Interacción digital y multimedia",
-    subtitle: "Universitat Oberta de Catalunya (UOC)",
+    title: "Digital Interaction & Multimedia",
+    // UX/UI & Digital Interaction
+    subtitle: "Open University of Catalonia (UOC)",
     date: "2024",
-    description:
-      [
-      "Formación en UX/UI y diseño de interacción.",
-      "Principios de usabilidad y diseño centrado en el usuario.",
-      "Desarrollo de proyectos digitales interactivos.",
-      "Aplicación de comunicación visual en entornos web.",
-      ],
+    description: [
+      "Studied UX/UI principles and interaction design methodologies.",
+      "Applied user-centered design practices to digital projects.",
+      "Developed interactive web-based experiences and prototypes.",
+      "Used visual communication principles to enhance usability.",
+    ],
   },
   {
-    title: "Technical Artist Trainee - ",
+    title: "Technical Artist Trainee",
     subtitle: "Magic Media",
     date: "2024",
-    description:
-    [
-      "Integración y optimización de assets para videojuegos.",
-      "Colaboración con equipos de arte y desarrollo.",
-      "Adaptación de recursos a requisitos técnicos del motor.",
-      "Soporte en flujos de producción digital.",
-    ]
-
-  },
-    {
-    title: "Animación 2D, 3D",
-    subtitle: "Escola d'art i Disseny de Tarragona (EADT)",
-    date: "2018",
-    description:
-    [
-      "Fundamentos de animación 2D y 3D.",
-      "Timing, movimiento y narrativa visual.",
-      "Creación de proyectos audiovisuales.",
-      "Flujos de producción digital creativa.",
-    ]
+    description: [
+      "Integrated and optimized digital assets for game production.",
+      "Collaborated with artists and developers in multidisciplinary teams.",
+      "Adapted assets to technical requirements and production pipelines.",
+      "Supported workflow improvements throughout the development process.",
+    ],
   },
   {
-    title: "Diseñador Gráfico Aprendiz",
+    title: "Digital Design & Animation",
+    subtitle: "Escola d'Art i Disseny de Tarragona (EADT)",
+    date: "2018",
+    description: [
+      "Learned animation fundamentals, motion principles, and visual storytelling.",
+      "Created digital and audiovisual projects from concept to delivery.",
+      "Worked with creative production workflows and industry-standard tools.",
+      "Developed strong attention to detail and visual design skills.",
+    ],
+  },
+  {
+    title: "Junior Graphic Designer",
     subtitle: "Bear & Cactus, Barcelona",
     date: "2018",
-    description:
-    [
-      "Diseño de piezas gráficas para entornos digitales.",
-      "Adaptación de contenido visual a diferentes formatos.",
-      "Colaboración en proyectos de branding.",
-      "Aplicación de principios de composición y tipografía.",
-    ]
+    description: [
+      "Designed digital visual assets for multiple platforms and formats.",
+      "Adapted graphic content while maintaining brand consistency.",
+      "Contributed to branding and visual identity projects.",
+      "Applied typography, layout, and composition principles effectively.",
+    ],
   },
 ];

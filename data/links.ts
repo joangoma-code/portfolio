@@ -1,25 +1,24 @@
 export const links = [
   {
-    id: "hero",
-    label: "Hero",
-  },
-  {
-    id: "about",
-    label: "About",
-  },
-  {
-    id: "skills",
-    label: "Skills",
+    id: "home",
+    label: "Home",
   },
   {
     id: "projects",
     label: "Projects",
 
   },
+    {
+    id: "skills",
+    label: "Skills",
+  },
   {
     id: "experiences",
     label: "Experiences",
-
+  },
+  {
+    id: "about",
+    label: "About",
   },
   {
     id: "contact",
