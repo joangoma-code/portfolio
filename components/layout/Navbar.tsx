@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 import Container from "@/components/ui/Container";
-import ThemeToogle from "@/components/ui/ThemeToogle";
+import ThemeButton from "@/components/ui/ThemeButton";
 
 import { links } from "@/data/links";
 
@@ -86,7 +86,7 @@ export default function Navbar() {
               })}
 
               <li>
-                <ThemeToogle />
+                <ThemeButton />
               </li>
             </ul>
           </nav>

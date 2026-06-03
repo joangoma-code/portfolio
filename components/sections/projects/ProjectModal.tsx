@@ -2,8 +2,11 @@
 
 import Image from "next/image";
 import { X } from "lucide-react";
+import { useEffect } from "react";
 
 import type { Project } from "@/types/Project";
+import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
+
 
 type ProjectModalProps = {
   project: Project | null;
@@ -14,6 +17,26 @@ export default function ProjectModal({
   project,
   onClose,
 }: ProjectModalProps) {
+
+  useLockBodyScroll(Boolean(project));
+
+  useEffect(() => {
+    if (!project) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [project, onClose]);
+
+  // Si no hay proyecto devolvemos NULL
   if (!project) return null;
 
   const handleBackdropClick = (
@@ -24,6 +47,7 @@ export default function ProjectModal({
     }
   };
 
+  
   return (
     <div
       onClick={handleBackdropClick}
@@ -58,7 +82,7 @@ export default function ProjectModal({
           </div>
           {
            Object.entries(project.details).map(([key,value]) => ( 
-             <div className="space-y-4">
+          <div key={key} className="space-y-4">
             <h3 className="text-2xl font-semibold">
               {key.slice(0,1).toUpperCase() + key.slice(1)} 
             </h3>
@@ -68,9 +92,6 @@ export default function ProjectModal({
             </p>
           </div>
           ))}
-          {
-            // Añadir parrafos
-          }
 
           {project.technologies && (
             <div className="space-y-4">
