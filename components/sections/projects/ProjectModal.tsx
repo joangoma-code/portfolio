@@ -56,21 +56,26 @@ export default function ProjectModal({
               {project.description}
             </p>
           </div>
-
-          <div className="space-y-4">
+          {
+           Object.entries(project.details).map(([key,value]) => ( 
+             <div className="space-y-4">
             <h3 className="text-2xl font-semibold">
-              Detalles del proyecto
+              {key.slice(0,1).toUpperCase() + key.slice(1)} 
             </h3>
 
             <p className="leading-relaxed text-zinc-400">
-              {project.details}
+              {value}
             </p>
           </div>
+          ))}
+          {
+            // Añadir parrafos
+          }
 
           {project.technologies && (
             <div className="space-y-4">
               <h3 className="text-2xl font-semibold">
-                Tecnologías
+                Technologies
               </h3>
 
               <div className="flex flex-wrap gap-3">
