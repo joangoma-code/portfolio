@@ -4,7 +4,7 @@ import { Moon, Sun } from 'lucide-react'
 import { useThemeToggle } from '@/hooks/useThemeToggle'
 
 export default function ThemeButton() {
-  const { mounted, isDark, toggleTheme} = useThemeToggle();
+  const { mounted, isDark, themeToggle} = useThemeToggle();
 
   // evita hydration mismatch
   if (!mounted) {
@@ -16,9 +16,9 @@ export default function ThemeButton() {
     <button
       type="button"
       aria-label="Toggle theme"
-      onClick={toggleTheme}
+      onClick={themeToggle}
       className="
-        flex h-10 w-10 items-center justify-center
+        flex h-8 w-8 items-center justify-center
         rounded-full
         border
         bg-(--color-card)
@@ -28,11 +28,10 @@ export default function ThemeButton() {
         hover:scale-105
       "
     >
-      {isDark ? (
-        <Sun strokeWidth={2} className="size-5" />
-      ) : (
-        <Moon strokeWidth={2} className="size-5" />
-      )}
+      {isDark 
+      ? <Sun strokeWidth={2} className="size-4.5" /> 
+      : <Moon strokeWidth={2} className="size-4.5" />
+      }
     </button>
   )
 }

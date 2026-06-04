@@ -75,11 +75,15 @@ export default function ProjectsSection() {
                 onClick={handleToggle}
                 className="flex items-center text-(--color-foreground) hover:text-(--color-border)"  
               >
-                {showAll ? 
-                <DiamondMinus strokeWidth={1} className="size-10"/> 
-                : 
-                <DiamondPlus strokeWidth={1} className="size-10"/>
-                }
+                
+                {// mostrar opcion para visibilizar el selector
+                projects.length > 2 
+                  ? (showAll 
+                    ? <DiamondMinus strokeWidth={1} className="size-10"/> 
+                    : <DiamondPlus strokeWidth={1} className="size-10"/>
+                  )
+                  : null
+              }
               </button>
             </div>
 

@@ -19,13 +19,13 @@ export function useThemeToggle() {
   // Indica si el tema activo es oscuro
   const isDark = resolvedTheme === "dark";
 
-  const toggleTheme = () => {
+  const themeToggle = () => {
     setTheme(isDark ? "light" : "dark");
   };
 
   return {
     mounted,
     isDark,
-    toggleTheme,
+    themeToggle,
   };
 }

@@ -20,22 +20,26 @@ export default function ExperienceSection() {
 
           <div className="relative">
             {/* Linea timeline */}
-            <div className="absolute left-4 top-0 h-full w-px bg-(--color-foreground2) md:left-1/2 md:-translate-x-1/2" />
+            <div className="absolute left-4 top-5 bottom-25 w-px -translate-x-1/2 bg-(--color-foreground2) md:left-1/2" /> 
 
             <div className="flex flex-col">
               {experiences.map((experience, index) => (
                 <div
                   key={experience.title}
                   className={`relative flex w-full items-start ${
-                    index !== 0 ? "mt-12 md:-mt-8" : ""
-                  }`}
+                    index !== 0 ? "mt-10 md:-mt-32" : ""
+                  } ${
+                    index % 2 
+                    ? "pl-20"
+                    : "pl-10 pr-10"
+                  } md:pl-0 md:pr-0`}
                 >
                   {/* Punto timeline */}
                   <div className="absolute left-4 top-8 z-10 h-3 w-3 -translate-x-1/2 rounded-full bg-(--color-foreground2) md:left-1/2" />
 
                   <ExperienceCard
                     experience={experience}
-                    side={index % 2 === 0 ? "left" : "right"}
+                    side={index % 2 ? "right" : "left"}
                   />
                 </div>
               ))}

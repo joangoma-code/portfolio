@@ -33,7 +33,7 @@ export default function ExperienceCard({
           </p>
         )}
 
-        <ul className="mt-5 leading-relaxed opacity-80">
+        <ul className="mt-7 leading-relaxed opacity-80">
           {experience.description.map( (item) => (
             <li key={item} className="flex items-start gap-3">
               <Diamond strokeWidth={3} className="size-3 text-(--color-border) mt-2" />
