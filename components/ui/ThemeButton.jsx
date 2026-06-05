@@ -11,7 +11,6 @@ export default function ThemeButton() {
     return <div className="h-10 w-10" />
   }
 
-
   return (
     <button
       type="button"
@@ -29,8 +28,8 @@ export default function ThemeButton() {
       "
     >
       {isDark 
-      ? <Sun strokeWidth={2} className="size-4.5" /> 
-      : <Moon strokeWidth={2} className="size-4.5" />
+        ? <Sun strokeWidth={2} className="size-4.5" /> 
+        : <Moon strokeWidth={2} className="size-4.5" />
       }
     </button>
   )

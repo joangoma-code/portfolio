@@ -28,11 +28,7 @@ export default function ExperienceSection() {
                   key={experience.title}
                   className={`relative flex w-full items-start ${
                     index !== 0 ? "mt-10 md:-mt-32" : ""
-                  } ${
-                    index % 2 
-                    ? "pl-20"
-                    : "pl-10 pr-10"
-                  } md:pl-0 md:pr-0`}
+                  }`}
                 >
                   {/* Punto timeline */}
                   <div className="absolute left-4 top-8 z-10 h-3 w-3 -translate-x-1/2 rounded-full bg-(--color-foreground2) md:left-1/2" />

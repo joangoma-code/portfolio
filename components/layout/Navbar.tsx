@@ -121,7 +121,7 @@ export default function Navbar() {
         `}
       >
         <nav className="flex h-full items-center justify-center">
-          <ul className="space-y-10 text-center">
+          <ul className=" flex flex-col items-center gap-4">
             {links.map((link) => {
               const isActive =
                 activeSection ===
@@ -135,7 +135,7 @@ export default function Navbar() {
                       setIsOpen(false)
                     }
                     className={`
-                      text-3xl
+                      flex text-3xl
 
                       ${
                         isActive
@@ -147,8 +147,12 @@ export default function Navbar() {
                     {link.label}
                   </Link>
                 </li>
+                
               );
             })}
+            <li className="mt-4">
+              <ThemeButton />
+            </li>
           </ul>
         </nav>
       </div>

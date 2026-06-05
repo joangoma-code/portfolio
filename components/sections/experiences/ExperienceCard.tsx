@@ -14,9 +14,10 @@ export default function ExperienceCard({
     <div
       className={`relative flex w-full md:w-1/2 ${
         side === "left"
-          ? "md:justify-end md:pr-12"
-          : "md:ml-auto md:justify-start md:pl-12"
-      }`}
+          ? "pl-10 pr-10 md:justify-end md:pr-12"
+          : "pl-20 md:ml-auto md:justify-start md:pl-12"
+      }
+      md:pl-0 md:pr-0`}
     >
       <div className="w-full max-w-md rounded-2xl border border-(--color-border) bg-(--color-card) px-6 pt-2 pb-6">
         <span className="text-sm opacity-70">
