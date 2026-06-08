@@ -7,17 +7,12 @@ import { useEffect } from "react";
 import type { Project } from "@/types/Project";
 import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
 
-
 type ProjectModalProps = {
   project: Project | null;
   onClose: () => void;
 };
 
-export default function ProjectModal({
-  project,
-  onClose,
-}: ProjectModalProps) {
-
+export default function ProjectModal({ project, onClose }: ProjectModalProps) {
   useLockBodyScroll(Boolean(project));
 
   useEffect(() => {
@@ -39,15 +34,12 @@ export default function ProjectModal({
   // Si no hay proyecto devolvemos NULL
   if (!project) return null;
 
-  const handleBackdropClick = (
-    event: React.MouseEvent<HTMLDivElement>
-  ) => {
+  const handleBackdropClick = (event: React.MouseEvent<HTMLDivElement>) => {
     if (event.target === event.currentTarget) {
       onClose();
     }
   };
 
-  
   return (
     <div
       onClick={handleBackdropClick}
@@ -72,38 +64,37 @@ export default function ProjectModal({
 
         <div className="space-y-8 p-8">
           <div className="space-y-4">
-            <h2 className="text-4xl font-bold md:text-5xl">
-              {project.title}
-            </h2>
+            <h2 className="text-4xl font-bold md:text-5xl">{project.title}</h2>
 
-            <p className="text-lg leading-relaxed text-zinc-300">
+            <p className="text-lg leading-relaxed text-(--color-foreground)">
               {project.description}
             </p>
           </div>
-          {
-           Object.entries(project.details).map(([key,value]) => ( 
-          <div key={key} className="space-y-4">
-            <h3 className="text-2xl font-semibold">
-              {key.slice(0,1).toUpperCase() + key.slice(1)} 
-            </h3>
-
-            <p className="leading-relaxed text-zinc-400">
-              {value}
-            </p>
-          </div>
+          {Object.entries(project.details).map(([key, value]) => (
+            <div key={key} className="space-y-4 ">
+              <h3 className="text-2xl font-semibold">
+                {key.slice(0, 1).toUpperCase() + key.slice(1)}
+              </h3>
+              {Array.isArray(value) 
+              ? <ul>
+                {value.map((element,index) => (
+                  <li key={index} className="leading-relaxed">{element}</li>
+                ))}
+              </ul>
+              : (<p className="leading-relaxed">{value}</p>)
+            }
+            </div>
           ))}
 
           {project.technologies && (
             <div className="space-y-4">
-              <h3 className="text-2xl font-semibold">
-                Technologies
-              </h3>
+              <h3 className="text-2xl font-semibold">Technologies</h3>
 
               <div className="flex flex-wrap gap-3">
                 {project.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="rounded-full border border-white/10 px-4 py-2 text-sm text-zinc-300"
+                    className="rounded-full border border-(--color-border) px-4 py-2 text-sm text-(--color-foreground)"
                   >
                     {tech}
                   </span>

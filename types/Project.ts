@@ -4,12 +4,15 @@ export type Project = {
 
   details: {
     objective: string;
-    process: string;
-    implementation: string;
+    process?: string[];
+    implementation?: string[];
+    contributions?: String[];
     outcome: string;
-    learnings: string;
+    learnings?: string[];
+    highlights: string[];
+    //keyFeatures?
   };
   
-  technologies?: string[];
+  technologies: string[];
   image: string;
 };

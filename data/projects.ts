@@ -1,30 +1,48 @@
-import type { Project } from "@/types/Project"
+import type { Project } from "@/types/Project";
 
 export const projects: Project[] = [
   {
-    title: "Component-Based Design System",
+    title: "Personal Portfolio Website",
     description:
-      "Scalable design system focused on reusable UI components and visual consistency.",
+      "A responsive portfolio website designed and developed to showcase my frontend projects, technical skills, and design approach.",
 
     details: {
       objective:
-        "Create a reusable UI foundation for consistent interfaces.",
+        "Build a professional online presence, improve UI consistency, and create a scalable architecture using reusable components.",
 
-      process:
-        "Component-driven approach inspired by atomic design principles.",
+      process: [
+        "Planned the information architecture and content hierarchy.",
+        "Designed a consistent visual system for typography, spacing, and layouts.",
+        "Developed reusable UI components following a component-based approach.",
+        "Optimized the experience across desktop, tablet, and mobile devices.",
+      ],
 
-      implementation:
-        "Built reusable components with React and Tailwind CSS.",
+      contributions: [
+        "Planned the site structure and content hierarchy.",
+        "Designed a consistent visual system for layouts, spacing, and typography.",
+        "Built reusable components and responsive layouts.",
+        "Applied accessibility and performance best practices.",
+      ],
+
+      learnings: [
+        "Component architecture and code organization.",
+        "Responsive design and accessibility.",
+        "Creating reusable and maintainable UI systems.",
+      ],
 
       outcome:
-        "Consistent UI system that speeds up development.",
+        "A clean, responsive, and scalable portfolio that showcases projects and demonstrates frontend development skills through a real-world application.",
 
-      learnings:
-        "Better understanding of scalable UI architecture and design systems.",
+      highlights: [
+        // "Responsive Design",
+        // "Reusable Components",
+        "Mobile-First Approach",
+        "Scalable Architecture",
+        "Performance Optimization",
+      ],
     },
-
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Next.js", "Node.js"],
     image: "@/public/window.svg",
-    technologies: ["Figma", "React", "Tailwind", "Design Systems"],
   },
 
   {
@@ -33,23 +51,23 @@ export const projects: Project[] = [
       "User-centered web interface built as a university frontend project.",
 
     details: {
-      objective:
-        "Build an interactive and responsive web interface.",
+      objective: "Build an interactive and responsive web interface.",
 
-      process:
+      process: [
         "Defined UI structure and component hierarchy before implementation.",
+      ],
 
-      implementation:
-        "Developed with Vue.js, Vite and modular components.",
+      implementation: ["Developed with Vue.js, Vite and modular components."],
 
-      outcome:
-        "Functional responsive interface with clean UX.",
+      outcome: "Functional responsive interface with clean UX.",
 
-      learnings:
+      learnings: [
         "Improved understanding of Vue.js and component-based development.",
+      ],
+      highlights: [""],
     },
 
-    image: "@/public/window.svg",
     technologies: ["Vue.js", "Vite", "JavaScript", "CSS"],
+    image: "@/public/window.svg",
   },
 ];
