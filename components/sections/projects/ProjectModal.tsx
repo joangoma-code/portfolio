@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { X } from "lucide-react";
+import { X, Diamond } from "lucide-react";
 import { useEffect } from "react";
 
 import type { Project } from "@/types/Project";
@@ -70,26 +70,30 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               {project.description}
             </p>
           </div>
-          {Object.entries(project.details).map(([key, value]) => (
-            <div key={key} className="space-y-4 ">
-              <h3 className="text-2xl font-semibold">
-                {key.slice(0, 1).toUpperCase() + key.slice(1)}
-              </h3>
-              {Array.isArray(value) 
-              ? <ul>
-                {value.map((element,index) => (
-                  <li key={index} className="leading-relaxed">{element}</li>
-                ))}
-              </ul>
-              : (<p className="leading-relaxed">{value}</p>)
-            }
-            </div>
-          ))}
-
+          <div className="space-y-4">
+            <h3 className="text-2xl font-semibold">Objective</h3>
+            <p className="leading-relaxed">{project.objective}</p>
+          </div>
+          <div className="space-y-4">
+            <h3 className="text-2xl font-semibold">Contributions</h3>
+            <ul>
+              {project.contributions.map((item, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <Diamond
+                    strokeWidth={3}
+                    className="size-3 text-(--color-border) mt-2"
+                  />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="space-y-4">
+            <h3 className="text-2xl font-semibold">Outcome</h3>
+            <p className="leading-relaxed">{project.outcome}</p>
+          </div>
           {project.technologies && (
             <div className="space-y-4">
-              <h3 className="text-2xl font-semibold">Technologies</h3>
-
               <div className="flex flex-wrap gap-3">
                 {project.technologies.map((tech) => (
                   <span

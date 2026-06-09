@@ -14,7 +14,7 @@ export const experiences: Experience[] = [
   {
     title: "Digital Interaction & Multimedia",
     // UX/UI & Digital Interaction
-    subtitle: "Open University of Catalonia (UOC)",
+    subtitle: "Universitat Oberta de Catalunya (UOC)",
     date: "2024",
     description: [
       "Studied UX/UI principles and interaction design methodologies.",

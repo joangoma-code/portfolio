@@ -2,72 +2,51 @@ import type { Project } from "@/types/Project";
 
 export const projects: Project[] = [
   {
-    title: "Personal Portfolio Website",
-    description:
-      "A responsive portfolio website designed and developed to showcase my frontend projects, technical skills, and design approach.",
-
-    details: {
-      objective:
-        "Build a professional online presence, improve UI consistency, and create a scalable architecture using reusable components.",
-
-      process: [
-        "Planned the information architecture and content hierarchy.",
-        "Designed a consistent visual system for typography, spacing, and layouts.",
-        "Developed reusable UI components following a component-based approach.",
-        "Optimized the experience across desktop, tablet, and mobile devices.",
-      ],
-
-      contributions: [
-        "Planned the site structure and content hierarchy.",
-        "Designed a consistent visual system for layouts, spacing, and typography.",
-        "Built reusable components and responsive layouts.",
-        "Applied accessibility and performance best practices.",
-      ],
-
-      learnings: [
-        "Component architecture and code organization.",
-        "Responsive design and accessibility.",
-        "Creating reusable and maintainable UI systems.",
-      ],
-
-      outcome:
-        "A clean, responsive, and scalable portfolio that showcases projects and demonstrates frontend development skills through a real-world application.",
-
-      highlights: [
-        // "Responsive Design",
-        // "Reusable Components",
-        "Mobile-First Approach",
-        "Scalable Architecture",
-        "Performance Optimization",
-      ],
-    },
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Next.js", "Node.js"],
     image: "@/public/window.svg",
+
+    title: "Personal Portfolio Website",
+
+    description:
+      "A responsive portfolio website designed and developed to showcase my frontend projects, technical skills, and UI/UX approach.",
+
+    objective:
+      "Build a professional portfolio while improving UI consistency, component architecture, and responsive design.",
+
+    contributions: [
+      "Developed a reusable component system.",
+      "Designed a consistent visual system for layouts, spacing, and typography.",
+      "Implemented a responsive UI using a mobile-first approach.",
+      "Organized the project to improve scalability and maintainability.",
+      "Improved performance through a lightweight and optimized structure.",
+    ],
+
+    outcome:
+      "A clean and scalable portfolio that showcases projects and reflects frontend development skills in a real-world context.",
+
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Next.js"],
   },
 
   {
+    image: "@/public/window.svg",
+
     title: "Interactive Web Interface (Vue.js Project)",
+
     description:
-      "User-centered web interface built as a university frontend project.",
+      "A user-centered web interface developed as a university frontend project using Vue.js.",
 
-    details: {
-      objective: "Build an interactive and responsive web interface.",
+    objective:
+      "Build an interactive and responsive web interface using modern frontend practices.",
 
-      process: [
-        "Defined UI structure and component hierarchy before implementation.",
-      ],
+    contributions: [
+      "Developed a component-based interface using Vue.js and Vite.",
+      "Structured the UI with a clear component hierarchy.",
+      "Implemented responsive layouts for different screen sizes.",
+      "Focused on creating a clean and intuitive user experience.",
+    ],
 
-      implementation: ["Developed with Vue.js, Vite and modular components."],
-
-      outcome: "Functional responsive interface with clean UX.",
-
-      learnings: [
-        "Improved understanding of Vue.js and component-based development.",
-      ],
-      highlights: [""],
-    },
+    outcome:
+      "A functional and responsive web interface with a clean and user-friendly UX.",
 
     technologies: ["Vue.js", "Vite", "JavaScript", "CSS"],
-    image: "@/public/window.svg",
   },
 ];

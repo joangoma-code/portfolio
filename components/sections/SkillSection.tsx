@@ -40,7 +40,7 @@ export default function SkillSection() {
     >
       <Container>
         <div className="space-y-12">
-          <h2 className="text-4xl font-bold leading-tight md:text-6xl">
+          <h2 className="section-title">
             Skills
           </h2>
 

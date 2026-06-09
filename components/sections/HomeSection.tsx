@@ -17,7 +17,7 @@ export default function HomeSection() {
             Joan Goma
           </h1>
 
-          <p className="mt-6 text-lg leading-relaxed opacity-80">
+          <p className="mt-6 max-w-prose text-lg leading-relaxed opacity-80">
             Frontend Developer focused on building fast, accessible,
             and user-centered web applications. I work mainly with React, Next.js,
             and TypeScript to create clean interfaces and scalable frontend architectures.

@@ -50,7 +50,7 @@ export default function ProjectsSection() {
           <div className="space-y-16">
             <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
               <div className="max-w-3xl space-y-6">
-                <h2 className="text-5xl font-bold leading-tight md:text-7xl">
+                <h2 className="section-title">
                   Projects
                 </h2>
                 <p className="text-lg leading-relaxed opacity-70 md:text-xl">

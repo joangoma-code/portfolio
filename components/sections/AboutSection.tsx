@@ -1,6 +1,5 @@
 import Container from "@/components/ui/Container";
 
-
 export default function AboutSection() {
   return (
     <section
@@ -10,21 +9,20 @@ export default function AboutSection() {
       <Container>
         <div className="max-w-4xl space-y-12">
           <div className="space-y-6">
-            <h2 className="text-5xl font-bold leading-tight md:text-7xl">
-              About me
-            </h2>
+            <h2 className="section-title">About me</h2>
 
-            <p className="max-w-2xl text-lg leading-relaxed opacity-80 md:text-xl">
-              Frontend Developer with a background in UX/UI and digital design,
-              focused on building modern, responsive, and accessible web applications.
-              I work primarily with React, Next.js, TypeScript, and Tailwind CSS,
-              creating clean and intuitive user experiences with a strong attention to detail.
+            <p className="section-text">
+              I'm Joan, a designer and developer born in 1993 in Tarragona,
+              focused on creating interactive and visually engaging digital
+              experiences across web and game-inspired interfaces.
             </p>
-            <p className="max-w-2xl text-lg leading-relaxed opacity-80 md:text-xl">
-                I enjoy turning ideas into scalable interfaces, integrating APIs,
-                optimizing performance, and developing reusable component-based architectures.
-                Currently seeking a Frontend Developer opportunity where I can contribute to real-world 
-                products while continuing to grow within a collaborative development team.
+            <p className="section-text">
+              I enjoy bringing ideas to life through clean, functional
+              interfaces and thoughtful interactions. I like working on products
+              where details matter and where design and development come
+              together naturally. Right now, I'm looking for a Frontend
+              Developer role where I can contribute to real projects, keep
+              learning, and grow within a team environment.
             </p>
           </div>
         </div>

@@ -28,15 +28,14 @@ export default function ContactSection() {
       <Container>
         <div className="max-w-4xl space-y-12">
           <div className="space-y-6">
-            <h2 className="text-5xl font-bold leading-tight md:text-7xl">
+            <h2 className="section-title">
               Contact
             </h2>
 
-            <p className="max-w-2xl text-lg leading-relaxed opacity-80 md:text-xl">
-              I'm currently open to Frontend Developer opportunities where I can
-              contribute to a product-focused team, collaborate with experienced
-              developers, and continue growing my skills in modern web
-              development, UX/UI, and frontend architecture.
+            <p className="section-text">
+              I'm currently open to new Frontend Developer opportunities where I
+              can contribute to meaningful products and keep learning with a
+              great team.
             </p>
           </div>
           {/*Open to Frontend Developer opportunities. */}
