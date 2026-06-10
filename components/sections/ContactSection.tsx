@@ -1,23 +1,5 @@
 import Container from "@/components/ui/Container";
-
-const contacts = [
-  {
-    label: "Email",
-    href: "mailto:joangomara93@gmail.com",
-  },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/joangoma/",
-  },
-  {
-    label: "GitHub",
-    href: "https://github.com/joangoma-code",
-  },
-  {
-    label: "Behance",
-    href: "https://www.behance.net/joangoma",
-  },
-];
+import { contacts } from "@/data/contacts";
 
 export default function ContactSection() {
   return (
@@ -28,9 +10,7 @@ export default function ContactSection() {
       <Container>
         <div className="max-w-4xl space-y-12">
           <div className="space-y-6">
-            <h2 className="section-title">
-              Contact
-            </h2>
+            <h2 className="section-title">Contact</h2>
 
             <p className="section-text">
               I'm currently open to new Frontend Developer opportunities where I

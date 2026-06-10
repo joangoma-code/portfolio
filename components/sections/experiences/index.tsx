@@ -1,26 +1,29 @@
+"use client"
+
+import { useRef } from "react";
 import { experiences } from "@/data/experiences";
 
 import Container from "@/components/ui/Container";
 import ExperienceCard from "./ExperienceCard";
 
-
 export default function ExperienceSection() {
+  const ref = useRef<HTMLElement | null>(null);
+
   return (
     <section
       id="experiences"
+      ref={ref}
       className="flex min-h-screen items-center justify-center py-4"
     >
       <Container>
         <div className="space-y-20">
           <div className="max-w-3xl space-y-6">
-            <h2 className="section-title">
-              Experiencies
-            </h2>
+            <h2 className="section-title">Experiencies</h2>
           </div>
 
           <div className="relative">
             {/* Linea timeline */}
-            <div className="absolute left-4 top-5 bottom-25 w-px -translate-x-1/2 bg-(--color-foreground2) md:left-1/2" /> 
+            <div className="absolute left-4 top-5 bottom-25 w-px -translate-x-1/2 bg-(--color-foreground2) md:left-1/2" />
 
             <div className="flex flex-col">
               {experiences.map((experience, index) => (

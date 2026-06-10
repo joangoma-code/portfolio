@@ -5,173 +5,136 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
+  useCallback,
 } from "react";
 
-import { links } from "@/data/links";
-
-/*
-  CONTEXTO GLOBAL DE SCROLL
-*/
-type ActiveSectionContextType = {
+type Ctx = {
   activeSection: string;
-  visibleSections: Record<string, number>;  // Objeto dinámico:{ sectionId: visibilityRatio }
   scrollY: number;
   isNavigating: boolean;
-  setIsNavigating: (value: boolean) => void;
+  setIsNavigating: (v: boolean) => void;
+  registerSection: (id: string, el: HTMLElement | null) => void;
 };
 
-// valores por defecto (se usan solo si el Provider no está disponible)
-const ActiveSectionContext =
-  createContext<ActiveSectionContextType>({
-    activeSection: "",
-    visibleSections: {},
-    scrollY: 0,
-    isNavigating: false,
-    setIsNavigating: () => {},
-  });
+const ActiveSectionContext = createContext<Ctx | null>(null);
 
-export function ActiveSectionProvider({ children }: { children: React.ReactNode }) {
+type Sections = Record<string, HTMLElement>;
 
-  // Sección actualmente más visible en pantalla
-  const [activeSection, setActiveSection] =
-    useState("");
+export function ActiveSectionProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  // aquí guardamos las secciones sin forzar renders
+  // es solo memoria interna del provider
+  const sections = useRef<Sections>({});
 
-  
-  //  Guarda el nivel de visibilidad de cada sección (0 a 1)
-  const [visibleSections, setVisibleSections] =
-    useState<Record<string, number>>({});
+  const [activeSection, setActiveSection] = useState("");
+  const [scrollY, setScrollY] = useState(0);
 
-  
-  //  Posición real del scroll vertical
-  const [scrollY, setScrollY] =
-    useState(0);
+  // cuando es true, no actualizamos el activeSection
+  // lo usamos para evitar que el scroll "automático" pise la navbar
+  const [isNavigating, setIsNavigating] = useState(false);
 
-  
-  //  Indica si el usuario está navegando por click (no scroll manual)
-  const [isNavigating, setIsNavigating] =
-    useState(false);
-
-  /*
-    OBSERVER PRINCIPAL
-    Detecta qué sección está visible en pantalla
-  */
-  useEffect(() => {
-    const sections = links
-      .map((link) =>
-        document.getElementById(link.id)
-      ).filter((section) => section)
-        //  Elimina null/undefined si alguna sección no existe
-      
-    // si aún no existen las secciones, no hacemos nada
-    if (!sections.length) return;
-
-    
-    // IntersectionObserver: se ejecuta cuando las secciones entran/salen del viewport
-    const observer =
-      new IntersectionObserver(
-        (entries) => {
-          setVisibleSections((prev) => {
-            const updated = { ...prev };
-
-            // Actualiza cuánto se ve cada sección
-            entries.forEach((entry) => {
-              updated[entry.target.id] =
-                entry.intersectionRatio;
-            });
-
-            // Busca la sección mas visible en pantalla  
-            let currentSection = "";
-            let maxVisibility = 0;
-            // Si la seccion tiene suficiente visibilidad, la marcamos como activa
-            for ( const id in updated) {
-              if (updated[id] > maxVisibility) {
-                maxVisibility = updated[id];
-                currentSection = id;
-              }
-            }
-            if (maxVisibility > 0.2) setActiveSection(currentSection)
-            return updated;
-          });
-        },
-        {
-          //  Ajusta cuando empieza a considerar una sección “activa”
-          rootMargin:
-            "-20% 0px -35% 0px",
-          //Puntos de activación del observer
-          threshold: [
-            0,
-            0.1,
-            0.25,
-            0.5,
-            0.75,
-            1,
-          ],
-        }
-      );
-
-    // empezar a observar todas las secciones
-    sections.forEach((section) =>
-      observer.observe(section!)
-    );
-
-    // limpiar observer al desmontar el componente
-    return () => observer.disconnect();
+  // guardamos cada sección cuando se monta
+  // no queremos re-renders aquí, solo referencia
+  const registerSection = useCallback((id: string, el: HTMLElement | null) => {
+    if (!el) return;
+    sections.current[id] = el;
   }, []);
 
-  /*
-    TRACKING DE SCROLL REAL
-    Esto NO depende del observer.
-  */
   useEffect(() => {
+    let ticking = false;
+
+    const calculate = () => {
+      // si estamos en scroll automático (click en navbar), no actualizamos nada
+      if (isNavigating) return;
+
+      // cogemos todas las secciones reales del DOM
+      const sections = document.querySelectorAll<HTMLElement>("section[id]");
+
+      const viewportCenter = window.innerHeight / 2;
+
+      let bestId = "";
+      let bestScore = Infinity;
+
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+
+        // centro de la sección en pantalla
+        const elementCenter = rect.top + rect.height / 2;
+
+        // distancia entre el centro de la pantalla y el de la sección
+        const distance = Math.abs(viewportCenter - elementCenter);
+
+        // normalizamos por altura para que las secciones pequeñas no pierdan siempre
+        const normalized = distance / rect.height;
+
+        // nos quedamos con la sección más “alineada” al centro
+        if (normalized < bestScore) {
+          bestScore = normalized;
+          bestId = section.id;
+        }
+      });
+
+      // si encontramos una sección válida, la marcamos como activa
+      if (bestId) {
+        setActiveSection(bestId);
+      }
+    };
+
+    // manejamos el scroll sin saturar el browser
     const onScroll = () => {
       setScrollY(window.scrollY);
+
+      if (ticking) return;
+      ticking = true;
+
+      requestAnimationFrame(() => {
+        calculate();
+        ticking = false;
+      });
     };
 
     window.addEventListener("scroll", onScroll, {
-      // Mejora el rendimiento del scroll indicando que no bloquearemos el evento
-      passive: true,
+      passive: true, // no bloquea el scroll (mejor rendimiento)
     });
 
-    return () =>
-      window.removeEventListener(
-        "scroll",
-        onScroll
-      );
-  }, []);
+    // calculamos una vez al entrar para tener estado inicial correcto
+    calculate();
 
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [isNavigating]);
 
-  // Memoriza el objeto para evitar re-renders innecesarios en los componentes que consumen este contexto
+  // evitamos renders innecesarios en los componentes que consumen esto
   const value = useMemo(
     () => ({
       activeSection,
-      visibleSections,
       scrollY,
       isNavigating,
       setIsNavigating,
+      registerSection,
     }),
-    [
-      activeSection,
-      visibleSections,
-      scrollY,
-      isNavigating,
-    ]
+    [activeSection, scrollY, isNavigating, registerSection],
   );
 
-  // Proveedor global: permite que toda la app acceda al estado del scroll
   return (
-    <ActiveSectionContext.Provider
-      value={value}
-    >
+    <ActiveSectionContext.Provider value={value}>
       {children}
     </ActiveSectionContext.Provider>
   );
 }
 
-
-// Hook para consumir el contexto de forma simple
 export function useActiveSection() {
-  return useContext(
-    ActiveSectionContext
-  );
+  const ctx = useContext(ActiveSectionContext);
+
+  if (!ctx) {
+    throw new Error("useActiveSection must be used within provider");
+  }
+
+  return ctx;
 }

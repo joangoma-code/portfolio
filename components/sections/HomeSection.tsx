@@ -18,23 +18,19 @@ export default function HomeSection() {
           </h1>
 
           <p className="mt-6 max-w-prose text-lg leading-relaxed opacity-80">
-            Frontend Developer focused on building fast, accessible,
-            and user-centered web applications. I work mainly with React, Next.js,
-            and TypeScript to create clean interfaces and scalable frontend architectures.
+            Frontend Developer focused on building fast, accessible, and
+            user-centered web applications. I work mainly with React, Next.js,
+            and TypeScript to create clean interfaces and scalable frontend
+            architectures.
           </p>
           <p className="mt-4 text-sm opacity-60">
             Open to Frontend Developer opportunities
           </p>
 
           <div className="mt-10 flex gap-4 ">
-            <Button href="#projects">
-              View Projects
-            </Button>
+            <Button href="#projects">View Projects</Button>
 
-            <Button
-              href="#contact"
-              variant="secondary"
-            >
+            <Button href="#contact" variant="secondary">
               Get in touch
             </Button>
           </div>

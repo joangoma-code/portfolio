@@ -1,36 +1,5 @@
 import Container from "@/components/ui/Container";
-
-const skills = [
-  {
-    title: "UI/UX Design",
-    items: [
-      "Interface design",
-      "Wireframing and prototyping",
-      "User-centered design",
-      "Reusable component design",
-      "Basic accessibility (WCAG)",
-    ],
-  },
-  {
-    title: "Frontend Development",
-    items: [
-      "HTML, CSS, responsive layouts",
-      "JavaScript, TypeScript",
-      "React, Next.js",
-      "REST APIs integration",
-      "Node.js basics",
-    ],
-  },
-  {
-    title: "Tools & Workflow",
-    items: [
-      "Figma",
-      "Git / GitHub",
-      "VS Code",
-      "Adobe Creative Suite",
-    ],
-  },
-];
+import { skills } from "@/data/skills";
 
 export default function SkillSection() {
   return (
@@ -40,16 +9,12 @@ export default function SkillSection() {
     >
       <Container>
         <div className="space-y-12">
-          <h2 className="section-title">
-            Skills
-          </h2>
+          <h2 className="section-title">Skills</h2>
 
           <div className="grid gap-8 md:grid-cols-3">
             {skills.map((category) => (
               <div key={category.title} className="space-y-4">
-                <h3 className="text-2xl font-semibold">
-                  {category.title}
-                </h3>
+                <h3 className="text-2xl font-semibold">{category.title}</h3>
 
                 <ul className="space-y-2">
                   {category.items.map((item) => (
