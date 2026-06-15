@@ -5,6 +5,8 @@ import { Diamond, Hexagon } from "lucide-react";
 
 import { links } from "@/data/links";
 import { useActiveSection } from "@/providers/ActiveSectionProvider";
+import { ActiveSectionProvider } from "@/providers/ActiveSectionProvider";
+import { useNavbarVisibility } from "@/hooks/useNavbarVisibility";
 
 
 export default function SideNav() {
@@ -12,6 +14,8 @@ export default function SideNav() {
     activeSection,
     scrollY,
   } = useActiveSection();
+
+  const { navigateToSection } = useNavbarVisibility();
 
   const passedHero = scrollY > 400;
 
@@ -38,6 +42,10 @@ export default function SideNav() {
               <li key={link.id}>
                 <Link
                   href={`#${link.id}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        navigateToSection(link.id);
+                      }}
                   className="flex items-center gap-3"
                 >
                   <span

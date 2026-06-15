@@ -20,6 +20,7 @@ type Ctx = {
 
 const ActiveSectionContext = createContext<Ctx | null>(null);
 
+// Guardamos referencias reales del DOM sin forzar re-renders
 type Sections = Record<string, HTMLElement>;
 
 export function ActiveSectionProvider({
@@ -27,90 +28,110 @@ export function ActiveSectionProvider({
 }: {
   children: React.ReactNode;
 }) {
-  // aquí guardamos las secciones sin forzar renders
-  // es solo memoria interna del provider
+  // aquí almacenamos las secciones registradas (cache en memoria)
   const sections = useRef<Sections>({});
+
+  // flag para saber si ya hemos sincronizado con el DOM al menos una vez
+  const hasHydratedSections = useRef(false);
 
   const [activeSection, setActiveSection] = useState("");
   const [scrollY, setScrollY] = useState(0);
 
-  // cuando es true, no actualizamos el activeSection
-  // lo usamos para evitar que el scroll "automático" pise la navbar
+  // evita que el scroll automático (click en navbar) interfiera con el cálculo
   const [isNavigating, setIsNavigating] = useState(false);
 
-  // guardamos cada sección cuando se monta
-  // no queremos re-renders aquí, solo referencia
+  // registro manual de secciones (ideal si los componentes lo usan bien)
   const registerSection = useCallback((id: string, el: HTMLElement | null) => {
-    if (!el) return;
+    if (!el) {
+      // si el elemento desaparece, lo eliminamos del cache
+      delete sections.current[id];
+      return;
+    }
+
     sections.current[id] = el;
+
+    // marcamos que ya tenemos datos válidos en memoria
+    hasHydratedSections.current = true;
   }, []);
+
+  // fallback: si no se registran secciones, las sacamos directamente del DOM
+  const syncFromDOM = useCallback(() => {
+    const els = document.querySelectorAll<HTMLElement>("section[id]");
+
+    els.forEach((el) => {
+      sections.current[el.id] = el;
+    });
+  }, []);
+
+  useEffect(() => {
+    // aseguramos que siempre tengamos algo aunque no haya registerSection
+    syncFromDOM();
+  }, [syncFromDOM]);
 
   useEffect(() => {
     let ticking = false;
 
+    // calcula qué sección está más centrada en pantalla
     const calculate = () => {
-      // si estamos en scroll automático (click en navbar), no actualizamos nada
+      // si estamos navegando con scroll suave, no actualizamos activeSection
       if (isNavigating) return;
-
-      // cogemos todas las secciones reales del DOM
-      const sections = document.querySelectorAll<HTMLElement>("section[id]");
 
       const viewportCenter = window.innerHeight / 2;
 
       let bestId = "";
       let bestScore = Infinity;
 
-      sections.forEach((section) => {
-        const rect = section.getBoundingClientRect();
+      // recorremos las secciones cacheadas (mucho más barato que querySelectorAll)
+      const entries = sections.current;
 
-        // centro de la sección en pantalla
-        const elementCenter = rect.top + rect.height / 2;
+      for (const id in entries) {
+        const el = entries[id];
+        if (!el) continue;
 
-        // distancia entre el centro de la pantalla y el de la sección
-        const distance = Math.abs(viewportCenter - elementCenter);
+        const rect = el.getBoundingClientRect();
 
-        // normalizamos por altura para que las secciones pequeñas no pierdan siempre
-        const normalized = distance / rect.height;
+        // centro visual del elemento en pantalla
+        const center = rect.top + rect.height / 2;
 
-        // nos quedamos con la sección más “alineada” al centro
-        if (normalized < bestScore) {
-          bestScore = normalized;
-          bestId = section.id;
+        // distancia al centro de la pantalla
+        const distance = Math.abs(viewportCenter - center);
+
+        // normalizamos para evitar sesgo por tamaño
+        const score = distance / rect.height;
+
+        // nos quedamos con la sección más alineada al centro
+        if (score < bestScore) {
+          bestScore = score;
+          bestId = id;
         }
-      });
-
-      // si encontramos una sección válida, la marcamos como activa
-      if (bestId) {
-        setActiveSection(bestId);
       }
+
+      if (bestId) setActiveSection(bestId);
     };
 
-    // manejamos el scroll sin saturar el browser
     const onScroll = () => {
+      // guardamos posición del scroll (navbar, etc.)
       setScrollY(window.scrollY);
 
+      // evitamos ejecutar demasiadas veces por frame
       if (ticking) return;
       ticking = true;
 
       requestAnimationFrame(() => {
-        calculate();
+        calculate(); // calculo optimizado en frame sync
         ticking = false;
       });
     };
 
-    window.addEventListener("scroll", onScroll, {
-      passive: true, // no bloquea el scroll (mejor rendimiento)
-    });
+    window.addEventListener("scroll", onScroll, { passive: true });
 
-    // calculamos una vez al entrar para tener estado inicial correcto
+    // ejecutamos una vez al montar para estado inicial correcto
     calculate();
 
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, [isNavigating]);
 
-  // evitamos renders innecesarios en los componentes que consumen esto
+  // memorizamos el contexto para evitar renders innecesarios en consumidores
   const value = useMemo(
     () => ({
       activeSection,
@@ -132,9 +153,8 @@ export function ActiveSectionProvider({
 export function useActiveSection() {
   const ctx = useContext(ActiveSectionContext);
 
-  if (!ctx) {
-    throw new Error("useActiveSection must be used within provider");
-  }
+  // error claro si se usa fuera del provider
+  if (!ctx) throw new Error("useActiveSection must be used within provider");
 
   return ctx;
 }
