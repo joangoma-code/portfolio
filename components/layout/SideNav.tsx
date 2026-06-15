@@ -5,7 +5,6 @@ import { Diamond, Hexagon } from "lucide-react";
 
 import { links } from "@/data/links";
 import { useActiveSection } from "@/providers/ActiveSectionProvider";
-import { ActiveSectionProvider } from "@/providers/ActiveSectionProvider";
 import { useNavbarVisibility } from "@/hooks/useNavbarVisibility";
 
 
