@@ -23,7 +23,7 @@ export default function ExperienceSection() {
 
           <div className="relative">
             {/* Linea timeline */}
-            <div className="absolute left-4 top-5 bottom-25 w-px -translate-x-1/2 bg-(--color-foreground2) md:left-1/2" />
+            <div className="absolute left-4 top-5 bottom-25 w-0.5 -translate-x-1/2 bg-(--color-foreground2) md:left-1/2" />
 
             <div className="flex flex-col">
               {experiences.map((experience, index) => (

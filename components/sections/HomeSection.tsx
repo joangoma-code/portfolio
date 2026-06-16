@@ -17,13 +17,11 @@ export default function HomeSection() {
             Joan Goma
           </h1>
 
-          <p className="mt-6 max-w-prose text-lg leading-relaxed opacity-80">
-            Frontend Developer focused on building fast, accessible, and
-            user-centered web applications. I work mainly with React, Next.js,
-            and TypeScript to create clean interfaces and scalable frontend
-            architectures.
+          <p className="mt-6 pl-6 max-w-prose text-lg leading-relaxed opacity-80">
+            Developer focused on building simple, fast, and thoughtful web
+            experiences. I enjoy bringing ideas to life through code.
           </p>
-          <p className="mt-4 text-sm opacity-60">
+          <p className="mt-4 pl-6 text-sm opacity-60">
             Open to Frontend Developer opportunities
           </p>
 

@@ -11,7 +11,7 @@ export default function SkillSection() {
         <div className="space-y-12">
           <h2 className="section-title">Skills</h2>
 
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-3 px-6">
             {skills.map((category) => (
               <div key={category.title} className="space-y-4">
                 <h3 className="text-2xl font-semibold">{category.title}</h3>

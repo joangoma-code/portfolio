@@ -51,14 +51,14 @@ export default function ProjectsSection() {
             <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
               <div className="max-w-3xl space-y-6">
                 <h2 className="section-title">Projects</h2>
-                <p className="text-lg leading-relaxed opacity-70 md:text-xl">
+                <p className="text-lg leading-relaxed px-6 opacity-70 md:text-xl ">
                   A selection of digital projects exploring UI design,
                   interaction, and frontend development.
                 </p>
               </div>
             </div>
 
-            <div className="grid gap-8 md:grid-cols-2">
+            <div className="grid gap-8 px-6 md:grid-cols-2">
               {visibleProjects.map((project) => (
                 <ProjectCard
                   key={project.title}

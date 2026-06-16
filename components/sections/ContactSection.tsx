@@ -20,7 +20,7 @@ export default function ContactSection() {
           </div>
           {/*Open to Frontend Developer opportunities. */}
 
-          <div className="flex flex-col gap-6 md:flex-row md:gap-12">
+          <div className="flex flex-col gap-6 pl-6 md:flex-row md:gap-12">
             {contacts.map((contact) => (
               <a
                 key={contact.label}
