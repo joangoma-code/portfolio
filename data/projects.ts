@@ -1,8 +1,9 @@
 import type { Project } from "@/types/Project";
+//import image from "@/public/portfolio_screenshot.webp"
 
 export const projects: Project[] = [
   {
-    image: "@/public/window.svg",
+    image: "/portfolio_screenshot.webp",
 
     title: "Personal Portfolio Website",
 
@@ -27,7 +28,7 @@ export const projects: Project[] = [
   },
 
   {
-    image: "@/public/window.svg",
+    image: "/project1.webp",
 
     title: "Interactive Web Interface (Vue.js Project)",
 

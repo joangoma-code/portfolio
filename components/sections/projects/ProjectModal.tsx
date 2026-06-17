@@ -53,12 +53,12 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           <X size={18} />
         </button>
 
-        <div className="aspect-video overflow-hidden rounded-t-3xl">
+        <div className="relative w-full aspect-video overflow-hidden rounded-t-3xl">
           <Image
             src={project.image}
             alt={project.title}
             fill
-            className="h-full w-full object-cover"
+            className="object-cover"
           />
         </div>
 

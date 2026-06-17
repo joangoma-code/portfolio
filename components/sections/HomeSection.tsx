@@ -18,8 +18,8 @@ export default function HomeSection() {
           </h1>
 
           <p className="mt-6 pl-6 max-w-prose text-lg leading-relaxed opacity-80">
-            Developer focused on building simple, fast, and thoughtful web
-            experiences. I enjoy bringing ideas to life through code.
+            Focused on building simple, fast, and thoughtful web experiences. I
+            enjoy turning ideas into real products through code.
           </p>
           <p className="mt-4 pl-6 text-sm opacity-60">
             Open to Frontend Developer opportunities
