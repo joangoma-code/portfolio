@@ -16,11 +16,11 @@ export default function SkillSection() {
               <div key={category.title} className="space-y-4">
                 <h3 className="text-2xl font-semibold">{category.title}</h3>
 
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {category.items.map((item) => (
                     <li
                       key={item}
-                      className="text-lg text-(--color-foreground) rounded-full border border-(--color-foreground2) px-4 py-2 hover:border-(--color-border)"
+                      className="text-lg text-(--color-foreground) rounded-full border border-(--color-foreground2) px-4 py-2 hover:border-(--color-border) transition duration-300 hover:scale-101"
                     >
                       {item}
                     </li>

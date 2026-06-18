@@ -16,14 +16,15 @@ export default function ProjectCard({
   return (
     <button
       onClick={onClick}
-      className="overflow-hidden rounded-2xl border border-(--color-border) bg-(--color-card) text-left transition-all duration-300 hover:-translate-y-1 hover:bg-(--color-background2)"
+      className="group overflow-hidden rounded-2xl border border-(--color-border) bg-(--color-card) text-left hover:bg-(--color-background2) transition-all duration-700 hover:scale-102"
     >
-      <div className="relative aspect-video overflow-hidden">
+      <div className="relative aspect-video overflow-hidden m-4 rounded-xl group-hover:border border-(--color-border)">
         <Image
           src={project.image}
           alt={project.title}
           fill
-          className="object-cover"
+          sizes="100vw, 50vw, 33vw"
+          className="object-cover group-hover:scale-103"
         />
       </div>
 
