@@ -77,7 +77,8 @@ export default function Navbar() {
             </ul>
           </nav>
 
-          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
+          {/* MOBILE button */}
+          <button onClick={() => {console.log("click"); setIsOpen(!isOpen); }} className="md:hidden">
             {isOpen ? <X className="size-6" /> : <Menu className="size-6" />}
           </button>
         </Container>

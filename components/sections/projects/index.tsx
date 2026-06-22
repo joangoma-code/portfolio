@@ -51,7 +51,7 @@ export default function ProjectsSection() {
             <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
               <div className="max-w-3xl space-y-6">
                 <h2 className="section-title">Projects</h2>
-                <p className="text-lg leading-relaxed px-6 opacity-70 md:text-xl ">
+                <p className=" section-text text-lg leading-relaxed opacity-70 md:text-xl ">
                   A selection of digital projects exploring UI design,
                   interaction, and frontend development.
                 </p>

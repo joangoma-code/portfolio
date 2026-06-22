@@ -13,14 +13,15 @@
     font-weight: var(--font-weight-bold);
     line-height: var(--leading-tight);
   }
-  .section-text {
-    padding-left: calc(var(--spacing) * 6)
+  .section-content {
+    padding-inline: calc(var(--spacing) * 6);
   }
 
   @media (width >= 48rem) {
     .section-title {
       font-size: var(--text-7xl);
     }
+
   }
 }
 
