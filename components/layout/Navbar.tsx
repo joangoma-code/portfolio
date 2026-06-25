@@ -85,20 +85,21 @@ export default function Navbar() {
       </header>
 
       {/* MOBILE */}
-      <div
+      {isOpen && (
+        <div
         className={`
           fixed inset-0 z-40 md:hidden
           bg-(--color-background)/90
           backdrop-blur-2xl
           transition-all duration-500
           ${isOpen ? "opacity-100" : "pointer-events-none opacity-0"}
-        `}
-      >
+          `}
+          >
         <nav className="flex h-full items-center justify-center">
           <ul className=" flex flex-col items-center gap-4">
             {links.map((link) => {
               const isActive = activeSection === link.id;
-
+              
               return (
                 <li key={link.id}>
                   <Link
@@ -106,10 +107,9 @@ export default function Navbar() {
                     onClick={() => setIsOpen(false)}
                     className={`
                       flex text-3xl
-
                       ${isActive ? "text-(--color-primary)" : ""}
-                    `}
-                  >
+                      `}
+                      >
                     {link.label}
                   </Link>
                 </li>
@@ -121,6 +121,7 @@ export default function Navbar() {
           </ul>
         </nav>
       </div>
+          )}
     </>
   );
 }

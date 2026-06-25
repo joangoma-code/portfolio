@@ -20,6 +20,14 @@ export function useNavbarVisibility() {
       // si estamos en scroll programado, ignoramos visibilidad
       if (isNavigating) return;
 
+      /* 
+        const getScrollY = () =>
+        window.scrollY ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop ||
+        0;
+        */
+
       const y = window.scrollY;
 
       // zona superior: siempre visible
@@ -88,7 +96,7 @@ export function useNavbarVisibility() {
 
       // scroll suave nativo del navegador
       target.scrollIntoView({
-        behavior: "smooth",
+        //behavior: "smooth",
         block: "start",
       });
     },

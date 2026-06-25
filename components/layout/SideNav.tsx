@@ -27,7 +27,7 @@ export default function SideNav() {
         ${
           passedHero
             ? "translate-x-0 opacity-100"
-            : "-translate-x-10 opacity-0"
+            : "-translate-x-10 opacity-0"       
         }
       `}
     >
