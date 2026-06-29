@@ -45,7 +45,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       onClick={handleBackdropClick}
       className="fixed inset-0 z-100 flex items-center justify-center p-4 backdrop-blur-md"
     >
-      <div className="relative max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-3xl border border-(--color-border) bg-(--color-card)">
+      <div className="relative max-h-[90vh] w-full max-w-4xl overflow-y-auto scrollbar-none rounded-3xl border border-(--color-border) bg-(--color-card)">
         <button
           onClick={onClose}
           className="absolute right-4 top-4 z-10 rounded-full border border-(--color-border) bg-(--color-background) p-2 transition-colors hover:bg-(--color-background2)"

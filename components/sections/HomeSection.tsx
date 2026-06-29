@@ -25,7 +25,7 @@ export default function HomeSection() {
             Open to Frontend Developer opportunities
           </p>
 
-          <div className="mt-10 flex gap-4 ">
+          <div className="mt-10 flex gap-4 pl-6">
             <Button href="#projects">View Projects</Button>
 
             <Button href="#contact" variant="secondary">

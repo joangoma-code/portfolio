@@ -11,12 +11,12 @@ export default function AboutSection() {
           <div className="space-y-6">
             <h2 className="section-title">About me</h2>
 
-            <p className="section-text">
+            <p className="section-content">
               I'm Joan, a designer and developer born in 1993 in Tarragona,
               focused on creating interactive and visually engaging digital
               experiences across web and game-inspired interfaces.
             </p>
-            <p className="section-text">
+            <p className="section-content">
               I enjoy bringing ideas to life through clean, functional
               interfaces and thoughtful interactions. I like working on products
               where details matter and where design and development come

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState, useLayoutEffect } from "react";
 import { DiamondPlus, DiamondMinus } from "lucide-react";
@@ -37,13 +37,10 @@ export default function ProjectsSection() {
     }
   };
 
-
-
   return (
     <>
       <section
         id="projects"
-      
         className="flex min-h-screen items-center justify-center py-4"
       >
         <Container>
@@ -51,14 +48,14 @@ export default function ProjectsSection() {
             <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
               <div className="max-w-3xl space-y-6">
                 <h2 className="section-title">Projects</h2>
-                <p className=" section-text text-lg leading-relaxed opacity-70 md:text-xl ">
+                <p className=" section-content text-lg leading-relaxed opacity-70 md:text-xl ">
                   A selection of digital projects exploring UI design,
                   interaction, and frontend development.
                 </p>
               </div>
             </div>
 
-            <div className="grid gap-8 px-6 md:grid-cols-2">
+            <div className="grid gap-8 section-content md:grid-cols-2">
               {visibleProjects.map((project) => (
                 <ProjectCard
                   key={project.title}
@@ -68,23 +65,23 @@ export default function ProjectsSection() {
               ))}
             </div>
 
-            <div className="flex justify-center gap-8">
-              <button
-                onClick={handleToggle}
-                className="flex items-center text-(--color-foreground) hover:text-(--color-border)"
-              >
-                {
-                  // mostrar opcion para visibilizar el selector
-                  projects.length > 2 ? (
+            {projects.length > 2 && (
+              <div className="flex justify-center gap-8">
+                <button
+                  onClick={handleToggle}
+                  className="flex items-center text-(--color-foreground) hover:text-(--color-border)"
+                >
+                  {
+                    // mostrar opcion para visibilizar el selector
                     showAll ? (
                       <DiamondMinus strokeWidth={1} className="size-10" />
                     ) : (
                       <DiamondPlus strokeWidth={1} className="size-10" />
                     )
-                  ) : null
-                }
-              </button>
-            </div>
+                  }
+                </button>
+              </div>
+            )}
           </div>
         </Container>
       </section>
