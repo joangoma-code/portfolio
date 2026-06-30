@@ -37,7 +37,7 @@ export default function Navbar() {
         `}
       >
         <Container className="flex items-center justify-between py-4">
-          <Link href="#inicio" className="text-xl font-semibold">
+          <Link href="#home" className="text-xl font-semibold">
             Joan Goma
           </Link>
 

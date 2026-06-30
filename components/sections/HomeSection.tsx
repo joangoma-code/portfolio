@@ -1,3 +1,5 @@
+"use client";
+
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 
@@ -31,6 +33,10 @@ export default function HomeSection() {
             <Button href="#contact" variant="secondary">
               Get in touch
             </Button>
+            <button onClick={() => alert("test_home_click")} >
+              Alert Test
+            </button>
+
           </div>
         </div>
       </Container>
