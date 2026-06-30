@@ -10,6 +10,7 @@ import { links } from "@/data/links";
 
 import { useActiveSection } from "@/providers/ActiveSectionProvider";
 import { useNavbarVisibility } from "@/hooks/useNavbarVisibility";
+import useCloseOnEscapeOrBack from "@/hooks/useCloseOnEscapeOrBack";
 
 import { useState } from "react";
 
@@ -19,6 +20,8 @@ export default function Navbar() {
   const {isVisible, navigateToSection } = useNavbarVisibility();
 
   const [isOpen, setIsOpen] = useState(false);
+
+  useCloseOnEscapeOrBack(isOpen, () => setIsOpen(false));
 
   return (
     <>
@@ -37,7 +40,15 @@ export default function Navbar() {
         `}
       >
         <Container className="flex items-center justify-between py-4">
-          <Link href="#home" className="text-xl font-semibold">
+          <Link
+            href="#home"
+            onClick={(e) => {
+              e.preventDefault();
+              navigateToSection("home");
+              setIsOpen(false);
+            }}
+            className="text-xl font-semibold"
+          >
             Joan Goma
           </Link>
 
@@ -78,7 +89,7 @@ export default function Navbar() {
           </nav>
 
           {/* MOBILE button */}
-          <button onClick={() => {console.log("click"); setIsOpen(!isOpen); }} className="md:hidden">
+          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
             {isOpen ? <X className="size-6" /> : <Menu className="size-6" />}
           </button>
         </Container>
@@ -104,12 +115,16 @@ export default function Navbar() {
                 <li key={link.id}>
                   <Link
                     href={`#${link.id}`}
-                    onClick={() => setIsOpen(false)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsOpen(false);
+                      navigateToSection(link.id);
+                    }}
                     className={`
                       flex text-3xl
                       ${isActive ? "text-(--color-primary)" : ""}
                       `}
-                      >
+                  >
                     {link.label}
                   </Link>
                 </li>

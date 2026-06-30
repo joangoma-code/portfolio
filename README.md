@@ -9,7 +9,10 @@ npm run dev
 npm install next-themes lucide-react
 ```
 
-
+```
+reactStrictMode: true,
+allowedDevOrigins: ["192.168.1.xxx"],
+```
 
 
 ## Deploy on Vercel

@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import { X, Diamond } from "lucide-react";
-import { useEffect } from "react";
 
 import type { Project } from "@/types/Project";
 import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
+import useCloseOnEscapeOrBack from "@/hooks/useCloseOnEscapeOrBack";
 
 type ProjectModalProps = {
   project: Project | null;
@@ -14,22 +14,7 @@ type ProjectModalProps = {
 
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
   useLockBodyScroll(Boolean(project));
-
-  useEffect(() => {
-    if (!project) return;
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        onClose();
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [project, onClose]);
+  useCloseOnEscapeOrBack(Boolean(project), onClose);
 
   // Si no hay proyecto devolvemos NULL
   if (!project) return null;
