@@ -14,8 +14,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Porfolio JoanGoma",
-  description: "Portfolio desarrollado con Next.js, Typescript y Tailwind",
+  title: "Joan Goma | Frontend Developer",
+  description: "Frontend developer focused on building fast, accessible and modern web experiences with Next.js and React.",
+  metadataBase: new URL("https://joangoma.com"),
+
+  openGraph: {
+    title: "Joan Goma | Frontend Developer",
+    description: "Modern frontend developer portfolio",
+    url: "https://joangoma.com",
+    siteName: "Joan Goma Portfolio",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{

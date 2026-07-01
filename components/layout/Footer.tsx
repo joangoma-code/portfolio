@@ -4,11 +4,11 @@ export default function Footer() {
     <footer className="border-t border-(--color-border) py-8">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 text-sm opacity-70 md:flex-row">
         <p>
-          Creado usando Next.js, React y Tailwind CSS.
+          Created with Next.js, React & Tailwind CSS.
         </p>
 
         <p>
-          Desarrollado en Windows & Linux con Git y GitHub.
+          Developed on Windows & Linux with Git & GitHub.
         </p>
       </div>
     </footer>
