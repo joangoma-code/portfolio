@@ -46,7 +46,9 @@ npm run dev
 
 ## Installed Packages
 
+```bash
 npm install next-themes lucide-react
+```
 
 ---
 
@@ -73,10 +75,12 @@ npm install next-themes lucide-react
 ---
 
 ## Development Notes
+
 ```ts
 reactStrictMode: true,
 allowedDevOrigins: ["192.168.1.xxx"],
 ```
+
 ---
 
 
