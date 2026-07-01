@@ -1,22 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Web
+
+Minimal and fast personal portfolio built with a focus on clean UI, performance, and thoughtful interactions.
+
+---
+
+## Live Demo
+
+https://joangoma.com
+
+---
+
+## Preview
+
+![Home](./public/preview.png)
+![Projects](./public/preview.png)
+
+---
 
 ## Getting Started
 
+Install dependencies:
 
-```bash
+npm install
+
+Run development server:
+
 npm run dev
 
-npm install next-themes lucide-react
-```
+---
 
-```
+## Tech Stack
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- next-themes
+- lucide-react
+- Vercel (deployment)
+
+---
+
+## Installed Packages
+
+npm install next-themes lucide-react
+
+---
+
+## Features
+
+- Responsive design for all devices
+- Fast performance with Next.js optimizations
+- Smooth transitions and micro-interactions
+- Dynamic project rendering
+- Dark / light mode support
+- SEO optimized structure
+- Clean and accessible UI
+
+---
+
+## Design Decisions
+
+- Minimal UI inspired by modern developer portfolios
+- Focus on typography, spacing, and hierarchy
+- Reduced visual noise for better readability
+- Performance prioritized over heavy animations
+- Component-driven architecture for scalability
+
+---
+
+## Development Notes
+
 reactStrictMode: true,
 allowedDevOrigins: ["192.168.1.xxx"],
-```
+
+---
 
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Deployed with Vercel.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Automatically deployed on every push to the main branch.
+
+---
+
+## Original Setup
+
+This project was bootstrapped with:
+https://nextjs.org/docs/app/api-reference/cli/create-next-app
+
+---
+
+## Author
+
+**Joan Goma**  
+Frontend Developer focused on building simple, fast, and thoughtful web experiences.
+
+👉 https://joangoma.com

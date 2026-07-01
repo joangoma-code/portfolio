@@ -19,15 +19,15 @@ export default function HomeSection() {
             Joan Goma
           </h1>
 
-          <p className="mt-6 pl-6 max-w-prose text-lg leading-relaxed opacity-80">
+          <p className="mt-6 max-w-prose text-lg leading-relaxed opacity-80">
             Focused on building simple, fast, and thoughtful web experiences. I
             enjoy turning ideas into real products through code.
           </p>
-          <p className="mt-4 pl-6 text-sm opacity-60">
+          <p className="mt-4 text-sm opacity-60">
             Open to Frontend Developer opportunities
           </p>
 
-          <div className="mt-10 flex gap-4 pl-6">
+          <div className="section-content mt-10 flex gap-4">
             <Button href="#projects">View Projects</Button>
 
             <Button href="#contact" variant="secondary">
