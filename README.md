@@ -18,14 +18,17 @@ https://joangoma.com
 ---
 
 ## Getting Started
-
 Install dependencies:
 
+```bash
 npm install
+```
 
 Run development server:
 
+```bash
 npm run dev
+```
 
 ---
 
@@ -70,10 +73,10 @@ npm install next-themes lucide-react
 ---
 
 ## Development Notes
-
+```ts
 reactStrictMode: true,
 allowedDevOrigins: ["192.168.1.xxx"],
-
+```
 ---
 
 
