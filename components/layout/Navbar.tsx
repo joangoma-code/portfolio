@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
@@ -10,6 +11,7 @@ import { links } from "@/data/links";
 
 import { useActiveSection } from "@/providers/ActiveSectionProvider";
 import { useNavbarVisibility } from "@/hooks/useNavbarVisibility";
+import { useThemeToggle } from "@/hooks/useThemeToggle";
 import useCloseOnEscapeOrBack from "@/hooks/useCloseOnEscapeOrBack";
 
 import { useState } from "react";
@@ -17,7 +19,8 @@ import { useState } from "react";
 export default function Navbar() {
   const { activeSection } = useActiveSection();
 
-  const {isVisible, navigateToSection } = useNavbarVisibility();
+  const { isVisible, navigateToSection } = useNavbarVisibility();
+  const { isDark } = useThemeToggle();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -47,9 +50,17 @@ export default function Navbar() {
               navigateToSection("home");
               setIsOpen(false);
             }}
-            className="text-xl font-semibold"
+            className="flex items-center gap-3 text-xl font-semibold"
           >
-            Joan Goma
+            <Image
+              src={isDark ? "/logos/logo_white.png" : "/logos/logo_black.png"}
+              alt="Logo"
+              width={32}
+              height={32}
+              className="h-8 w-8"
+              priority
+            />
+            <span>Joan Goma</span>
           </Link>
 
           <nav className="hidden md:block">
