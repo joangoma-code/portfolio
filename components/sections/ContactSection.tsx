@@ -8,7 +8,7 @@ export default function ContactSection() {
       className="flex min-h-screen items-center justify-center py-4"
     >
       <Container>
-        <div className="max-w-4xl space-y-12">
+        <div className="max-w-4xl space-y-8">
           <div className="space-y-6">
             <h2 className="section-title">Contact</h2>
 
