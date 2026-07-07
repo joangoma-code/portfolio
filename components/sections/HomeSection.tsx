@@ -18,7 +18,7 @@ export default function HomeSection() {
           <h1 className="text-5xl font-bold leading-tight md:text-7xl">
             Joan Goma
           </h1>
-          <p>Branch merged! - modification test</p>
+          
 
           <p className="mt-6 max-w-prose text-lg leading-relaxed opacity-80">
             Focused on building simple, fast, and thoughtful web experiences. I
