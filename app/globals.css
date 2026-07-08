@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-geist);
+  --font-sans: var(--font-inter);
 
   --radius: 1rem;
 }
@@ -89,5 +89,5 @@ body {
 
   color: var(--color-foreground);
 
-  font-family: var(--font-sans);
+  font-family: var(--font-inter);
 }
