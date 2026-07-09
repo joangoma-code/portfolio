@@ -20,7 +20,8 @@ export default function Navbar() {
   const { activeSection } = useActiveSection();
 
   const { isVisible, navigateToSection } = useNavbarVisibility();
-  const { isDark } = useThemeToggle();
+  const { mounted, isDark } = useThemeToggle();
+  const logoSrc = mounted ? (isDark ? "/logo/icon_white.png" : "/logo/icon_black.png") : "/logo/icon_black.png";
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -53,7 +54,7 @@ export default function Navbar() {
             className="flex items-center gap-3 text-xl font-semibold"
           >
             <Image
-              src={isDark ? "/logos/logo_white.png" : "/logos/logo_black.png"}
+              src={logoSrc}
               alt="Logo"
               width={32}
               height={32}
