@@ -21,7 +21,7 @@ export default function Navbar() {
 
   const { isVisible, navigateToSection } = useNavbarVisibility();
   const { mounted, isDark } = useThemeToggle();
-  const logoSrc = mounted ? (isDark ? "/logo/icon_white.png" : "/logo/icon_black.png") : "/logo/icon_black.png";
+  const logoSrc = mounted ? (isDark ? "/logo/icon_white.svg" : "/logo/icon_black.svg") : "/logo/icon_black.svg";
 
   const [isOpen, setIsOpen] = useState(false);
 
