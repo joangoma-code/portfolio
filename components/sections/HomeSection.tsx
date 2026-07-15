@@ -1,13 +1,19 @@
 "use client";
 
+
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
+import Mountain1 from "../ui/mountains/Mountain1";
+import Mountain2 from "../ui/mountains/Mountain2";
+import Mountain3 from "../ui/mountains/Mountain3";
+
+
 
 export default function HomeSection() {
   return (
     <section
       id="home"
-      className="flex min-h-screen items-center justify-center"
+      className=" relative flex min-h-dvh overflow-hidden items-center justify-center bg-linear-to-t from-(--color-background4) to-(--color-background5)"
     >
       <Container>
         <div className="max-w-3xl">
@@ -33,10 +39,14 @@ export default function HomeSection() {
             <Button href="#contact" variant="secondary">
               Get in touch
             </Button>
-
           </div>
         </div>
       </Container>
+      <div className="absolute inset-x-0 bottom-0 w-full pointer-events-none">
+        <Mountain1 className="absolute -bottom-1 w-full z-40" />
+        <Mountain2 className="absolute -bottom-1 w-full z-30" />
+        <Mountain3 className="absolute -bottom-1 w-full z-20" />
+      </div>
     </section>
   );
 }
