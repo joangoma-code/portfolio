@@ -111,7 +111,7 @@ export default function Navbar() {
       {isOpen && (
         <div
         className={`
-          fixed inset-0 z-40 md:hidden
+          fixed inset-0 z-90 md:hidden
           bg-(--color-background)/90
           backdrop-blur-2xl
           transition-all duration-500

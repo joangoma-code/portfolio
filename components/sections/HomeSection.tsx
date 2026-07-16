@@ -14,14 +14,18 @@ export default function HomeSection() {
   const mountain1Y = useTransform(scrollY, [0, 900], [0, 20]);
   const mountain2Y = useTransform(scrollY, [0, 900], [0, 60]);
   const mountain3Y = useTransform(scrollY, [0, 900], [0, 90]);
+  const contentY = useTransform(scrollY, [0, 900], [0, 160]);
 
   return (
     <section
       id="home"
-      className=" relative flex min-h-dvh overflow-hidden items-center justify-center bg-linear-to-t from-(--color-background4) to-(--color-background5)"
+      className="relative flex min-h-dvh overflow-hidden items-center justify-center bg-linear-to-t from-(--color-background4) to-(--color-background5)"
     >
-      <Container className="z-50">
-        <div className="max-w-3xl">
+      <Container className="z-50 mt-30 mb-60">
+        <motion.div
+          style={{ y: contentY }}
+          className="max-w-3xl"
+        >
           <p className="mb-4 text-sm uppercase tracking-[0.3em] opacity-70">
             Frontend Developer · React · Next.js · TypeScript
           </p>
@@ -45,7 +49,7 @@ export default function HomeSection() {
               Get in touch
             </Button>
           </div>
-        </div>
+        </motion.div>
       </Container>
         <div className="absolute inset-x-0 bottom-0 pointer-events-none">
           <motion.div
