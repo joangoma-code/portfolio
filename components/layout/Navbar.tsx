@@ -31,7 +31,7 @@ export default function Navbar() {
     <>
       <header
         className={`
-          fixed top-0 z-50 w-full
+          fixed top-0 z-100 w-full
           border-b border-(--color-border)/30
           bg-(--color-card)/70
           backdrop-blur-xl

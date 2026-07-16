@@ -2,7 +2,6 @@
 
 @theme {
   --radius: 1rem;
-
 }
 
 /*@layer base {h2 { }}*/
@@ -20,7 +19,6 @@
     .section-title {
       font-size: var(--text-7xl);
     }
-
   }
 }
 
@@ -45,7 +43,7 @@ html {
   --color-foreground2: #334155;
 
   --color-card: #fdfdfd;
-  --color-border: #80AFFF;
+  --color-border: #80afff;
 
   --color-primary: #2f6fe4;
   --color-secondary: #1e5ed8;
@@ -61,12 +59,13 @@ html.dark {
   --color-background: #070c18;
   --color-background2: #1e293b;
   --color-background3: #334155;
-  --color-background4: #214a78;
+  --color-background4: #2c609b;
   --color-background5: #193b60;
 
   --color-foreground: #f1f5f9;
   --color-foreground2: #cbd5e1;
 
+  /* --color-card: #0f172a; 04060c, 060a14 */
   --color-card: #0f172a;
   --color-border: #93c5fd;
 

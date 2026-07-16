@@ -1,5 +1,6 @@
 "use client";
 
+import { motion, useScroll, useTransform } from "motion/react";
 
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
@@ -7,15 +8,19 @@ import Mountain1 from "../ui/mountains/Mountain1";
 import Mountain2 from "../ui/mountains/Mountain2";
 import Mountain3 from "../ui/mountains/Mountain3";
 
-
-
 export default function HomeSection() {
+  const { scrollY } = useScroll();
+
+  const mountain1Y = useTransform(scrollY, [0, 900], [0, 20]);
+  const mountain2Y = useTransform(scrollY, [0, 900], [0, 60]);
+  const mountain3Y = useTransform(scrollY, [0, 900], [0, 90]);
+
   return (
     <section
       id="home"
       className=" relative flex min-h-dvh overflow-hidden items-center justify-center bg-linear-to-t from-(--color-background4) to-(--color-background5)"
     >
-      <Container>
+      <Container className="z-50">
         <div className="max-w-3xl">
           <p className="mb-4 text-sm uppercase tracking-[0.3em] opacity-70">
             Frontend Developer · React · Next.js · TypeScript
@@ -42,11 +47,28 @@ export default function HomeSection() {
           </div>
         </div>
       </Container>
-      <div className="absolute inset-x-0 bottom-0 w-full pointer-events-none">
-        <Mountain1 className="absolute -bottom-1 w-full z-40" />
-        <Mountain2 className="absolute -bottom-1 w-full z-30" />
-        <Mountain3 className="absolute -bottom-1 w-full z-20" />
-      </div>
+        <div className="absolute inset-x-0 bottom-0 pointer-events-none">
+          <motion.div
+            style={{ y: mountain1Y }}
+            className="absolute -bottom-1 w-full z-40"
+          >
+            <Mountain1 className="w-full" />
+          </motion.div>
+
+          <motion.div
+            style={{ y: mountain2Y }}
+            className="absolute -bottom-1 w-full z-30"
+          >
+            <Mountain2 className="w-full" />
+          </motion.div>
+
+          <motion.div
+            style={{ y: mountain3Y }}
+            className="absolute -bottom-1 w-full z-20"
+          >
+            <Mountain3 className="w-full" />
+          </motion.div>
+        </div>
     </section>
   );
 }
