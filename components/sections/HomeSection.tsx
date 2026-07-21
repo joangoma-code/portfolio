@@ -19,7 +19,7 @@ export default function HomeSection() {
   return (
     <section
       id="home"
-      className="relative flex min-h-dvh overflow-hidden items-center justify-center bg-linear-to-t from-(--color-background4) to-(--color-background5)"
+      className="relative flex min-h-dvh overflow-hidden items-center justify-center bg-linear-to-t from-(--color-background4) from-10% to-(--color-background5)"
     >
       <Container className="z-50 mt-30 mb-60">
         <motion.div
@@ -35,8 +35,7 @@ export default function HomeSection() {
           </h1>
 
           <p className="mt-6 max-w-prose text-lg leading-relaxed opacity-80">
-            Focused on building simple, fast, and thoughtful web experiences. I
-            enjoy turning ideas into real products through code.
+            Focused on building simple, fast, and thoughtful web experiences. I enjoy turning ideas into real products through code.
           </p>
           <p className="mt-4 text-sm opacity-60">
             Open to Frontend Developer opportunities.

@@ -5,7 +5,7 @@ export default function SkillSection() {
   return (
     <section
       id="skills"
-      className="flex min-h-screen items-center justify-center py-4"
+      className="flex items-center justify-center section-style"
     >
       <Container>
         <div className="space-y-12">

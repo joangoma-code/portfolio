@@ -47,7 +47,7 @@ npm run dev
 ## Installed Packages
 
 ```bash
-npm install next-themes lucide-react
+npm install next-themes lucide-react motion
 ```
 
 ---

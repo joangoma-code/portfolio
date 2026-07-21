@@ -31,7 +31,6 @@ export default function RootLayout({ children }: Readonly<{
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       {/*h-full antialiased md:scroll-auto*/}
       <body className={inter.variable}>
-        {/* className="min-h-full flex flex-col*/}
           <Providers>
             {children}
           </Providers>
