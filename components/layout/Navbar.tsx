@@ -21,7 +21,11 @@ export default function Navbar() {
 
   const { isVisible, navigateToSection } = useNavbarVisibility();
   const { mounted, isDark } = useThemeToggle();
-  const logoSrc = mounted ? (isDark ? "/logo/icon_white.svg" : "/logo/icon_black.svg") : "/logo/icon_black.svg";
+  const logoSrc = mounted
+    ? isDark
+      ? "/logo/icon_white.svg"
+      : "/logo/icon_black.svg"
+    : "/logo/icon_black.svg";
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -110,45 +114,45 @@ export default function Navbar() {
       {/* MOBILE */}
       {isOpen && (
         <div
-        className={`
+          className={`
           fixed inset-0 z-90 md:hidden
           bg-(--color-background)/90
           backdrop-blur-2xl
           transition-all duration-500
           ${isOpen ? "opacity-100" : "pointer-events-none opacity-0"}
           `}
-          >
-        <nav className="flex h-full items-center justify-center">
-          <ul className=" flex flex-col items-center gap-4">
-            {links.map((link) => {
-              const isActive = activeSection === link.id;
-              
-              return (
-                <li key={link.id}>
-                  <Link
-                    href={`#${link.id}`}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setIsOpen(false);
-                      navigateToSection(link.id);
-                    }}
-                    className={`
+        >
+          <nav className="flex h-full items-center justify-center">
+            <ul className=" flex flex-col items-center gap-4">
+              {links.map((link) => {
+                const isActive = activeSection === link.id;
+
+                return (
+                  <li key={link.id}>
+                    <Link
+                      href={`#${link.id}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setIsOpen(false);
+                        navigateToSection(link.id);
+                      }}
+                      className={`
                       flex text-3xl
                       ${isActive ? "text-(--color-primary)" : ""}
                       `}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              );
-            })}
-            <li className="mt-4">
-              <ThemeButton />
-            </li>
-          </ul>
-        </nav>
-      </div>
-          )}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                );
+              })}
+              <li className="mt-4">
+                <ThemeButton onClick={() => setIsOpen(false)} />
+              </li>
+            </ul>
+          </nav>
+        </div>
+      )}
     </>
   );
 }
