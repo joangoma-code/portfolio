@@ -17,7 +17,7 @@ export default function ExperienceSection() {
   const isMd = useMediaQuery("(min-width: 768px)");
   const timelineProgress = useTransform(
     scrollYProgress,
-    [isMd ? 0.25 : 0.14, 1],
+    isMd ? [0.25, 1] : [0.14, 0.98],
     [0, 1],
   );
 
@@ -33,7 +33,7 @@ export default function ExperienceSection() {
         </div>
 
         <div className="relative">
-          {/* Punto timeline */}
+          {/* Linea timeline */}
           <div className="absolute left-4 top-5 bottom-25 w-0.5 -translate-x-1/2 overflow-hidden rounded-full bg-(--color-foreground2)/40 md:left-1/2">
             <motion.div
               style={{ scaleY: timelineProgress, originY: 0 }}

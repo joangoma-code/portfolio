@@ -14,7 +14,7 @@ export default function ExperienceCard({
     <div
       className={`relative flex w-full md:w-1/2 ${
         side === "left"
-          ? "pl-10 pr-10 md:justify-end md:pr-12 md:pl-0"
+          ? "pl-10 pr-10 md:justify-end md:pr-12 md:pl-0" 
           : "pl-15 pr-5 md:ml-auto md:justify-start md:pl-12 md:pr-0"
       }`}
     >
