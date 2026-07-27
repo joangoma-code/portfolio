@@ -1,13 +1,25 @@
 "use client";
 
+import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { experiences } from "@/data/experiences";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 import Container from "@/components/ui/Container";
-import ExperienceCard from "./ExperienceCard";
+import TimelineItem from "./TimelineItem";
 
 export default function ExperienceSection() {
   const ref = useRef<HTMLElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start center", "end center"],
+  });
+  const isMd = useMediaQuery("(min-width: 768px)");
+  const timelineProgress = useTransform(
+    scrollYProgress,
+    isMd ? [0.25, 1] : [0.14, 0.98],
+    [0, 1],
+  );
 
   return (
     <section
@@ -22,24 +34,21 @@ export default function ExperienceSection() {
 
         <div className="relative">
           {/* Linea timeline */}
-          <div className="absolute left-4 top-5 bottom-25 w-0.5 -translate-x-1/2 bg-(--color-foreground2) md:left-1/2" />
+          <div className="absolute left-4 top-5 bottom-25 w-0.5 -translate-x-1/2 overflow-hidden rounded-full bg-(--color-foreground2)/40 md:left-1/2">
+            <motion.div
+              style={{ scaleY: timelineProgress, originY: 0 }}
+              className="h-full w-full rounded-full bg-(--color-foreground2)"
+            />
+          </div>
 
           <div className="flex flex-col">
             {experiences.map((experience, index) => (
-              <div
+              <TimelineItem
                 key={experience.title}
-                className={`relative flex w-full items-start ${
-                  index !== 0 ? "mt-10 md:-mt-32" : ""
-                }`}
-              >
-                {/* Punto timeline */}
-                <div className="absolute left-4 top-8 z-10 h-3 w-3 -translate-x-1/2 rounded-full bg-(--color-foreground2) md:left-1/2" />
-
-                <ExperienceCard
-                  experience={experience}
-                  side={index % 2 ? "right" : "left"}
-                />
-              </div>
+                experience={experience}
+                side={index % 2 ? "right" : "left"}
+                index={index}
+              />
             ))}
           </div>
         </div>
