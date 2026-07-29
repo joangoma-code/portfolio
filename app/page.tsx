@@ -3,7 +3,7 @@ import MainLayout from "@/components/layout/MainLayout";
 import HomeSection from "@/components/sections/HomeSection";
 import AboutSection from "@/components/sections/AboutSection";
 import ProjectSection from "@/components/sections/projects";
-import SkillSection from "@/components/sections/SkillSection";
+import SkillSection from "@/components/sections/skills";
 import ExperienceSection from "@/components/sections/experiences";
 import ContactSection from "@/components/sections/ContactSection";
 
