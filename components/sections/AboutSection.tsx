@@ -1,8 +1,9 @@
 "use client";
-import Container from "@/components/ui/Container";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
+
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+
+import Container from "@/components/ui/Container";
 
 export default function AboutSection() {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -10,15 +11,14 @@ export default function AboutSection() {
     target: ref,
     offset: ["start center", "end center"],
   });
-  const isMd = useMediaQuery("(min-width: 768px)");
 
-  const inputRange = isMd ? [0, 0.3, 0.8, 1] : [0, 0.3, 0.7, 1];
+  const input = [0, 0.3, 0.8, 1];
 
-  const y = useTransform(scrollYProgress, inputRange, [14, 0, 0, 12]);
-  const opacity = useTransform(scrollYProgress, inputRange, [0.7, 1, 1, 0.8]);
+  const y = useTransform(scrollYProgress, input, [14, 0, 0, 12]);
+  const opacity = useTransform(scrollYProgress, input, [0.7, 1, 1, 0.8]);
   const scale = useTransform(
     scrollYProgress,
-    inputRange,
+    input,
     [0.94, 1, 1.01, 0.98],
   );
 

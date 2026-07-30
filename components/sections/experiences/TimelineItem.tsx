@@ -26,23 +26,23 @@ export default function TimelineItem({
 
   const isMd = useMediaQuery("(min-width: 768px)");
 
-  const inputRange = isMd ? [0.1, 0.5, 0.6, 1] : [0.1, 0.4, 0.7, 1]; 
+  const input = isMd ? [0.1, 0.5, 0.6, 1] : [0.1, 0.4, 0.7, 1]; 
 
-  const y = useTransform(scrollYProgress, inputRange, [14, 0, 0, 12]);
-  const opacity = useTransform(scrollYProgress, inputRange, [0.74, 1, 1, 0.92]);
+  const y = useTransform(scrollYProgress, input, [14, 0, 0, 12]);
+  const opacity = useTransform(scrollYProgress, input, [0.74, 1, 1, 0.92]);
   const scale = useTransform(
     scrollYProgress,
-    inputRange,
+    input,
     [0.96, 1.03, 1.03, 0.99],
   );
   const pointOpacity = useTransform(
     scrollYProgress,
-    inputRange,
+    input,
     [0.35, 1, 1, 0.75],
   );
   const pointScale = useTransform(
     scrollYProgress,
-    inputRange,
+    input,
     [1, 1.4, 1.4, 1],
   );
 

@@ -24,7 +24,7 @@ export default function SkillColumn({
   ];
 
   const opacity = useTransform(scrollYProgress, input, [0.4, 1, 1, 0.6]);
-  const scale = useTransform(scrollYProgress, input, [0.89, 1, 1, 0.92]);
+  const scale = useTransform(scrollYProgress, input, [0.89, 1, 1.01, 0.92]);
   const y = useTransform(scrollYProgress, input, [60, 0, 0, -30]);
   const rotate = useTransform(scrollYProgress, input, [
     index === 0 ? -3 : index === 2 ? 3 : 0,
