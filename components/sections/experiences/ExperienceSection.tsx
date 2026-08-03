@@ -17,7 +17,7 @@ export default function ExperienceSection() {
   const isMd = useMediaQuery("(min-width: 768px)");
   const timelineProgress = useTransform(
     scrollYProgress,
-    isMd ? [0.25, 1] : [0.14, 0.98],
+    isMd ? [0.2, 1] : [0.08, 0.98],
     [0, 1],
   );
 
@@ -29,7 +29,7 @@ export default function ExperienceSection() {
     >
       <Container className="space-y-16">
         <div className="max-w-3xl space-y-6">
-          <h2 className="section-title">Experiencies</h2>
+          <h2 className="section-title">Experiences</h2>
         </div>
 
         <div className="relative">

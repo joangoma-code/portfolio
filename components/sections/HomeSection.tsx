@@ -1,7 +1,9 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import Mountain1 from "../ui/mountains/Mountain1";
@@ -9,16 +11,23 @@ import Mountain2 from "../ui/mountains/Mountain2";
 import Mountain3 from "../ui/mountains/Mountain3";
 
 export default function HomeSection() {
-  const { scrollY } = useScroll();
+  const ref = useRef<HTMLElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  })
 
-  const mountain1Y = useTransform(scrollY, [0, 900], [0, 20]);
-  const mountain2Y = useTransform(scrollY, [0, 900], [0, 60]);
-  const mountain3Y = useTransform(scrollY, [0, 900], [0, 90]);
-  const contentY = useTransform(scrollY, [0, 900], [0, 160]);
+  const isMd = useMediaQuery("(min-width: 768px)");
+  const multiplyFactor = isMd ? 1.5 : 1;
+  const mountain1Y = useTransform(scrollYProgress, [0, 1], [0, 20 * multiplyFactor]);
+  const mountain2Y = useTransform(scrollYProgress, [0, 1], [0, 60 * multiplyFactor]);
+  const mountain3Y = useTransform(scrollYProgress, [0, 1], [0, 90 * multiplyFactor]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, 160 * multiplyFactor]);
 
   return (
     <section
       id="home"
+      ref={ref}
       className="relative flex min-h-dvh overflow-hidden items-center justify-center bg-linear-to-t from-(--color-background4) from-10% to-(--color-background5)"
     >
       <Container className="z-50 mt-30 mb-60">
