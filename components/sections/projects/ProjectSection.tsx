@@ -1,12 +1,42 @@
 "use client";
 
-import { useState, useLayoutEffect } from "react";
+import { useState, useRef, useLayoutEffect } from "react";
 import { DiamondPlus, DiamondMinus } from "lucide-react";
+import { motion, useScroll, useTransform } from "motion/react";
 
 import { projects } from "@/data/projects";
 import Container from "@/components/ui/Container";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
+
+function ProjectItem({
+  project,
+  onOpen,
+  isMd,
+}: {
+  project: (typeof projects)[0];
+  onOpen: () => void;
+  isMd: boolean;
+}) {
+  const itemRef = useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: itemRef,
+    offset: ["start center", "end center"],
+  });
+
+  const inputRange = [0, 0.3, 0.5, 0.9];
+  const opacity = useTransform(scrollYProgress, inputRange, [0.74, 1, 1, 0.92]);
+  const scale = useTransform(scrollYProgress, inputRange, [0.96, 1.03, 1.03, 0.99]);
+
+  return (
+    <div ref={itemRef}>
+      <motion.div style={isMd ? undefined : { opacity, scale }}>
+        <ProjectCard project={project} onClick={onOpen} />
+      </motion.div>
+    </div>
+  );
+}
 
 export default function ProjectSection() {
   const [showAll, setShowAll] = useState(false);
@@ -14,7 +44,7 @@ export default function ProjectSection() {
   const [selectedProject, setSelectedProject] = useState<
     (typeof projects)[0] | null
   >(null);
-
+  const isMd = useMediaQuery("(min-width: 768px)");
   useLayoutEffect(() => {
     if (isClosing) {
       document.getElementById("proyectos")?.scrollIntoView({
@@ -56,10 +86,11 @@ export default function ProjectSection() {
 
           <div className="grid gap-8 section-content md:grid-cols-2">
             {visibleProjects.map((project) => (
-              <ProjectCard
+              <ProjectItem
                 key={project.title}
                 project={project}
-                onClick={() => setSelectedProject(project)}
+                onOpen={() => setSelectedProject(project)}
+                isMd={isMd}
               />
             ))}
           </div>
