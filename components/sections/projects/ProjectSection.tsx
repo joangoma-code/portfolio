@@ -9,34 +9,40 @@ import Container from "@/components/ui/Container";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { useTextMotion } from "@/hooks/useTextMotion";
 
 function ProjectItem({
   project,
   onOpen,
-  isMd,
 }: {
   project: (typeof projects)[0];
   onOpen: () => void;
-  isMd: boolean;
 }) {
   const itemRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: itemRef,
-    offset: ["start center", "end center"],
+    offset: ["start end", "end start"],
   });
 
-  const inputRange = [0, 0.3, 0.5, 0.9];
+  const isMd = useMediaQuery("(min-width: 768px)");
+  const inputRange = isMd? [0, 0.3, 0.7, 0.9] : [0, 0.3, 0.5, 0.9];
   const opacity = useTransform(scrollYProgress, inputRange, [0.74, 1, 1, 0.92]);
-  const scale = useTransform(scrollYProgress, inputRange, [0.96, 1.03, 1.03, 0.99]);
+  const scale = useTransform(
+    scrollYProgress,
+    inputRange,
+    [0.96, 1.03, 1.03, 0.99],
+  );
 
   return (
-    <div ref={itemRef}>
-      <motion.div style={isMd ? undefined : { opacity, scale }}>
+    <motion.div ref={itemRef} style={{ opacity, scale }}>
+ 
         <ProjectCard project={project} onClick={onOpen} />
-      </motion.div>
-    </div>
+  
+    </motion.div>
   );
 }
+
+//------------------------------------------------------------------------------
 
 export default function ProjectSection() {
   const [showAll, setShowAll] = useState(false);
@@ -44,7 +50,7 @@ export default function ProjectSection() {
   const [selectedProject, setSelectedProject] = useState<
     (typeof projects)[0] | null
   >(null);
-  const isMd = useMediaQuery("(min-width: 768px)");
+  
   useLayoutEffect(() => {
     if (isClosing) {
       document.getElementById("proyectos")?.scrollIntoView({
@@ -66,21 +72,29 @@ export default function ProjectSection() {
       setShowAll(true);
     }
   };
-
+  const ref = useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const {y, opacity, scale} = useTextMotion(scrollYProgress);
   return (
     <>
-      <section
-        id="projects"
-        className="flex items-center justify-center section-style"
-      >
-        <Container className="space-y-16">
+    <section
+    id="projects"
+    className="flex items-center justify-center section-style"
+    >
+        <Container className="space-y-16" ref={ref}>
           <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
             <div className="max-w-3xl space-y-6">
               <h2 className="section-title">Projects</h2>
-              <p className=" section-content text-lg leading-relaxed opacity-70 md:text-xl ">
+              <motion.p
+                style={{ y, opacity, scale }}
+                className="section-content text-lg leading-relaxed opacity-70 md:text-xl "
+              >
                 A selection of digital projects exploring UI design,
                 interaction, and frontend development.
-              </p>
+              </motion.p>
             </div>
           </div>
 
@@ -90,7 +104,6 @@ export default function ProjectSection() {
                 key={project.title}
                 project={project}
                 onOpen={() => setSelectedProject(project)}
-                isMd={isMd}
               />
             ))}
           </div>
