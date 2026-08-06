@@ -27,7 +27,7 @@ export default function SkillItem({
   const scale = useTransform(
     scrollYProgress,
     input,
-    [0.9, 0.96, 1.06, 0.96, 0.9],
+    [0.9, 0.96, 1.02, 0.96, 0.9],
   );
 
   const y = useTransform(scrollYProgress, input, [12, 4, 0, 4, 12]);

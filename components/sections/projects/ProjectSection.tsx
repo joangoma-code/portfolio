@@ -50,20 +50,18 @@ export default function ProjectSection() {
         id="projects"
         className="flex items-center justify-center section-style"
       >
-        <Container className="space-y-16" ref={ref}>
-          <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-            <div className="max-w-3xl space-y-6">
-              <h2 className="section-title">
-                Projects
-              </h2>
-              <motion.p
-                style={{y, opacity, scale }}
-                className="section-content text-lg leading-relaxed opacity-70 md:text-xl "
-              >
-                A selection of digital projects exploring UI design,
-                interaction, and frontend development.
-              </motion.p>
-            </div>
+        <Container className="space-y-6" ref={ref}>
+          <div className="max-w-3xl space-y-6">
+            <motion.h2 style={{ y, opacity, scale }} className="section-title">
+              Projects
+            </motion.h2>
+            <motion.p
+              style={{ y, opacity, scale }}
+              className="section-content text-lg leading-relaxed opacity-70 md:text-xl "
+            >
+              A selection of digital projects exploring UI design, interaction,
+              and frontend development.
+            </motion.p>
           </div>
 
           <div className="grid gap-8 section-content md:grid-cols-2">

@@ -47,7 +47,7 @@ export default function Navbar() {
           }
         `}
       >
-        <Container className="flex items-center justify-between py-4">
+        <div className="flex items-center justify-between py-4 w-full px-[4vw]">
           <Link
             href="#home"
             onClick={(e) => {
@@ -108,7 +108,7 @@ export default function Navbar() {
           <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
             {isOpen ? <X className="size-6" /> : <Menu className="size-6" />}
           </button>
-        </Container>
+        </div>
       </header>
 
       {/* MOBILE */}

@@ -26,7 +26,7 @@ export default function ExperienceItem({
 
   const isMd = useMediaQuery("(min-width: 768px)");
 
-  const inputRange = isMd ? [0.1, 0.3, 0.8, 1] : [0, 0.15, 0.85, 1]; 
+  const inputRange = isMd ? [0, 0.3, 0.8, 1] : [0, 0.15, 0.85, 1]; 
 
   const y = useTransform(scrollYProgress, inputRange, [14, 0, 0, 12]);
   const opacity = useTransform(scrollYProgress, inputRange, [0.74, 1, 1, 0.92]);

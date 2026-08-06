@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, MotionValue, useTransform } from "motion/react";
+import { motion, MotionValue, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 
 import { skills } from "@/data/skills";
 import SkillItem from "./SkillItem";
@@ -17,7 +18,6 @@ export default function SkillColumn({
   scrollYProgress: MotionValue<number>;
 }) {
   const input = [index * 0.1, 0.25 + index * 0.1, 0.75 + index * 0.1, 1];
-
   const opacity = useTransform(scrollYProgress, input, [0.4, 1, 1, 0.6]);
   const scale = useTransform(scrollYProgress, input, [0.89, 1, 1.01, 0.92]);
   const y = useTransform(scrollYProgress, input, [60, 0, 0, -30]);
@@ -27,6 +27,29 @@ export default function SkillColumn({
     0,
     index === 0 ? -1 : index === 2 ? 1 : 0.2,
   ]);
+
+  const titleRef = useRef<HTMLHeadingElement | null>(null);
+  const { scrollYProgress: titleScrollYProgress } = useScroll({
+    target: titleRef,
+    offset: ["start end", "end start"],
+  });
+  const itemInput = [0, 0.3, 0.7, 1];
+
+  const titleOpacity = useTransform(
+    titleScrollYProgress,
+    itemInput,
+    [0.35,1, 1, 0.35],
+  );
+  const titleScale = useTransform(
+    titleScrollYProgress,
+    itemInput,
+    [0.9, 1, 1.02, 0.9],
+  );
+  const titleY = useTransform(
+    titleScrollYProgress,
+    itemInput,
+    [12, 0, 0, 12],
+  );
 
   return (
     <motion.div
@@ -43,7 +66,17 @@ export default function SkillColumn({
       }
       className="space-y-4"
     >
-      <h3 className="text-2xl font-semibold">{category.title}</h3>
+      <motion.h3
+        ref={titleRef}
+        style={
+          isMd
+            ? { opacity: 1, scale: 1, y: 0 }
+            : { opacity: titleOpacity, scale: titleScale, y: titleY }
+        }
+        className="text-2xl font-semibold"
+      >
+        {category.title}
+      </motion.h3>
 
       <ul className="space-y-3">
         {category.items.map((item) => (

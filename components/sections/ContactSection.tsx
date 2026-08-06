@@ -50,18 +50,17 @@ export default function ContactSection() {
       id="contact"
       className="flex items-center justify-center section-style"
     >
-      <Container className="max-w-4xl space-y-12" ref={ref}>
-        <div className="space-y-6">
-          <h2 className="section-title">Contact</h2>
-          <motion.p
-            style={{ scale, y, opacity, transformOrigin: "top center" }}
-            className="section-content"
-          >
-            I'm currently open to new Frontend Developer opportunities where I
-            can contribute to meaningful products and keep learning with a great
-            team.
-          </motion.p>
-        </div>
+      <Container className="max-w-4xl space-y-6" ref={ref}>
+        <motion.h2 style={{ opacity, scale }} className="section-title">
+          Contact
+        </motion.h2>
+        <motion.p
+          style={{ scale, y, opacity, transformOrigin: "top center" }}
+          className="section-content"
+        >
+          I'm currently open to new Frontend Developer opportunities where I can
+          contribute to meaningful products and keep learning with a great team.
+        </motion.p>
 
         <div className="section-content flex flex-col gap-6 md:flex-row md:gap-12">
           {contacts.map((contact) => (

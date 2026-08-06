@@ -4,32 +4,36 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { experiences } from "@/data/experiences";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { useTextMotion } from "@/hooks/useTextMotion";
 
 import Container from "@/components/ui/Container";
 import ExperienceItem from "./ExperienceItem";
 
 export default function ExperienceSection() {
-  const ref = useRef<HTMLElement | null>(null);
+  const ref = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start center", "end center"],
+    offset: ["start end", "end start"],
   });
   const isMd = useMediaQuery("(min-width: 768px)");
   const timelineProgress = useTransform(
     scrollYProgress,
-    isMd ? [0.2, 1] : [0.08, 0.98],
+    isMd ? [0.35, 0.74] : [0.25, 0.8],
     [0, 1],
   );
+
+  const { y, opacity, scale } = useTextMotion(scrollYProgress);
 
   return (
     <section
       id="experiences"
-      ref={ref}
       className="flex items-center justify-center section-style"
     >
-      <Container className="space-y-16">
+      <Container ref={ref} className="space-y-16">
         <div className="max-w-3xl space-y-6">
-          <h2 className="section-title">Experiences</h2>
+          <motion.h2 style={{ y, opacity, scale }} className="section-title">
+            Experiences
+          </motion.h2>
         </div>
 
         <div className="relative">
