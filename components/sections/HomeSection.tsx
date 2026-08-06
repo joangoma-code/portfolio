@@ -30,10 +30,10 @@ export default function HomeSection() {
       ref={ref}
       className="relative flex min-h-dvh overflow-hidden items-center justify-center bg-linear-to-t from-(--color-background4) from-10% to-(--color-background5)"
     >
-      <Container className="z-50 mt-30 mb-60">
+  
         <motion.div
           style={{ y: contentY }}
-          className="max-w-3xl"
+          className="mx-auto w-full px-[4vw] max-w-3xl z-50 mt-30 mb-60"
         >
           <p className="mb-4 text-sm uppercase tracking-[0.3em] opacity-70">
             Frontend Developer · React · Next.js · TypeScript
@@ -58,7 +58,7 @@ export default function HomeSection() {
             </Button>
           </div>
         </motion.div>
-      </Container>
+
         <div className="absolute inset-x-0 bottom-0 pointer-events-none">
           <motion.div
             style={{ y: mountain1Y }}
