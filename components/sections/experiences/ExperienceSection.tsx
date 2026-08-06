@@ -6,7 +6,7 @@ import { experiences } from "@/data/experiences";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 import Container from "@/components/ui/Container";
-import TimelineItem from "./TimelineItem";
+import ExperienceItem from "./ExperienceItem";
 
 export default function ExperienceSection() {
   const ref = useRef<HTMLElement | null>(null);
@@ -43,7 +43,7 @@ export default function ExperienceSection() {
 
           <div className="flex flex-col">
             {experiences.map((experience, index) => (
-              <TimelineItem
+              <ExperienceItem
                 key={experience.title}
                 experience={experience}
                 side={index % 2 ? "right" : "left"}

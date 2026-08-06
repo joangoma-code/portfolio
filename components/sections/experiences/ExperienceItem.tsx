@@ -7,17 +7,17 @@ import { useRef } from "react";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import ExperienceCard from "./ExperienceCard";
 
-type TimelineItemProps = {
+type ExperienceItemProps = {
   experience: Experience;
   side?: "left" | "right";
   index: number;
 };
 
-export default function TimelineItem({
+export default function ExperienceItem({
   experience,
   side = "left",
   index,
-}: TimelineItemProps) {
+}: ExperienceItemProps) {
   const itemRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: itemRef,

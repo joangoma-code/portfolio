@@ -43,6 +43,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             src={project.image}
             alt={project.title}
             fill
+            sizes="100vw, 50vw, 33vw"
+            loading="eager"
             className="object-cover"
           />
         </div>
