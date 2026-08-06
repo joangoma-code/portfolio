@@ -1,12 +1,14 @@
 "use client";
 
-import { useState, useLayoutEffect } from "react";
+import { useState, useRef, useLayoutEffect } from "react";
 import { DiamondPlus, DiamondMinus } from "lucide-react";
+import { motion, useScroll } from "motion/react";
 
 import { projects } from "@/data/projects";
 import Container from "@/components/ui/Container";
-import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
+import { useTextMotion } from "@/hooks/useTextMotion";
+import ProjectItem from "./ProjectItem";
 
 export default function ProjectSection() {
   const [showAll, setShowAll] = useState(false);
@@ -36,30 +38,41 @@ export default function ProjectSection() {
       setShowAll(true);
     }
   };
-
+  const ref = useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const { y, opacity, scale } = useTextMotion(scrollYProgress);
   return (
     <>
       <section
         id="projects"
         className="flex items-center justify-center section-style"
       >
-        <Container className="space-y-16">
+        <Container className="space-y-16" ref={ref}>
           <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
             <div className="max-w-3xl space-y-6">
-              <h2 className="section-title">Projects</h2>
-              <p className=" section-content text-lg leading-relaxed opacity-70 md:text-xl ">
+              <h2 className="section-title">
+                Projects
+              </h2>
+              <motion.p
+                style={{y, opacity, scale }}
+                className="section-content text-lg leading-relaxed opacity-70 md:text-xl "
+              >
                 A selection of digital projects exploring UI design,
                 interaction, and frontend development.
-              </p>
+              </motion.p>
             </div>
           </div>
 
           <div className="grid gap-8 section-content md:grid-cols-2">
-            {visibleProjects.map((project) => (
-              <ProjectCard
+            {visibleProjects.map((project, index) => (
+              <ProjectItem
                 key={project.title}
                 project={project}
-                onClick={() => setSelectedProject(project)}
+                index={index}
+                onOpen={() => setSelectedProject(project)}
               />
             ))}
           </div>

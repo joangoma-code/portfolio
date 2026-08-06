@@ -35,7 +35,7 @@ export default function SkillItem({
   return (
     <motion.li
       ref={itemRef}
-      style={isMd ? undefined : { opacity, scale, y }}
+      style={isMd ? { opacity: 1, scale: 1, y: 0 } : { opacity, scale, y }}
       className="rounded-full border border-(--color-background3) bg-(--color-background2) px-4 py-2 text-lg text-(--color-foreground) transition-colors duration-300 hover:border-(--color-border)"
     >
       {item}

@@ -16,21 +16,16 @@ export default function SkillColumn({
   isMd: boolean;
   scrollYProgress: MotionValue<number>;
 }) {
-  const input = [
-    index * 0.1,
-    0.25 + index * 0.1,
-    0.75 + index * 0.1,
-    1,
-  ];
+  const input = [index * 0.1, 0.25 + index * 0.1, 0.75 + index * 0.1, 1];
 
   const opacity = useTransform(scrollYProgress, input, [0.4, 1, 1, 0.6]);
   const scale = useTransform(scrollYProgress, input, [0.89, 1, 1.01, 0.92]);
   const y = useTransform(scrollYProgress, input, [60, 0, 0, -30]);
   const rotate = useTransform(scrollYProgress, input, [
-    index === 0 ? -3 : index === 2 ? 3 : 0,
+    index === 0 ? -3 : index === 2 ? 3 : 0.5,
     0,
     0,
-    index === 0 ? -1 : index === 2 ? 1 : 0,
+    index === 0 ? -1 : index === 2 ? 1 : 0.2,
   ]);
 
   return (
@@ -44,7 +39,7 @@ export default function SkillColumn({
               rotate,
               transformOrigin: "bottom center",
             }
-          : undefined
+          : { opacity: 1, scale: 1, y: 0, rotate: 0 }
       }
       className="space-y-4"
     >
