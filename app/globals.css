@@ -6,6 +6,11 @@
 
 /*@layer base {h2 { }}*/
 @layer components {
+  .container-style {
+    width: 100%;
+    padding-inline: 4vw;
+  }
+
   .section-style {
     min-height: 100vh;
     padding-top: calc(var(--spacing) * 6);

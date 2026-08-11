@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
-import Container from "@/components/ui/Container";
 import ThemeButton from "@/components/ui/ThemeButton";
 
 import { links } from "@/data/links";
@@ -47,7 +46,7 @@ export default function Navbar() {
           }
         `}
       >
-        <div className="flex items-center justify-between py-4 w-full px-[4vw]">
+        <div className="flex items-center justify-between py-4 container-style">
           <Link
             href="#home"
             onClick={(e) => {
