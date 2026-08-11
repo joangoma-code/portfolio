@@ -18,7 +18,7 @@ export default function ExperienceSection() {
   const isMd = useMediaQuery("(min-width: 768px)");
   const timelineProgress = useTransform(
     scrollYProgress,
-    isMd ? [0.35, 0.74] : [0.25, 0.8],
+    isMd ? [0.35, 0.74] : [0.2, 0.85],
     [0, 1],
   );
 

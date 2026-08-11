@@ -18,11 +18,11 @@ function ContactItem({
     target: itemRef,
     offset: ["start end", "end start"],
   });
-  const { y, opacity, scale } = useTextMotion(scrollYProgress);
+  const { y, opacity } = useTextMotion(scrollYProgress);
 
   return (
     <motion.a
-      style={{ scale, y, opacity, transformOrigin: "top center" }}
+      style={{ y, opacity }}
       ref={itemRef}
       href={contact.href}
       target="_blank"
@@ -55,18 +55,21 @@ export default function ContactSection() {
           Contact
         </motion.h2>
         <motion.p
-          style={{ scale, y, opacity, transformOrigin: "top center" }}
+          style={{ y, opacity, scale, transformOrigin: "top center" }}
           className="section-content"
         >
           I'm currently open to new Frontend Developer opportunities where I can
           contribute to meaningful products and keep learning with a great team.
         </motion.p>
 
-        <div className="section-content flex flex-col gap-6 md:flex-row md:gap-12">
+        <motion.div
+          style={{ scale, transformOrigin: "top center" }}
+          className="section-content flex flex-col gap-6 md:flex-row md:gap-12"
+        >
           {contacts.map((contact) => (
             <ContactItem key={contact.label} contact={contact} />
           ))}
-        </div>
+        </motion.div>
       </Container>
     </section>
   );

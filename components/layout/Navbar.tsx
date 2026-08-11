@@ -12,6 +12,7 @@ import { useActiveSection } from "@/providers/ActiveSectionProvider";
 import { useNavbarVisibility } from "@/hooks/useNavbarVisibility";
 import { useThemeToggle } from "@/hooks/useThemeToggle";
 import useCloseOnEscapeOrBack from "@/hooks/useCloseOnEscapeOrBack";
+import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
 
 import { useState } from "react";
 
@@ -29,6 +30,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   useCloseOnEscapeOrBack(isOpen, () => setIsOpen(false));
+  useLockBodyScroll(isOpen);
 
   return (
     <>
