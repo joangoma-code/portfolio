@@ -31,6 +31,7 @@ export default function SkillSection() {
     <section
       id="skills"
       ref={sectionRef}
+      tabIndex={0}
       className={isMd ? "relative h-[140vh]" : "section-style"}
     >
       <div

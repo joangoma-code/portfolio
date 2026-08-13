@@ -48,6 +48,7 @@ export default function ProjectSection() {
     <>
       <section
         id="projects"
+        tabIndex={0}
         className="flex items-center justify-center section-style"
       >
         <Container className="space-y-6" ref={ref}>

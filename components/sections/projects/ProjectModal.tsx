@@ -44,7 +44,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             alt={project.title}
             fill
             sizes="100vw, 50vw, 33vw"
-            loading="eager"
+            loading="lazy"
             className="object-cover"
           />
         </div>

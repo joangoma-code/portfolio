@@ -23,7 +23,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
           alt={project.title}
           fill
           sizes="100vw, 50vw, 33vw"
-          loading="eager"
+          loading="lazy"
           className="object-cover group-hover:scale-103"
         />
       </div>

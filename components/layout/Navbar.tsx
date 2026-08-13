@@ -106,7 +106,14 @@ export default function Navbar() {
           </nav>
 
           {/* MOBILE button */}
-          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            type="button"
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            className="md:hidden"
+          >
             {isOpen ? <X className="size-6" /> : <Menu className="size-6" />}
           </button>
         </div>
@@ -115,6 +122,9 @@ export default function Navbar() {
       {/* MOBILE */}
       {isOpen && (
         <div
+          id="mobile-menu"
+          aria-hidden={!isOpen}
+          hidden={!isOpen}
           className={`
           fixed inset-0 z-90 md:hidden
           bg-(--color-background)/90
@@ -123,7 +133,7 @@ export default function Navbar() {
           ${isOpen ? "opacity-100" : "pointer-events-none opacity-0"}
           `}
         >
-          <nav className="flex h-full items-center justify-center">
+          <nav className="flex h-full items-center justify-center md:hidden">
             <ul className=" flex flex-col items-center gap-4">
               {links.map((link) => {
                 const isActive = activeSection === link.id;

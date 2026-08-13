@@ -12,6 +12,7 @@ export default function ExperienceCard({
 }: ExperienceCardProps) {
   return (
     <div
+      tabIndex={0}
       className={`relative flex w-full md:w-1/2 ${
         side === "left"
           ? "pl-10 pr-10 md:justify-end md:pr-12 md:pl-0" 
