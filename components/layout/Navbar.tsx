@@ -56,6 +56,7 @@ export default function Navbar() {
               navigateToSection("home");
               setIsOpen(false);
             }}
+            aria-label="Go to homepage"
             className="flex items-center gap-3 text-xl font-semibold"
           >
             <Image
@@ -83,6 +84,7 @@ export default function Navbar() {
                         e.preventDefault();
                         navigateToSection(link.id);
                       }}
+                      aria-current={isActive ? "page" : undefined}
                       className={`
                         text-sm transition-all
                         ${
@@ -147,6 +149,7 @@ export default function Navbar() {
                         setIsOpen(false);
                         navigateToSection(link.id);
                       }}
+                      aria-current={isActive ? "page" : undefined}
                       className={`
                       flex text-3xl
                       ${isActive ? "text-(--color-primary)" : ""}

@@ -29,10 +29,15 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     <div
       onClick={handleBackdropClick}
       className="fixed inset-0 z-100 flex items-center justify-center p-4 backdrop-blur-md"
+      role="dialog"
+      aria-modal="true"
+      id="project-modal"
+      aria-labelledby="project-title"
     >
       <div className="relative max-h-[90vh] w-full max-w-4xl overflow-y-auto scrollbar-none rounded-3xl border border-(--color-border) bg-(--color-card)">
         <button
           onClick={onClose}
+          aria-label="Close dialog"
           className="absolute right-4 top-4 z-10 rounded-full border border-(--color-border) bg-(--color-background) p-2 transition-colors hover:bg-(--color-background2)"
         >
           <X size={18} />
@@ -51,7 +56,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
         <div className="space-y-8 p-8">
           <div className="space-y-4">
-            <h2 className="text-4xl font-bold md:text-5xl">{project.title}</h2>
+            <h2 id="project-title" className="text-4xl font-bold md:text-5xl">{project.title}</h2>
 
             <p className="text-lg leading-relaxed text-(--color-foreground)">
               {project.description}

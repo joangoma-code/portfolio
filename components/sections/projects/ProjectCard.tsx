@@ -14,6 +14,8 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
     <button
       type="button"
       onClick={onClick}
+      aria-haspopup="dialog"
+      aria-controls="project-modal"
       className="group cursor-pointer overflow-hidden rounded-2xl border border-(--color-border) bg-(--color-card) text-left hover:bg-(--color-background2) transition-all duration-700 hover:scale-102
       "
     >

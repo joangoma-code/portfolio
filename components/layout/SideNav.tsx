@@ -40,6 +40,7 @@ export default function SideNav() {
                     navigateToSection(link.id);
                   }}
                   aria-label={link.label}
+                  aria-current={isActive ? "page" : undefined}
                   className="flex items-center gap-3"
                 >
                   <span
