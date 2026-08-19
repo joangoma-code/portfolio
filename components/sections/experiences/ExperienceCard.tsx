@@ -13,6 +13,13 @@ export default function ExperienceCard({
   return (
     <div
       tabIndex={0}
+      onFocus={(e) =>
+        e.currentTarget.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+          inline: "nearest",
+        })
+      }
       className={`relative flex w-full md:w-1/2 ${
         side === "left"
           ? "pl-10 pr-10 md:justify-end md:pr-12 md:pl-0" 

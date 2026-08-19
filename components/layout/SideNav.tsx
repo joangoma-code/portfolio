@@ -7,12 +7,8 @@ import { links } from "@/data/links";
 import { useActiveSection } from "@/providers/ActiveSectionProvider";
 import { useNavbarVisibility } from "@/hooks/useNavbarVisibility";
 
-
 export default function SideNav() {
-  const {
-    activeSection,
-    scrollY,
-  } = useActiveSection();
+  const { activeSection, scrollY } = useActiveSection();
 
   const { navigateToSection } = useNavbarVisibility();
 
@@ -20,31 +16,30 @@ export default function SideNav() {
 
   return (
     <aside
+      inert={!passedHero}
       className={`
         fixed right-6 top-1/2 z-50 hidden
         -translate-y-1/2 lg:flex
         transition-all duration-700
         ${
-          passedHero
-            ? "translate-x-0 opacity-100"
-            : "-translate-x-10 opacity-0"       
+          passedHero ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"
         }
       `}
     >
       <nav>
         <ul className="space-y-5">
           {links.map((link, index) => {
-            const isActive =
-              activeSection === link.id && index !== 0 ;
+            const isActive = activeSection === link.id && index !== 0;
 
             return (
               <li key={link.id}>
                 <Link
                   href={`#${link.id}`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        navigateToSection(link.id);
-                      }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigateToSection(link.id);
+                  }}
+                  aria-label={link.label}
                   className="flex items-center gap-3"
                 >
                   <span
@@ -58,7 +53,7 @@ export default function SideNav() {
                     `}
                   >
                     {isActive ? (
-                      <Hexagon strokeWidth={2} className="size-5"  />
+                      <Hexagon strokeWidth={2} className="size-5" />
                     ) : (
                       <Diamond strokeWidth={1} className="size-5" />
                     )}

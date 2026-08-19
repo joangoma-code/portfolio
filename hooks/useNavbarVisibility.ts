@@ -15,20 +15,23 @@ export function useNavbarVisibility() {
   // referencia para cancelar RAF si hace falta
   const raf = useRef<number | null>(null);
 
+  const scrollPositions: Record<string, ScrollLogicalPosition> = {
+    skills: "center",
+  };
+
   useEffect(() => {
     const onScroll = () => {
+      const y = window.scrollY;
+
+      // Home: siempre mostrar navbar
+      if (y === 0) {
+        setIsVisible(true);
+        lastScrollY.current = y;
+        return;
+      }
+      
       // si estamos en scroll programado, ignoramos visibilidad
       if (isNavigating) return;
-
-      /* 
-        const getScrollY = () =>
-        window.scrollY ||
-        document.documentElement.scrollTop ||
-        document.body.scrollTop ||
-        0;
-        */
-
-      const y = window.scrollY;
 
       // zona superior: siempre visible
       if (y < 120) {
@@ -96,8 +99,8 @@ export function useNavbarVisibility() {
 
       // scroll suave nativo del navegador
       target.scrollIntoView({
-        //behavior: "smooth",
-        block: "start",
+        behavior: "smooth",
+        block: scrollPositions[id] ?? "start",
       });
     },
     [setIsNavigating],
