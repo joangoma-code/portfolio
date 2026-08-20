@@ -31,6 +31,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       onClick={handleBackdropClick}
       className="fixed inset-0 z-100 flex items-center justify-center p-4 backdrop-blur-md"
       role="dialog"
+      aria-modal="true"
       id="project-modal"
       aria-labelledby="project-title"
     >

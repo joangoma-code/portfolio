@@ -36,7 +36,6 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      tabIndex={0}
       className="flex items-center justify-center section-style"
     >
       <Container className="max-w-4xl space-y-6" ref={ref}>

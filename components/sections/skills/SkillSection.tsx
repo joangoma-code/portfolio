@@ -31,14 +31,6 @@ export default function SkillSection() {
     <section
       id="skills"
       ref={sectionRef}
-      tabIndex={0}
-      onFocus={(e) =>
-        e.currentTarget.scrollIntoView({
-          behavior: "smooth",
-          block: "center",
-          inline: "nearest",
-        })
-      }
       className={isMd ? "relative h-[140vh]" : "section-style"}
     >
       <div

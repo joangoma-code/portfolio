@@ -2,9 +2,11 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { useActiveSection } from "@/providers/ActiveSectionProvider";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 export function useNavbarVisibility() {
   const { isNavigating, setIsNavigating } = useActiveSection();
+  const isMd = useMediaQuery("(min-width: 768px)");
 
   // controla si la navbar se muestra u oculta
   const [isVisible, setIsVisible] = useState(true);
@@ -16,7 +18,7 @@ export function useNavbarVisibility() {
   const raf = useRef<number | null>(null);
 
   const scrollPositions: Record<string, ScrollLogicalPosition> = {
-    skills: "center",
+    skills: isMd ? "center" : "start",
   };
 
   useEffect(() => {
@@ -103,7 +105,7 @@ export function useNavbarVisibility() {
         block: scrollPositions[id] ?? "start",
       });
     },
-    [setIsNavigating],
+    [setIsNavigating, isMd],
   );
 
   return {
