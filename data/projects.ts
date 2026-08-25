@@ -24,6 +24,8 @@ export const projects: Project[] = [
     outcome:
       "A clean and scalable portfolio that showcases projects and reflects frontend development skills in a real-world context.",
 
+    github: "https://github.com/joangoma-code/portfolio",
+
     technologies: ["React", "TypeScript", "Tailwind CSS", "Next.js"],
   },
 

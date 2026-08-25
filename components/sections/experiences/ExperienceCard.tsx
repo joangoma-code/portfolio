@@ -18,7 +18,7 @@ export default function ExperienceCard({
           : "pl-15 pr-5 md:ml-auto md:justify-start md:pl-12 md:pr-0"
       }`}
     >
-      <div className="w-full max-w-md rounded-2xl border border-(--color-border) bg-(--color-card) px-6 pt-2 pb-6 shadow-sm">
+      <div className="w-full max-w-md rounded-2xl border border-(--color-background3) bg-(--color-card) px-6 pt-2 pb-6 shadow-sm">
         <span className="text-sm opacity-70">{experience.date}</span>
 
         <h3 className="mt-2 text-2xl font-semibold">{experience.title}</h3>

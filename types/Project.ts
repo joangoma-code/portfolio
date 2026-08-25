@@ -6,5 +6,6 @@ export type Project = {
   objective: string;
   contributions: String[];
   outcome: string;
+  github?: string;
   technologies?: string[];
 };

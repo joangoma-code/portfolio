@@ -13,7 +13,11 @@ type ProjectItemProps = {
   onOpen: () => void;
 };
 
-export default function ProjectItem({ project, index, onOpen }: ProjectItemProps) {
+export default function ProjectItem({
+  project,
+  index,
+  onOpen,
+}: ProjectItemProps) {
   const itemRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: itemRef,
@@ -23,7 +27,11 @@ export default function ProjectItem({ project, index, onOpen }: ProjectItemProps
   const isMd = useMediaQuery("(min-width: 768px)");
   const inputRange = isMd ? [0, 0.3, 0.7, 0.9] : [0, 0.3, 0.5, 0.9];
   const opacity = useTransform(scrollYProgress, inputRange, [0.74, 1, 1, 0.92]);
-  const scale = useTransform(scrollYProgress, inputRange, [0.96, 1, 1.01, 0.99]);
+  const scale = useTransform(
+    scrollYProgress,
+    inputRange,
+    [0.96, 1, 1.01, 0.99],
+  );
   const y = useTransform(scrollYProgress, inputRange, [14, 0, 0, 12]);
   const rotate = useTransform(scrollYProgress, inputRange, [
     index % 2 === 0 ? -2 : 2,
@@ -35,6 +43,7 @@ export default function ProjectItem({ project, index, onOpen }: ProjectItemProps
   return (
     <motion.div
       ref={itemRef}
+      className="h-full mt-2 md:mt-4"
       style={
         isMd
           ? {

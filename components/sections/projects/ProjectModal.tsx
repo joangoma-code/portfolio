@@ -7,6 +7,8 @@ import type { Project } from "@/types/Project";
 import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
 import useCloseOnEscapeOrBack from "@/hooks/useCloseOnEscapeOrBack";
 
+import Button from "@/components/ui/Button";
+
 type ProjectModalProps = {
   project: Project | null;
   onClose: () => void;
@@ -51,14 +53,16 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             alt={project.title}
             fill
             sizes="100vw, 50vw, 33vw"
-            loading="lazy"
+            loading="eager"
             className="object-cover"
           />
         </div>
 
         <div className="space-y-8 p-8">
           <div className="space-y-4">
-            <h2 id="project-title" className="text-4xl font-bold md:text-5xl">{project.title}</h2>
+            <h2 id="project-title" className="text-4xl font-bold md:text-5xl">
+              {project.title}
+            </h2>
 
             <p className="text-lg leading-relaxed text-(--color-foreground)">
               {project.description}
@@ -86,6 +90,15 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             <h3 className="text-2xl font-semibold">Outcome</h3>
             <p className="leading-relaxed">{project.outcome}</p>
           </div>
+          {project.github && (
+            <Button
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View in GitHub
+            </Button>
+          )}
           {project.technologies && (
             <div className="space-y-4">
               <div className="flex flex-wrap gap-3">
