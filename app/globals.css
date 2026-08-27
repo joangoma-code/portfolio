@@ -99,3 +99,18 @@ body {
 
   font-family: var(--font-inter);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+
+  [style*="transform"] {
+    transform: none !important;
+  }
+}
+

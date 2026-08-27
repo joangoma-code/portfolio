@@ -1,6 +1,12 @@
 "use client";
 
-import { motion, MotionValue, useScroll, useTransform } from "motion/react";
+import {
+  motion,
+  MotionValue,
+  useScroll,
+  useTransform,
+  useReducedMotion,
+} from "motion/react";
 import { useRef } from "react";
 
 import { skills } from "@/data/skills";
@@ -17,8 +23,9 @@ export default function SkillColumn({
   isMd: boolean;
   scrollYProgress: MotionValue<number>;
 }) {
+  const shouldReduceMotion = useReducedMotion();
   const input = [index * 0.1, 0.25 + index * 0.1, 0.75 + index * 0.1, 1];
-  const opacity = useTransform(scrollYProgress, input, [0.4, 1, 1, 0.6]);
+  const opacity = shouldReduceMotion ? 1 : useTransform(scrollYProgress, input, [0.4, 1, 1, 0.6]);
   const scale = useTransform(scrollYProgress, input, [0.89, 1, 1.01, 0.92]);
   const y = useTransform(scrollYProgress, input, [60, 0, 0, -30]);
   const rotate = useTransform(scrollYProgress, input, [
@@ -38,18 +45,14 @@ export default function SkillColumn({
   const titleOpacity = useTransform(
     titleScrollYProgress,
     itemInput,
-    [0.35,1, 1, 0.35],
+    [0.35, 1, 1, 0.35],
   );
   const titleScale = useTransform(
     titleScrollYProgress,
     itemInput,
     [0.9, 1, 1.02, 0.9],
   );
-  const titleY = useTransform(
-    titleScrollYProgress,
-    itemInput,
-    [12, 0, 0, 12],
-  );
+  const titleY = useTransform(titleScrollYProgress, itemInput, [12, 0, 0, 12]);
 
   return (
     <motion.div

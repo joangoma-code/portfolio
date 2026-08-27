@@ -40,7 +40,10 @@ export default function ExperienceSection() {
           {/* Linea timeline */}
           <div className="absolute left-4 top-5 bottom-25 w-0.5 -translate-x-1/2 overflow-hidden rounded-full bg-(--color-foreground2)/40 md:left-1/2">
             <motion.div
-              style={{ scaleY: timelineProgress, originY: 0 }}
+              style={{
+                scaleY: timelineProgress,
+                originY: 0,
+              }}
               className="h-full w-full rounded-full bg-(--color-foreground2)"
             />
           </div>

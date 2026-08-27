@@ -16,8 +16,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
       onClick={onClick}
       aria-haspopup="dialog"
       aria-controls="project-modal"
-      className="group flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-(--color-border) bg-(--color-card) text-left transition-all duration-700 hover:scale-102 hover:bg-(--color-background2)
-      "
+      className="group flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-(--color-border) bg-(--color-card) text-left motion-safe:transition-all duration-700 motion-safe:hover:scale-102 motion-safe:hover:bg-(--color-background2)"
     >
       <div className="relative aspect-video overflow-hidden m-4 rounded-xl">
         <Image
@@ -26,7 +25,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
           fill
           sizes="100vw, 50vw, 33vw"
           loading="eager"
-          className="object-cover group-hover:scale-103"
+          className="object-cover motion-safe:group-hover:scale-103"
         />
       </div>
 

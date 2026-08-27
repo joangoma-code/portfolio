@@ -1,7 +1,9 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform, } from "motion/react";
+import { useHydratedReducedMotion } from "@/hooks/useHydratedReducedMotion";
 import { useRef } from "react";
+
 
 export default function SkillItem({
   item,
@@ -11,7 +13,7 @@ export default function SkillItem({
   isMd: boolean;
 }) {
   const itemRef = useRef<HTMLLIElement | null>(null);
-
+  const shouldReduceMotion = useHydratedReducedMotion();
   const { scrollYProgress } = useScroll({
     target: itemRef,
     offset: ["start end", "end start"],
@@ -29,14 +31,17 @@ export default function SkillItem({
     input,
     [0.9, 0.96, 1.02, 0.96, 0.9],
   );
-
   const y = useTransform(scrollYProgress, input, [12, 4, 0, 4, 12]);
 
   return (
     <motion.li
       ref={itemRef}
-      style={isMd ? { opacity: 1, scale: 1, y: 0 } : { opacity, scale, y }}
-      className="rounded-full border border-(--color-background3) bg-(--color-background2) px-4 py-2 text-lg text-(--color-foreground) transition-colors duration-300 hover:border-(--color-border)"
+      style={
+        isMd || shouldReduceMotion
+          ? { opacity: 1, scale: 1, y: 0 }
+          : { opacity, scale, y }
+      }
+      className="rounded-full border border-(--color-background3) bg-(--color-background2) px-4 py-2 text-lg text-(--color-foreground) motion-safe:transition-colors duration-300 motion-safe:hover:border-(--color-border)"
     >
       {item}
     </motion.li>

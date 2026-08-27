@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll } from "motion/react";
+import { motion, useScroll, useReducedMotion } from "motion/react";
 import { useRef } from "react";
 
 import Container from "@/components/ui/Container";
@@ -15,6 +15,7 @@ export default function SkillSection() {
   const ref = useRef<HTMLDivElement | null>(null);
 
   const isMd = useMediaQuery("(min-width: 768px)");
+  const shouldReduceMotion = useReducedMotion();
 
   const { scrollYProgress: sectionScrollYProgress } = useScroll({
     target: sectionRef,
@@ -31,11 +32,11 @@ export default function SkillSection() {
     <section
       id="skills"
       ref={sectionRef}
-      className={isMd ? "relative h-[140vh]" : "section-style"}
+      className={isMd && !shouldReduceMotion ? "relative h-[140vh]" : "section-style"}
     >
       <div
         className={
-          isMd
+          isMd 
             ? "sticky top-0 flex h-screen items-center"
             : "flex items-center justify-center"
         }
