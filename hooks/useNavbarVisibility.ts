@@ -25,9 +25,28 @@ export function useNavbarVisibility() {
 
   
   useEffect(() => {
+    const y = window.scrollY;
+
+    if (!isMd) {
+      setIsVisible(true);
+      lastScrollY.current = y;
+      return;
+    }
+
+    if (y < 120) {
+      setIsVisible(true);
+      lastScrollY.current = y;
+      return;
+    }
+
+    setIsVisible(y <= lastScrollY.current);
+    lastScrollY.current = y;
+  }, [isMd]);
+
+  useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      
+
       if (!isMd) {
         setIsVisible(true);
         return;
@@ -38,7 +57,7 @@ export function useNavbarVisibility() {
         lastScrollY.current = y;
         return;
       }
-      
+
       // si estamos en scroll programado, ignoramos visibilidad
       if (isNavigating) return;
 
@@ -62,7 +81,7 @@ export function useNavbarVisibility() {
     window.addEventListener("scroll", onScroll, { passive: true });
 
     return () => window.removeEventListener("scroll", onScroll);
-  }, [isNavigating]);
+  }, [isNavigating, isMd]);
 
   useEffect(() => {
     // este efecto solo corre cuando hay navegación suave activa
