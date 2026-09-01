@@ -14,11 +14,11 @@ export default function ExperienceCard({
     <div
       className={`relative flex w-full md:w-1/2 ${
         side === "left"
-          ? "pl-10 pr-10 md:justify-end md:pr-12 md:pl-0" 
+          ? "pl-10 pr-10 md:justify-end md:pl-0 md:pr-12" 
           : "pl-15 pr-5 md:ml-auto md:justify-start md:pl-12 md:pr-0"
       }`}
     >
-      <div className="w-full max-w-md rounded-2xl border border-(--color-background3) bg-(--color-card) px-6 pt-2 pb-6 shadow-sm">
+      <div className="w-full max-w-2xl rounded-2xl border border-(--color-background3) bg-(--color-card) px-6 pt-2 pb-6 shadow-sm">
         <span className="text-sm opacity-70">{experience.date}</span>
 
         <h3 className="mt-2 text-2xl font-semibold">{experience.title}</h3>

@@ -27,7 +27,7 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>) => {
         d={data}
         fill="none"
         stroke="var(--color-border)"
-        strokeWidth="1.5"
+        strokeWidth="1"
         //strokeLinejoin="round"
         clipPath={`url(#${clipPathId})`}
       />

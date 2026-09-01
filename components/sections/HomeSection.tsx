@@ -43,11 +43,11 @@ export default function HomeSection() {
     <section
       id="home"
       ref={ref}
-      className="relative flex min-h-dvh overflow-hidden items-center bg-linear-to-t from-(--color-background4) from-10% to-(--color-background5)"
+      className="relative flex items-center justify-center min-h-dvh overflow-hidden bg-linear-to-t from-(--color-background4) from-10% to-(--color-background5)"
     >
       <motion.div
         style={{ y: contentY }}
-        className="container-style max-w-3xl z-50 mt-30 mb-60"
+        className="container-style max-w-7xl z-50 mt-30 mb-60"
       >
         <p className="mb-4 text-sm uppercase tracking-[0.3em] opacity-70">
           Frontend Developer · React · Next.js · TypeScript

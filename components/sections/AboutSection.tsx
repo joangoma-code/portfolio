@@ -38,7 +38,7 @@ export default function AboutSection() {
       id="about"
       className="flex items-center justify-center section-style"
     >
-      <Container className="max-w-4xl space-y-6" ref={ref}>
+      <Container className="space-y-6" ref={ref}>
         <motion.h2 style={{ y, opacity, scale }} className="section-title">
           About me
         </motion.h2>

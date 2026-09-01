@@ -30,11 +30,9 @@ export default function ExperienceSection() {
       className="flex items-center justify-center section-style"
     >
       <Container ref={ref} className="space-y-16">
-        <div className="max-w-3xl space-y-6">
-          <motion.h2 style={{ y, opacity, scale }} className="section-title">
-            Experiences
-          </motion.h2>
-        </div>
+        <motion.h2 style={{ y, opacity, scale }} className="section-title">
+          Experiences
+        </motion.h2>
 
         <div className="relative">
           {/* Linea timeline */}

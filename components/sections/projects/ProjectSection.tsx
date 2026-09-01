@@ -50,8 +50,8 @@ export default function ProjectSection() {
         id="projects"
         className="flex items-center justify-center section-style"
       >
-        <Container className="space-y-6" ref={ref}>
-          <div className="max-w-3xl space-y-6">
+        <Container className="space-y-12" ref={ref}>
+          <div className="space-y-6">
             <motion.h2 style={{ y, opacity, scale }} className="section-title">
               Projects
             </motion.h2>

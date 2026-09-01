@@ -12,7 +12,7 @@ export default function Container({
   return (
     <div
       ref={ref}
-      className={`container-style max-w-container py-16 ${className}`}
+      className={`container-style max-w-7xl py-16 ${className}`}
     >
       {children}
     </div>

@@ -50,7 +50,7 @@ export default function ContactSection() {
       id="contact"
       className="flex items-center justify-center section-style"
     >
-      <Container className="max-w-4xl space-y-6" ref={ref}>
+      <Container className="space-y-6" ref={ref}>
         <motion.h2 style={{ opacity, scale }} className="section-title">
           Contact
         </motion.h2>
@@ -59,7 +59,8 @@ export default function ContactSection() {
           className="section-content"
         >
           I'm currently open to new Frontend Developer opportunities where I can
-          contribute to meaningful products and keep learning with a great team.
+          contribute to meaningful products, grow my skills, and keep learning
+          with a great team.
         </motion.p>
 
         <motion.div

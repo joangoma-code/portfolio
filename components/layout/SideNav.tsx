@@ -19,7 +19,7 @@ export default function SideNav() {
       inert={!passedHero}
       className={`
         fixed right-6 top-1/2 z-50 hidden
-        -translate-y-1/2 lg:flex
+        -translate-y-1/2 md:flex
         transition-all duration-700
         ${
           passedHero ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"

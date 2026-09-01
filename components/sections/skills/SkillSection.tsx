@@ -37,7 +37,7 @@ export default function SkillSection() {
       <div
         className={
           isMd 
-            ? "sticky top-0 flex h-screen items-center"
+            ? "sticky top-0 flex h-screen items-center justify-center"
             : "flex items-center justify-center"
         }
       >
