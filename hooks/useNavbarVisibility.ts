@@ -23,10 +23,15 @@ export function useNavbarVisibility() {
     skills: isMd && !shouldReduceMotion ? "center" : "start",
   };
 
+  
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-
+      
+      if (!isMd) {
+        setIsVisible(true);
+        return;
+      }
       // Home: siempre mostrar navbar
       if (y === 0) {
         setIsVisible(true);
