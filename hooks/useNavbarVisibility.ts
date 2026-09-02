@@ -9,6 +9,8 @@ export function useNavbarVisibility() {
   const { isNavigating, setIsNavigating } = useActiveSection();
   const isMd = useMediaQuery("(min-width: 768px)");
   const shouldReduceMotion = useReducedMotion();
+  const isTouchDevice = useMediaQuery("(pointer: coarse)");
+  const enableStickyAdjust = isMd && !shouldReduceMotion && !isTouchDevice;
 
   // controla si la navbar se muestra u oculta
   const [isVisible, setIsVisible] = useState(true);
@@ -20,7 +22,7 @@ export function useNavbarVisibility() {
   const raf = useRef<number | null>(null);
 
   const scrollPositions: Record<string, ScrollLogicalPosition> = {
-    skills: isMd && !shouldReduceMotion ? "center" : "start",
+    skills: enableStickyAdjust ? "center" : "start",
   };
 
   

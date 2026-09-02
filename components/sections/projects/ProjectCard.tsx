@@ -29,7 +29,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
         />
       </div>
 
-      <div className="h-40 shrink-0 space-y-3 p-6">
+      <div className="min-h-40 space-y-3 p-6">
         <h3 className="line-clamp-2 text-2xl font-semibold">{project.title}</h3>
 
         <p className="line-clamp-3 text-sm leading-relaxed opacity-70">

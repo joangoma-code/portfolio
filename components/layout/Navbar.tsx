@@ -20,7 +20,18 @@ import { useState } from "react";
 export default function Navbar() {
   const { activeSection } = useActiveSection();
   const isMd = useMediaQuery("(min-width: 768px)");
-
+  const isShortViewport = useMediaQuery("(max-height: 500px)");
+  const isMediumViewport = useMediaQuery(
+    "(min-height: 501px) and (max-height: 750px)",
+  );
+  const navbarPadding = isMd
+    ? isShortViewport
+      ? "py-1.5"
+      : isMediumViewport
+        ? "py-2"
+        : "py-3"
+    : "py-2";
+  const themeButtonSize = isShortViewport ? "sm" : "md";
   const { isVisible, navigateToSection } = useNavbarVisibility();
   const { mounted, isDark } = useThemeToggle();
   const logoSrc = mounted
@@ -50,7 +61,9 @@ export default function Navbar() {
           }
         `}
       >
-        <div className={`flex items-center justify-between ${isMd ? 'py-4' : 'py-3'} container-style`}>
+        <div
+          className={`flex items-center justify-between ${navbarPadding} container-style`}
+        >
           <Link
             href="#home"
             onClick={(e) => {
@@ -66,7 +79,7 @@ export default function Navbar() {
               alt="Logo"
               width={32}
               height={32}
-              className={`${isMd ? 'h-8 w-8' : 'h-7 w-7'}`}
+              className={`${!isMd || isShortViewport ? "h-7 w-7" : "h-8 w-8"}`}
               priority
             />
             <span>Joan Goma</span>
@@ -104,7 +117,7 @@ export default function Navbar() {
               })}
 
               <li>
-                <ThemeButton />
+                <ThemeButton size={themeButtonSize} />
               </li>
             </ul>
           </nav>
@@ -163,7 +176,10 @@ export default function Navbar() {
                 );
               })}
               <li className="mt-4">
-                <ThemeButton onClick={() => setIsOpen(false)} />
+                <ThemeButton
+                  size={themeButtonSize}
+                  onClick={() => setIsOpen(false)}
+                />
               </li>
             </ul>
           </nav>

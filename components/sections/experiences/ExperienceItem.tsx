@@ -43,7 +43,7 @@ export default function ExperienceItem({
   const scale = useTransform(
     scrollYProgress,
     inputRange,
-    [0.96, 1.03, 1.03, 0.99],
+    [0.88, 1, 1.01, 0.92],
   );
   const pointOpacityMotion = useTransform(
     scrollYProgress,

@@ -6,6 +6,7 @@ import { Diamond, Hexagon } from "lucide-react";
 import { links } from "@/data/links";
 import { useActiveSection } from "@/providers/ActiveSectionProvider";
 import { useNavbarVisibility } from "@/hooks/useNavbarVisibility";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 export default function SideNav() {
   const { activeSection, scrollY } = useActiveSection();
@@ -13,12 +14,13 @@ export default function SideNav() {
   const { navigateToSection } = useNavbarVisibility();
 
   const passedHero = scrollY > 400;
+  const isShortViewport = useMediaQuery("(max-height: 500px)");
 
   return (
     <aside
       inert={!passedHero}
       className={`
-        fixed right-6 top-1/2 z-50 hidden
+        fixed right-6 top-[50lvh] z-50 hidden
         -translate-y-1/2 md:flex
         transition-all duration-700
         ${
@@ -27,7 +29,7 @@ export default function SideNav() {
       `}
     >
       <nav>
-        <ul className="space-y-5">
+        <ul className={isShortViewport ? "space-y-4" : "space-y-5"}>
           {links.map((link, index) => {
             const isActive = activeSection === link.id && index !== 0;
 
@@ -54,9 +56,15 @@ export default function SideNav() {
                     `}
                   >
                     {isActive ? (
-                      <Hexagon strokeWidth={2} className="size-5" />
+                      <Hexagon
+                        strokeWidth={2}
+                        className={isShortViewport ? "size-4" : "size-5"}
+                      />
                     ) : (
-                      <Diamond strokeWidth={1} className="size-5" />
+                      <Diamond
+                        strokeWidth={1}
+                        className={isShortViewport ? "size-4" : "size-5"}
+                      />
                     )}
                   </span>
                 </Link>
