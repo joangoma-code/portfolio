@@ -15,7 +15,10 @@ export default function SkillSection() {
   const ref = useRef<HTMLDivElement | null>(null);
 
   const isMd = useMediaQuery("(min-width: 768px)");
+  const isTouchDevice = useMediaQuery("(pointer: coarse)");
   const shouldReduceMotion = useReducedMotion();
+
+  const enableSticky = isMd && !shouldReduceMotion && !isTouchDevice;
 
   const { scrollYProgress: sectionScrollYProgress } = useScroll({
     target: sectionRef,
@@ -32,11 +35,11 @@ export default function SkillSection() {
     <section
       id="skills"
       ref={sectionRef}
-      className={isMd && !shouldReduceMotion ? "relative h-[140vh]" : "section-style"}
+      className={enableSticky ? "relative h-[140vh]" : "section-style"}
     >
       <div
         className={
-          isMd 
+          enableSticky
             ? "sticky top-0 flex h-screen items-center justify-center"
             : "flex items-center justify-center"
         }
