@@ -55,8 +55,8 @@ html {
   --color-card: #fdfdfd;
   --color-border: #80afff;
 
-  --color-primary: #2f6fe4;
-  --color-secondary: #1e5ed8;
+  --color-primary: #1e5ed8;
+  --color-secondary: #2f6fe4;
 
   --color-muted: #a1a1aa;
 }
@@ -79,8 +79,8 @@ html.dark {
   --color-card: #0f172a;
   --color-border: #93c5fd;
 
-  --color-primary: #4c8dff;
-  --color-secondary: #6ea8fe;
+  --color-primary: #6ea8fe;
+  --color-secondary: #4c8dff;
 
   --color-muted: #a1a1aa;
 }

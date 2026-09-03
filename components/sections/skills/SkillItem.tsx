@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform, } from "motion/react";
 import { useHydratedReducedMotion } from "@/hooks/useHydratedReducedMotion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 
 export default function SkillItem({
@@ -13,6 +13,8 @@ export default function SkillItem({
   isMd: boolean;
 }) {
   const itemRef = useRef<HTMLLIElement | null>(null);
+  const hoverTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [isHoverActive, setIsHoverActive] = useState(false);
   const shouldReduceMotion = useHydratedReducedMotion();
   const { scrollYProgress } = useScroll({
     target: itemRef,
@@ -33,6 +35,23 @@ export default function SkillItem({
   );
   const y = useTransform(scrollYProgress, input, [12, 4, 0, 4, 12]);
 
+  useEffect(() => {
+    return () => {
+      if (hoverTimeout.current) clearTimeout(hoverTimeout.current);
+    };
+  }, []);
+
+  const handlePointerEnter = () => {
+    if (hoverTimeout.current) clearTimeout(hoverTimeout.current);
+    setIsHoverActive(true);
+  };
+
+  const handlePointerLeave = () => {
+    hoverTimeout.current = setTimeout(() => {
+      setIsHoverActive(false);
+    }, 300);
+  };
+
   return (
     <motion.li
       ref={itemRef}
@@ -41,7 +60,11 @@ export default function SkillItem({
           ? { opacity: 1, scale: 1, y: 0 }
           : { opacity, scale, y }
       }
-      className="rounded-full border border-(--color-background3) bg-(--color-background2) px-4 py-2 text-lg text-(--color-foreground) motion-safe:transition-colors duration-300 motion-safe:hover:border-(--color-border)"
+      onPointerEnter={handlePointerEnter}
+      onPointerLeave={handlePointerLeave}
+      className={`rounded-full border border-(--color-background3) bg-(--color-background2) px-4 py-2 text-lg text-(--color-foreground) motion-safe:transition-colors motion-safe:duration-200 ${
+        isHoverActive ? "border-(--color-border)" : ""
+      }`}
     >
       {item}
     </motion.li>

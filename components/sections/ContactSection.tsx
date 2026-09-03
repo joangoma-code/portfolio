@@ -27,7 +27,7 @@ function ContactItem({
       href={contact.href}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-xl font-medium transition-opacity duration-300 hover:opacity-60"
+      className="text-xl font-medium transition-all duration-300 hover:text-(--color-primary) focus:text-(--color-primary)"
     >
       {contact.label}
     </motion.a>

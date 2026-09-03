@@ -51,7 +51,7 @@ export default function SideNav() {
                       ${
                         isActive
                           ? "text-(--color-primary)"
-                          : "text-(--color-foreground2)"
+                          : "text-(--color-foreground2) hover:text-(--color-secondary)"
                       }
                     `}
                   >

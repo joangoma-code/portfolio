@@ -58,38 +58,34 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           />
         </div>
 
-        <div className="space-y-8 p-8">
-          <div className="space-y-4">
-            <h2 id="project-title" className="text-4xl font-bold md:text-5xl">
-              {project.title}
-            </h2>
+        <div className="space-y-4 p-8">
+          <h2 id="project-title" className="text-4xl font-bold md:text-5xl">
+            {project.title}
+          </h2>
 
-            <p className="text-lg leading-relaxed text-(--color-foreground)">
-              {project.description}
-            </p>
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-2xl font-semibold">Objective</h3>
-            <p className="leading-relaxed">{project.objective}</p>
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-2xl font-semibold">Contributions</h3>
-            <ul>
-              {project.contributions.map((item, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <Diamond
-                    strokeWidth={3}
-                    className="size-3 text-(--color-border) mt-2"
-                  />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-2xl font-semibold">Outcome</h3>
-            <p className="leading-relaxed">{project.outcome}</p>
-          </div>
+          <p className="text-lg leading-relaxed text-(--color-foreground)">
+            {project.description}
+          </p>
+
+          <h3 className="text-2xl font-semibold">Objective</h3>
+          <p className="leading-relaxed">{project.objective}</p>
+
+          <h3 className="text-2xl font-semibold">Contributions</h3>
+          <ul>
+            {project.contributions.map((item, index) => (
+              <li key={index} className="flex items-start gap-3">
+                <Diamond
+                  strokeWidth={3}
+                  className="size-3 text-(--color-border) mt-2"
+                />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <h3 className="text-2xl font-semibold">Outcome</h3>
+          <p className="leading-relaxed">{project.outcome}</p>
+
           {project.github && (
             <Button
               href={project.github}
@@ -100,17 +96,15 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             </Button>
           )}
           {project.technologies && (
-            <div className="space-y-4">
-              <div className="flex flex-wrap gap-3">
-                {project.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-full border border-(--color-border) px-4 py-2 text-sm text-(--color-foreground)"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+            <div className="flex flex-wrap justify-end gap-3">
+              {project.technologies.map((tech) => (
+                <span
+                  key={tech}
+                  className="rounded-full border border-(--color-border) px-4 py-2 text-sm text-(--color-foreground)"
+                >
+                  {tech}
+                </span>
+              ))}
             </div>
           )}
         </div>

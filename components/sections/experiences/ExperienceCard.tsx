@@ -19,15 +19,15 @@ export default function ExperienceCard({
       }`}
     >
       <div className="w-full max-w-2xl rounded-2xl border border-(--color-background3) bg-(--color-card) px-6 pt-2 pb-6 shadow-sm">
-        <span className="text-sm opacity-70">{experience.date}</span>
+        <span className="text-sm opacity-90">{experience.date}</span>
 
         <h3 className="mt-2 text-2xl font-semibold">{experience.title}</h3>
 
         {experience.subtitle && (
-          <p className="mt-1 text-sm opacity-60">{experience.subtitle}</p>
+          <p className="mt-1 text-sm opacity-80">{experience.subtitle}</p>
         )}
 
-        <ul className="mt-7 leading-relaxed opacity-80">
+        <ul className="mt-7 leading-relaxed">
           {experience.description.map((item) => (
             <li key={item} className="flex items-start gap-3">
               <Diamond
