@@ -13,11 +13,11 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center rounded-full px-6 py-3 text-md font-medium transition-all";
+    "inline-flex items-center justify-center rounded-full px-6 py-3 text-sm md:text-md font-medium transition-all";
 
   const variants = {
     primary:
-      "bg-(--color-primary) text-(--color-background) hover:bg-(--color-secondary) ",
+      "bg-(--color-primary) text-(--color-background) hover:bg-(--color-secondary)",
 
     secondary:
       "border border-(--color-foreground) text-(--color-foreground) hover:border-(--color-primary) hover:text-(--color-primary)",
