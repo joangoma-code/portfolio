@@ -52,8 +52,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             src={project.image}
             alt={project.title}
             fill
-            sizes="100vw, 50vw, 33vw"
-            loading="eager"
+            sizes="(max-width: 896px) calc(100vw - 2rem), 896px"
             className="object-cover"
           />
         </div>

@@ -3,7 +3,7 @@ import type { Project } from "@/types/Project";
 
 export const projects: Project[] = [
   {
-    image: "/screenshots/portfolio_screenshot.png",
+    image: "/screenshots/portfolio_screenshot2.webp",
 
     title: "Personal Portfolio Website",
 
@@ -30,9 +30,9 @@ export const projects: Project[] = [
   },
 
   {
-    image: "/screenshots/project1.png",
+    image: "/screenshots/project_VUE_screenshot.webp",
 
-    title: "Interactive Web Interface (Vue.js Project)",
+    title: "Interactive Web Interface (Vue.js)",
 
     description:
       "A user-centered web interface developed as a university frontend project using Vue.js.",
