@@ -44,16 +44,7 @@ export const metadata: Metadata = {
     title: "Joan Goma | Frontend Developer",
     description:
       "Frontend Developer specialized in React and Next.js, focused on building fast, accessible and modern web experiences.",
-  },
-
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
-/*
-  openGraph:
-    images: [
+     images: [
       {
         url: "/og-image.png",
         width: 1200,
@@ -61,7 +52,8 @@ export const metadata: Metadata = {
         alt: "Joan Goma | Frontend Developer",
       },
     ],
-
+  },
+  
   twitter: {
     card: "summary_large_image",
     title: "Joan Goma | Frontend Developer",
@@ -69,7 +61,14 @@ export const metadata: Metadata = {
       "Frontend Developer specialized in React and Next.js, focused on building fast, accessible and modern web experiences.",
     images: ["/og-image.png"],
   },
-*/
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
