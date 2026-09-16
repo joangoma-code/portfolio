@@ -34,7 +34,7 @@ export default function ExperienceItem({
   const isMd = useMediaQuery("(min-width: 768px)");
   const inputRange = isMd ? [0, 0.3, 0.8, 1] : [0, 0.15, 0.85, 1];
 
-  const y = useTransform(scrollYProgress, inputRange, [14, 0, 0, 12]);
+  const y = useTransform(scrollYProgress, inputRange, [12, 0, 0, 8]);
   const opacityMotion = useTransform(
     scrollYProgress,
     inputRange,
@@ -43,7 +43,7 @@ export default function ExperienceItem({
   const scale = useTransform(
     scrollYProgress,
     inputRange,
-    [0.88, 1, 1.01, 0.92],
+    [0.92, 1, 1.01, 0.96],
   );
   const pointOpacityMotion = useTransform(
     scrollYProgress,

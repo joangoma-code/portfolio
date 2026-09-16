@@ -27,7 +27,7 @@ export default function ExperienceCard({
           <p className="mt-1 text-xs md:text-sm opacity-80">{experience.subtitle}</p>
         )}
 
-        <ul className="mt-7 mb-5 leading-relaxed">
+        <ul className="pt-7 pb-5 leading-relaxed">
           {experience.description.map((item) => (
             <li key={item} className="flex items-start gap-3">
               <Diamond
