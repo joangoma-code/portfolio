@@ -19,7 +19,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
       aria-controls="project-modal"
       className="group flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-(--color-border) bg-(--color-card) text-left duration-700 motion-safe:transition-all motion-safe:hover:scale-102 motion-safe:hover:bg-(--color-background2) motion-safe:hover:border-(--color-secondary)"
     >
-      <div className="relative m-4 aspect-video overflow-hidden rounded-xl">
+      <div className="relative m-3 md:m-4 aspect-video overflow-hidden rounded-xl">
         <Image
           src={project.image}
           alt={project.title}
@@ -31,9 +31,9 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
       </div>
 
       <div className="flex flex-1 flex-col mx-6 mt-3 mb-5">
-        <h3 className="line-clamp-2 text-2xl font-semibold">{project.title}</h3>
+        <h3 className="line-clamp-2 text-xl md:text-2xl font-semibold">{project.title}</h3>
 
-        <p className="line-clamp-3 mt-3 text-sm leading-relaxed">
+        <p className="line-clamp-3 mt-3 text-sm md:text-md leading-relaxed">
           {project.description}
         </p>
 

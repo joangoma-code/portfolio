@@ -57,7 +57,7 @@ export default function ProjectSection() {
             </motion.h2>
             <motion.p
               style={{ y, opacity, scale }}
-              className="section-content text-lg leading-relaxed opacity-70 md:text-xl "
+              className="section-content text-md md:text-xl leading-relaxed opacity-70 "
             >
               A selection of digital projects exploring UI design, interaction,
               and frontend development.

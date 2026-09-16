@@ -62,7 +62,7 @@ export default function ExperienceItem({
     <div
       ref={itemRef}
       className={`relative flex w-full items-start ${
-        index !== 0 ? "mt-10 md:-mt-32" : ""
+        index !== 0 ? "mt-6 md:-mt-28" : ""
       }`}
     >
       <motion.div

@@ -62,7 +62,7 @@ export default function SkillItem({
       }
       onPointerEnter={handlePointerEnter}
       onPointerLeave={handlePointerLeave}
-      className={`rounded-full border border-(--color-background3) bg-(--color-background2) px-4 py-2 text-lg text-(--color-foreground) motion-safe:transition-colors motion-safe:duration-200 ${
+      className={`rounded-full border border-(--color-background3) bg-(--color-background2) px-4 py-2 text-md md:text-lg text-(--color-foreground) motion-safe:transition-colors motion-safe:duration-200 ${
         isHoverActive ? "border-(--color-border)" : ""
       }`}
     >

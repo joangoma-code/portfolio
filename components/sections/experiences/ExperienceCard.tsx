@@ -18,23 +18,23 @@ export default function ExperienceCard({
           : "pl-15 pr-5 md:ml-auto md:justify-start md:pl-12 md:pr-0"
       }`}
     >
-      <div className="w-full max-w-2xl rounded-2xl border border-(--color-background3) bg-(--color-card) px-6 pt-2 pb-6 shadow-sm">
-        <span className="text-sm opacity-90">{experience.date}</span>
+      <div className="w-full max-w-2xl rounded-2xl border border-(--color-background3) bg-(--color-card) px-6 py-3 md:py-6 shadow-sm">
+        <span className="text-xs md:text-sm opacity-90">{experience.date}</span>
 
-        <h3 className="mt-2 text-2xl font-semibold">{experience.title}</h3>
+        <h3 className="mt-2 text-xl md:text-2xl font-semibold">{experience.title}</h3>
 
         {experience.subtitle && (
-          <p className="mt-1 text-sm opacity-80">{experience.subtitle}</p>
+          <p className="mt-1 text-xs md:text-sm opacity-80">{experience.subtitle}</p>
         )}
 
-        <ul className="mt-7 leading-relaxed">
+        <ul className="mt-7 mb-5 leading-relaxed">
           {experience.description.map((item) => (
             <li key={item} className="flex items-start gap-3">
               <Diamond
                 strokeWidth={3}
-                className="size-3 text-(--color-border) mt-2"
+                className="size-3 text-(--color-border) mt-1"
               />
-              <span>{item}</span>
+              <p className="text-sm md:text-md">{item}</p>
             </li>
           ))}
         </ul>

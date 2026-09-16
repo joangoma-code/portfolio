@@ -42,12 +42,12 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           type="button"
           onClick={onClose}
           aria-label="Close dialog"
-          className="absolute right-4 top-4 z-10 rounded-full border border-(--color-border) bg-(--color-background) p-2 transition-colors hover:bg-(--color-background2)"
+          className="absolute right-3 top-3 md:right-6 md:top-5 z-10 opacity-80 rounded-full border border-(--color-border) bg-(--color-background) p-2 transition-colors hover:bg-(--color-background2)"
         >
           <X size={18} />
         </button>
 
-        <div className="relative w-full aspect-video overflow-hidden rounded-t-3xl">
+        <div className="relative m-2 md:m-4 aspect-video overflow-hidden rounded-2xl">
           <Image
             src={project.image}
             alt={project.title}
@@ -58,7 +58,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
 
         <div className="space-y-4 p-8">
-          <h2 id="project-title" className="text-4xl font-bold md:text-5xl">
+          <h2 id="project-title" className="text-3xl font-bold md:text-5xl">
             {project.title}
           </h2>
 

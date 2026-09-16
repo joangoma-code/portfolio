@@ -49,20 +49,20 @@ export default function HomeSection() {
         style={{ y: contentY }}
         className="container-style max-w-7xl z-50 mt-30 mb-60"
       >
-        <p className="mb-4 text-sm uppercase tracking-[0.3em] opacity-90">
+        <p className="mb-4 text-xs md:text-sm uppercase tracking-[0.3em] opacity-90">
           Frontend Developer · React · Next.js · TypeScript
         </p>
 
-        <h1 className="text-5xl font-bold leading-tight md:text-7xl">
+        <h1 className="text-5xl md:text-7xl font-bold leading-tight ">
           Joan Goma
         </h1>
 
-        <p className="mt-6 max-w-prose text-lg leading-relaxed">
+        <p className="mt-6 max-w-prose text-md md:text-lg leading-relaxed">
           Focused on building simple, fast, and thoughtful web experiences. I
           enjoy turning ideas into real products through code.
         </p>
 
-        <p className="mt-4 text-sm opacity-80">
+        <p className="mt-4 text-sm md:text-md opacity-80">
           Open to Frontend Developer opportunities.
         </p>
 
