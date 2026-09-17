@@ -26,12 +26,12 @@ export default function ExperienceSection() {
 
   return (
     <section
-      id="experiences"
+      id="experience"
       className="flex items-center justify-center section-style"
     >
       <Container ref={ref} className="space-y-16">
         <motion.h2 style={{ y, opacity, scale }} className="section-title">
-          Experiences
+          Experience
         </motion.h2>
 
         <div className="relative">

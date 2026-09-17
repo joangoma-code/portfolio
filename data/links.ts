@@ -13,8 +13,8 @@ export const links = [
     label: "Skills",
   },
   {
-    id: "experiences",
-    label: "Experiences",
+    id: "experience",
+    label: "Experience",
   },
   {
     id: "about",
