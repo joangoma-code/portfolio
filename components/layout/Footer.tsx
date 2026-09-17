@@ -11,7 +11,7 @@ export default function Footer() {
           <p>© {year} Joan Goma. Built with care.</p>
           <p>
             <span className="block md:inline">Crafted with Next.js</span>
-            <span className="hidden md:inline md:mx-1"> · </span>
+            <span className="hidden md:inline md:mx-0.5"> · </span>
             <span className="block mt-4 md:inline md:mt-0">Deployed on Vercel</span>
           </p>
         </div>
