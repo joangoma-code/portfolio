@@ -77,7 +77,7 @@ export default function HomeSection() {
         </div>
       </motion.div>
 
-      <div className="absolute inset-x-0 bottom-0 pointer-events-none">
+      <div className="absolute inset-x-0 bottom-0 md:-bottom-4 lg:-bottom-10 xl:-bottom-16 2xl:-bottom-28 pointer-events-none">
         <motion.div
           style={{ y: mountain1Y }}
           className="absolute -bottom-1 w-full z-40"
