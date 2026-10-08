@@ -19,11 +19,12 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
       aria-controls="project-modal"
       className="group flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-(--color-border) bg-(--color-card) text-left duration-700 motion-safe:transition-all motion-safe:hover:scale-102 motion-safe:hover:bg-(--color-background2) motion-safe:hover:border-(--color-secondary)"
     >
-      <div className="relative m-3 md:m-4 aspect-video overflow-hidden rounded-xl">
+      <div className="relative m-3 md:m-4 overflow-hidden rounded-xl">
         <Image
           src={project.image}
           alt={project.title}
-          fill
+          width={1280}
+          height={720}
           sizes="(max-width: 768px) 100vw, 50vw"
           loading="eager"
           className="object-cover motion-safe:group-hover:scale-103"

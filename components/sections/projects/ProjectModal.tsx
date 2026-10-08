@@ -47,11 +47,12 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           <X size={18} />
         </button>
 
-        <div className="relative m-2 md:m-4 aspect-video overflow-hidden rounded-2xl">
+        <div className="relative m-2 md:m-4 overflow-hidden rounded-2xl">
           <Image
             src={project.image}
             alt={project.title}
-            fill
+            width={1280}
+            height={720}
             sizes="(max-width: 896px) calc(100vw - 2rem), 896px"
             className="object-cover"
           />
